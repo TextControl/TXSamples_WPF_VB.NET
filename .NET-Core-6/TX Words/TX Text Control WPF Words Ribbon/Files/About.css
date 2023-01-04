@@ -1,0 +1,288 @@
+chap, manual {
+	font-family: Segoe UI;
+	font-size: 10pt
+}
+
+chap_hl,
+chap_desc,
+chap_end,
+ref_hl,
+ref_desc,
+category_hl,
+param_name,
+param_text,
+member_name,
+member_name2,
+member_desc,
+retval_hl,
+retval_text,
+comments_hl,
+constants_hl,
+comments_text,
+constants_text,
+datatypes_hl,
+datatypes_text,
+example_hl,
+example_text,
+unicode_hl,
+unicode_desc,
+seealso_hl,
+seealso_desc {
+	display: block;
+	margin-top: 3.75pt;
+	margin-bottom: 3.75pt
+}
+chap_desc {
+	margin-bottom: 3pt
+}
+
+param_name_hl,
+param_desc_hl,
+value_name_hl,
+value_desc_hl,
+member_name_hl,
+member_desc_hl,
+limit_hl,
+limit_text,
+version_hl,
+version_text {
+	margin-top: 3pt;
+}
+
+code_line {
+	display: block;
+	white-space: pre
+}
+
+manual_hl {
+	display: block;
+	margin-bottom: 12pt;
+	font-size: 20pt;
+	font-weight: bold
+}
+
+manual_part_hl {
+	display: block;
+	margin-top: 6pt;
+	margin-bottom: 6pt;
+	font-size: 16pt;
+	font-weight: bold
+}
+
+chap_hl {
+	font-size: 15pt;
+	font-weight: bold
+}
+
+ref_hl {
+	font-size: 13pt;
+	font-weight: bold;
+	margin-top: 6pt
+}
+
+syntax,
+param_list,
+param_list_aux,
+member_list,
+datatypes_list,
+value_list,
+retval, 
+comments, 
+constants,
+example, 
+unicode,
+datatypes, 
+limit, 
+version, 
+seealso {
+	display: table
+}
+
+param_list,
+param_list_aux,
+member_list,
+ref_desc,
+chap_desc {
+	margin-left: 0pt
+}
+
+param_hl, member_hl, param, value_hl, value, member {
+	display: table-row;
+	margin-left: 0pt
+}
+
+param_hl, member_hl {
+	border-bottom: 1pt solid
+}
+
+
+vb6_code {
+	display: table-cell;
+	margin-left: 0pt;
+	background-color: #FFFFA0
+}
+
+vb_code {
+	display: table-cell;
+	margin-left: 0pt;
+	
+	background-color: #E4FFDA
+}
+
+cs_code {
+	display: table-cell;
+	margin-left: 0pt;
+	background-color: #DDEEEE
+}
+
+pas_code {
+	display: table-cell;
+	margin-left: 0pt;
+	background-color: #EEEEEE
+}
+
+js_code {
+	display: table-cell;
+	margin-left: 0pt;
+	background-color: #EEEEEE
+}
+
+other_code {
+	display: table-cell;
+	margin-left: 0pt;
+	background-color: #EEEEEE
+}
+
+image {
+	display: table-cell;
+	margin-left: 0pt;
+	background-color:Green
+}
+
+list_desc {	
+	list-style-type: disc;
+	list-style-position: inside;
+	display: list-item;
+	text-indent: 0pt;
+	margin-left: 0pt;
+	margin-bottom: 1.5pt
+	
+}
+
+syntax_hl,
+syntax_desc,
+param_name_hl, 
+param_name, 
+param_desc_hl,
+param_desc, 
+value_name_hl, 
+value_name, 
+value_desc_hl,
+value_desc, 
+member_name_hl, 
+member_name, 
+member_name2, 
+member_desc_hl,
+member_desc, 
+retval_hl, 
+retval_desc, 
+comments_hl, 
+constants_hl,
+comments_desc,
+constants_desc,
+datatypes_hl,
+datatypes_desc,
+example_hl,
+example_desc,
+unicode_hl, 
+unicode_desc, 
+limit_hl,
+limit_desc,
+version_hl,
+version_desc,
+seealso_hl,
+seealso_desc {
+	display: table-cell;
+}
+
+syntax_hl,
+retval_hl, 
+comments_hl,
+constants_hl,
+datatypes_hl,
+example_hl,
+unicode_hl, 
+limit_hl,
+version_hl,
+seealso_hl,
+seealso_hl {
+	width: 60pt
+}
+
+param_name_hl, 
+param_name,
+value_name_hl, 
+value_name {
+	width: 80pt
+}
+
+member_name_hl, 
+member_name,
+member_name2 {
+	width: 140pt
+}
+
+member_name2 {
+	background-color: #C0C0C0
+}
+
+syntax_hl,
+category_hl,
+param_name_hl, 
+param_desc_hl, 
+value_name_hl, 
+value_desc_hl, 
+member_name_hl, 
+member_desc_hl, 
+retval_hl, 
+comments_hl,
+constants_hl,
+datatypes_hl,
+example_hl,
+unicode_hl, 
+limit_hl,
+version_hl,
+seealso_hl,
+seealso_hl {
+	font-weight: bold
+}
+
+
+code_line {
+	font-family: "Courier New";
+	font-size: 8pt
+}
+
+param_name, member_name {
+	font-style: italic
+}
+
+link {
+	display: inline;
+	font-style: normal;
+	color: Blue;
+}
+filename,
+uiname,
+foldername {
+	display: inline;
+	font-style: italic
+}
+apiname {
+	display: inline;
+	font-weight: bold
+}
+
+chap_end {
+	margin-top: 12pt
+}

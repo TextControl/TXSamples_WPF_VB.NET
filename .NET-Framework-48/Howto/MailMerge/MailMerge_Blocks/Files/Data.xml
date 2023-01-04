@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<invoice_data>
+   <orders>
+      <name>Montgomery</name>
+      <firstname>Joe</firstname>
+      <company>Text Control GmbH</company>
+      <details>
+         <product_name>TX Text Control .NET for Windows Forms</product_name>
+         <description>TX Text Control .NET for Windows Forms Enterprise X16 (26.0). 1 year subscription (includes all updates and major releases for 12 months).</description>
+         <qty>2</qty>
+         <price>€3,398.00</price>   
+      </details>
+      <details>
+         <product_name>TX Text Control .NET for WPF</product_name>
+         <description>TX Text Control .NET for WPF Enterprise X16 (26.0). 1 year subscription (includes all updates and major releases for 12 months).</description>
+         <qty>4</qty>
+         <price>€3,398.00</price>   
+      </details>
+   </orders>
+</invoice_data>

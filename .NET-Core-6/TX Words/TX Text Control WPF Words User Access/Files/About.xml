@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This User Access Sample</chap_hl>
+  <chap_desc>In many cases, it is necessary to give user specific access to or information about the content of a document. This sample application shows an approach to assign such a user and gives examples where user access plays a role in document editing.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>By running this sample a document is loaded that is mostly write-protected. But one part is marked and highlighted as editable. This region can be modified by every user that opens the document.</ref_desc>
+    <ref_desc />
+    <ref_desc>Besides such common access, the creator of a document can assign user specific access as follows:</ref_desc>
+    <ref_desc>1. Deactivate the write protection by untoggling the <apiname>Enforce Protection</apiname> button and entering <foldername>123</foldername> into the password dialog box.</ref_desc>
+    <ref_desc>2. Go to the <apiname>Mark Exceptions and set Users</apiname> group and click the <apiname>Add Users</apiname> button to open the <apiname>Add Users</apiname> dialog. Enter the name in the <apiname>New User</apiname> text box with which you are logged in to the computer, press the <apiname>Add</apiname> button and leave the dialog by clicking <apiname>OK</apiname>.</ref_desc>
+    <ref_desc>3. Select some text of the document and check the check box of the newly added user.</ref_desc>
+    <ref_desc>4. Toggle the <apiname>Enforce Protection</apiname> button, enter a password and click <apiname>OK</apiname> to make the document write-protected again.</ref_desc>
+    <ref_desc />
+    <ref_desc>As you can see, only that region is still highlighted that can be changed by every user. To give access to the previously added user, go to the application menu, click on <apiname>Sign In</apiname> and create an account. </ref_desc>
+    <ref_desc>Now you are logged in with the name of the added user. The previously marked regions are now highlighted and can be modified.</ref_desc>
+    <ref_desc />
+    <ref_desc>With the implemented user access, also added comments are assigned to the current logged in user:</ref_desc>
+    <ref_desc>1. Deactivate the write protection of the document.</ref_desc>
+    <ref_desc>2. Go to the <apiname>Proofing</apiname> tab, select some text, click on <apiname>Add Comment</apiname> and enter some text into the popped up comments text box. The added comment with a reference to the logged in user is shown in the <apiname>Comments</apiname> sidebar.</ref_desc>
+    <ref_desc />
+    <ref_desc>Same with tracked changes:</ref_desc>
+    <ref_desc>1. Click on the <apiname>Tracked Changes...</apiname> split button to activate the <apiname>Tracked Changes</apiname> sidebar.</ref_desc>
+    <ref_desc>2. Activate tracking changes by toggling the <apiname>Track Changes</apiname> button.</ref_desc>
+    <ref_desc>3. Type, delete or replace some text in the document. The created tracked change is displayed with a reference to the logged in user in the sidebar.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>The user name that should be set as current user of the <apiname>TextControl</apiname> is provided by a password dialog when handling the <apiname>Click</apiname> event of the application menu's <apiname>Sign In</apiname> button. It is set as single string array argument to the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.usernames.property.htm">TextControl.UserNames</link> property.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub SignIn_Click(ByVal sender As Object, ByVal e As EventArgs)</code_line>
+      <code_line>        ' Open the password dialog to sign in or create a user account.</code_line>
+      <code_line>        Dim dlgUserAccessDialog As UserAccessDialog = If(m_uiCurrentUser Is Nothing, New UserAccessDialog(m_strUserName), New UserAccessDialog(m_uiCurrentUser))</code_line>
+      <code_line>        If dlgUserAccessDialog.ShowDialog().Value Then</code_line>
+      <code_line>                ' Get the UserInfo instance that represents the current signed in user.</code_line>
+      <code_line>                m_uiCurrentUser = dlgUserAccessDialog.UserInfo</code_line>
+      <code_line />
+      <code_line>                ' Give the user access to the TextControl.</code_line>
+      <code_line>                Me.m_txTextControl.UserNames = New String() {m_uiCurrentUser.Name}</code_line>
+      <code_line />
+      <code_line>                ' Hide the Sign In button.</code_line>
+      <code_line>                Me.m_rmiSignIn.IsEnabled = False</code_line>
+      <code_line>                Me.m_rmiSignIn.Visibility = Visibility.Collapsed</code_line>
+      <code_line />
+      <code_line>                ' Show the [Current User] button.</code_line>
+      <code_line>                Me.m_rmbtnCurrentUser.IsEnabled = True</code_line>
+      <code_line>                Me.m_rmbtnCurrentUser.Visibility = Visibility.Visible</code_line>
+      <code_line />
+      <code_line>                ' Save the settings of the current user.</code_line>
+      <code_line>                SaveKnownUserSettings()</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>The password dialog itself can be used to handle creating, editing or deleting the user access. The information about the user is stored as a <apiname>Settings</apiname> property value when the application is closed.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub SaveKnownUserSettings()</code_line>
+      <code_line>        ' Save the know users to the My.Settings.Default.KnownUsers property</code_line>
+      <code_line>        My.Settings.Default.KnownUser = m_uiCurrentUser</code_line>
+      <code_line>        Call My.Settings.Default.Save()</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+    <ref_desc />
+    <ref_desc />
+  </article>
+</chap>

@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?><root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1">this is my long string</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        [base64 mime encoded serialized .NET Framework object]
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        [base64 mime encoded string representing a byte array form of the .NET Framework object]
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- 'File' Items-->
+	<data name="Item_File_Text" xml:space="preserve">
+	<value>_Datei</value>
+  </data>
+	<data name="Item_File_New_Text" xml:space="preserve">
+    <value>_Neu</value>
+  </data>
+	<data name="Item_File_Open_Text" xml:space="preserve">
+	<value>_Öffnen</value>
+  </data>
+	<data name="Item_File_RecentFiles_Text" xml:space="preserve">
+    <value>_Letzte Dateien</value>
+  </data>
+	<data name="Item_File_Save_Text" xml:space="preserve">
+    <value>_Speichern</value>
+  </data>
+	<data name="Item_File_SaveAs_Text" xml:space="preserve">
+    <value>Speichern _unter...</value>
+  </data>
+	<data name="Item_File_PageSetup_Text" xml:space="preserve">
+    <value>S_eiteneinstellung…</value>
+  </data>
+	<data name="Item_File_Print_Text" xml:space="preserve">
+    <value>_Drucken…</value>
+  </data>
+	<data name="Item_File_PrintQuick_Text" xml:space="preserve">
+    <value>S_chnelldruck</value>
+  </data>
+	<data name="Item_File_SignIn_Text" xml:space="preserve">
+    <value>_Anmelden</value>
+  </data>
+	<data name="Item_File_CurrentUser_Text" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+	<data name="Item_File_CurrentUser_AccountSettings_Text" xml:space="preserve">
+    <value>_Kontoeinstellungen...</value>
+  </data>
+	<data name="Item_File_CurrentUser_SignOut_Text" xml:space="preserve">
+    <value>Ab_melden</value>
+  </data>
+	<data name="Item_File_Exit_Text" xml:space="preserve">
+    <value>_Beenden</value>
+  </data>
+	<!-- 'Edit' Items -->
+	<data name="Item_Edit_Text" xml:space="preserve">
+    <value>_Bearbeiten</value>
+  </data>
+	<data name="Item_Edit_Undo_Text" xml:space="preserve">
+    <value>Rückgä_ngig</value>
+  </data>
+	<data name="Item_Edit_Redo_Text" xml:space="preserve">
+    <value>_Wiederherstellen</value>
+  </data>
+	<data name="Item_Edit_Cut_Text" xml:space="preserve">
+    <value>_Ausschneiden</value>
+  </data>
+	<data name="Item_Edit_Copy_Text" xml:space="preserve">
+    <value>_Kopieren</value>
+  </data>
+	<data name="Item_Edit_Paste_Text" xml:space="preserve">
+    <value>_Einfügen</value>
+  </data>
+	<data name="Item_Edit_SelectAll_Text" xml:space="preserve">
+    <value>Alles _selektieren</value>
+  </data>
+	<data name="Item_Edit_Find_Text" xml:space="preserve">
+    <value>S_uchen</value>
+  </data>
+	<data name="Item_Edit_Replace_Text" xml:space="preserve">
+    <value>Erset_zen</value>
+  </data>
+	<data name="Item_Edit_Permissions_Text" xml:space="preserve">
+    <value>_Rechte</value>
+  </data>
+	<data name="Item_Edit_Permissions_AllowFormatting_Text" xml:space="preserve">
+    <value>_Formatieren erlauben</value>
+  </data>
+	<data name="Item_Edit_Permissions_AllowFormattingStyles_Text" xml:space="preserve">
+    <value>F_ormatierungsstile erlauben</value>
+  </data>
+	<data name="Item_Edit_Permissions_AllowPrinting_Text" xml:space="preserve">
+    <value>_Drucken erlauben</value>
+  </data>
+	<data name="Item_Edit_Permissions_AllowCopy_Text" xml:space="preserve">
+    <value>_Kopieren erlauben</value>
+  </data>
+	<data name="Item_Edit_Permissions_AllowEditingFormFields_Text" xml:space="preserve">
+    <value>Fo_rmfelder-Editierung erlauben</value>
+  </data>
+	<data name="Item_Edit_Permissions_ReadOnly_Text" xml:space="preserve">
+    <value>_Schreibgeschützt</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Text" xml:space="preserve">
+    <value>Editierbaren _Bereich</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Add_Text" xml:space="preserve">
+    <value>_Hinzufügen</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Add_ForCurrentUser_Text" xml:space="preserve">
+    <value>_Für {0}</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Add_ForEveryone_Text" xml:space="preserve">
+    <value>Für _jeden</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Remove_Text" xml:space="preserve">
+    <value>_Entfernen</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Remove_ForCurrentUser_Text" xml:space="preserve">
+    <value>_Für {0}</value>
+  </data>
+	<data name="Item_Edit_EditableRegions_Remove_ForEveryone_Text" xml:space="preserve">
+    <value>Für _Jeden</value>
+  </data>
+	<data name="Item_Edit_ProtectDocument_Text" xml:space="preserve">
+    <value>_Dokument schützen</value>
+  </data>
+	<data name="Item_Edit_TrackedChanges_Text" xml:space="preserve">
+    <value>_Änderungsaufzeichnung</value>
+  </data>
+	<data name="Item_Edit_TrackedChanges_TrackChanges_Text" xml:space="preserve">
+    <value>_Änderungen aufzeichnen</value>
+  </data>
+	<data name="Item_Edit_TrackedChanges_ReviewTrackedChanges_Text" xml:space="preserve">
+    <value>Änderungen _überprüfen...</value>
+  </data>
+	<data name="Item_Edit_Comments_Text" xml:space="preserve">
+    <value>Ko_mmentare</value>
+  </data>
+	<data name="Item_Edit_Comments_AddComment_Text" xml:space="preserve">
+    <value>_Kommentar hinzufügen...</value>
+  </data>
+	<data name="Item_Edit_Comments_ReviewComments_Text" xml:space="preserve">
+    <value>_Kommentare _überprüfen...</value>
+  </data>
+	<!-- 'View' Items -->
+	<data name="Item_View_Text" xml:space="preserve">
+	<value>_Ansicht</value>
+</data>
+	<data name="Item_View_PageLayout_Text" xml:space="preserve">
+	<value>_Seitenlayout</value>
+</data>
+	<data name="Item_View_Draft_Text" xml:space="preserve">
+	<value>_Entwurf</value>
+</data>
+	<data name="Item_View_ButtonBar_Text" xml:space="preserve">
+	<value>_Formatierungsleiste</value>
+</data>
+	<data name="Item_View_StatusBar_Text" xml:space="preserve">
+	<value>Stat_usleiste</value>
+</data>
+	<data name="Item_View_HorizontalRuler_Text" xml:space="preserve">
+	<value>_Horizontales Lineal</value>
+</data>
+	<data name="Item_View_VerticalRuler_Text" xml:space="preserve">
+	<value>_Vertikales Lineal</value>
+</data>
+	<data name="Item_View_TableGridlines_Text" xml:space="preserve">
+	<value>_Gitternetzlinien für Tabellen</value>
+</data>
+	<data name="Item_View_BookmarkMarkers_Text" xml:space="preserve">
+	<value>_Textmarken</value>
+</data>
+	<data name="Item_View_TextFrameMarkerLines_Text" xml:space="preserve">
+	<value>_Markierungslinien für Textrahmen</value>
+</data>
+	<data name="Item_View_DrawingMarkerLines_Text" xml:space="preserve">
+	<value>Dra_wing Marker Lines</value>
+</data>
+	<data name="Item_View_ControlChars_Text" xml:space="preserve">
+	<value>Steuerzei_chen</value>
+</data>
+	<data name="Item_View_EditableRegions_Text" xml:space="preserve">
+	<value>Editierbare _Bereiche</value>
+</data>
+	<data name="Item_View_EditableRegions_Always_Text" xml:space="preserve">
+	<value>_Immer</value>
+</data>
+	<data name="Item_View_EditableRegions_Current_Text" xml:space="preserve">
+	<value>_Aktueller</value>
+</data>
+	<data name="Item_View_EditableRegions_Never_Text" xml:space="preserve">
+	<value>_Niemals</value>
+</data>
+	<data name="Item_View_TrackedChanges_Text" xml:space="preserve">
+	<value>_Änderungsaufzeichnungen</value>
+</data>
+	<data name="Item_View_Comments_Text" xml:space="preserve">
+	<value>_Kommentare</value>
+</data>
+	<data name="Item_View_Comments_Always_Text" xml:space="preserve">
+	<value>_Immer</value>
+</data>
+	<data name="Item_View_Comments_Current_Text" xml:space="preserve">
+	<value>_Aktueller</value>
+</data>
+	<data name="Item_View_Comments_Never_Text" xml:space="preserve">
+	<value>_Niemals</value>
+</data>
+	<data name="Item_View_Zoom_Text" xml:space="preserve">
+	<value>_Zoom</value>
+</data>
+	<data name="Item_View_Zoom_Factor_Text" xml:space="preserve">
+	<value>{0}%</value>
+</data>
+	<data name="Item_View_RightToLeftLayout_Text" xml:space="preserve">
+	<value>_Rechts nach Links Layout</value>
+</data>
+
+	<!-- 'Insert' Items -->
+	<data name="Item_Insert_Text" xml:space="preserve">
+	<value>_Einfügen</value>
+</data>
+	<data name="Item_Insert_File_Text" xml:space="preserve">
+	<value>_Datei...</value>
+</data>
+	<data name="Item_Insert_Image_Text" xml:space="preserve">
+	<value>_Bild...</value>
+</data>
+	<data name="Item_Insert_TextFrame_Text" xml:space="preserve">
+	<value>_Textrahmen</value>
+</data>
+	<data name="Item_Insert_Shape_Text" xml:space="preserve">
+	<value>_Form</value>
+</data>
+	<data name="Item_Insert_Shape_Lines_Text" xml:space="preserve">
+	<value>_Linien</value>
+</data>
+	<data name="Item_Insert_Shape_Rectangles_Text" xml:space="preserve">
+	<value>_Rechtecke</value>
+</data>
+	<data name="Item_Insert_Shape_BasicShapes_Text" xml:space="preserve">
+	<value>_Standardformen</value>
+</data>
+	<data name="Item_Insert_Shape_BlockArrows_Text" xml:space="preserve">
+	<value>_Blockpfeile</value>
+</data>
+	<data name="Item_Insert_Shape_EquationShapes_Text" xml:space="preserve">
+	<value>F_ormelformen</value>
+</data>
+	<data name="Item_Insert_Shape_Flowchart_Text" xml:space="preserve">
+	<value>_Flussdiagramm</value>
+</data>
+	<data name="Item_Insert_Shape_StarsAndBanners_Text" xml:space="preserve">
+	<value>S_terne und Banner</value>
+</data>
+	<data name="Item_Insert_Shape_Callouts_Text" xml:space="preserve">
+	<value>L_egenden</value>
+</data>
+	<data name="Item_Insert_Shape_DrawingCanvas_Text" xml:space="preserve">
+	<value>_Zeichenbereich</value>
+</data>
+	<data name="Item_Insert_Barcode_Text" xml:space="preserve">
+	<value>_Strichcode</value>
+</data>
+	<data name="Item_Insert_Header_Text" xml:space="preserve">
+	<value>_Kopfzeile</value>
+</data>
+	<data name="Item_Insert_Header_Insert_Text" xml:space="preserve">
+	<value>_Einfügen</value>
+</data>
+	<data name="Item_Insert_Header_Remove_Text" xml:space="preserve">
+	<value>E_ntfernen</value>
+</data>
+	<data name="Item_Insert_Footer_Text" xml:space="preserve">
+	<value>F_ußzeile</value>
+</data>
+	<data name="Item_Insert_Footer_Insert_Text" xml:space="preserve">
+	<value>_Einfügen</value>
+</data>
+	<data name="Item_Insert_Footer_Remove_Text" xml:space="preserve">
+	<value>E_ntfernen</value>
+</data>
+	<data name="Item_Insert_PageNumber_Text" xml:space="preserve">
+	<value>S_eitenzahl</value>
+</data>
+	<data name="Item_Insert_PageNumber_Insert_Text" xml:space="preserve">
+	<value>_Einfügen</value>
+</data>
+	<data name="Item_Insert_PageNumber_Delete_Text" xml:space="preserve">
+	<value>_Löschen</value>
+</data>
+	<data name="Item_Insert_FormField_Text" xml:space="preserve">
+	<value>F_ormularfeld</value>
+</data>
+	<data name="Item_Insert_FormField_TextFormField_Text" xml:space="preserve">
+	<value>_Text-Formularfeld</value>
+</data>
+	<data name="Item_Insert_FormField_CheckBox_Text" xml:space="preserve">
+	<value>_Kontrollkästchen</value>
+</data>
+	<data name="Item_Insert_FormField_ComboBox_Text" xml:space="preserve">
+	<value>K_ombinationsliste</value>
+</data>
+	<data name="Item_Insert_FormField_DropDownList_Text" xml:space="preserve">
+	<value>_Auswahlliste</value>
+</data>
+	<data name="Item_Insert_FormField_DateFormField_Text" xml:space="preserve">
+	<value>_Datumsauswahl-Formularfeld</value>
+</data>
+	<data name="Item_Insert_FormField_Delete_Text" xml:space="preserve">
+	<value>_Löschen</value>
+</data>
+	<data name="Item_Insert_Symbol_Text" xml:space="preserve">
+	<value>Sy_mbol...</value>
+</data>
+	<data name="Item_Insert_Hyperlink_Text" xml:space="preserve">
+	<value>_Hyperlink...</value>
+</data>
+	<data name="Item_Insert_Bookmark_Text" xml:space="preserve">
+	<value>Te_xtmarke</value>
+</data>
+	<data name="Item_Insert_Bookmark_Insert_Text" xml:space="preserve">
+	<value>_Einfügen...</value>
+</data>
+	<data name="Item_Insert_Bookmark_Delete_Text" xml:space="preserve">
+	<value>_Löschen...</value>
+</data>
+	<data name="Item_Insert_TableOfContents_Text" xml:space="preserve">
+	<value>I_nhaltsverzeichnis</value>
+</data>
+	<data name="Item_Insert_TableOfContents_Insert_Text" xml:space="preserve">
+	<value>_Einfügen</value>
+</data>
+	<data name="Item_Insert_TableOfContents_Delete_Text" xml:space="preserve">
+	<value>_Löschen</value>
+</data>
+	<data name="Item_Insert_TableOfContents_Update_Text" xml:space="preserve">
+	<value>_Aktualisieren</value>
+</data>
+	<data name="Item_Insert_Columns_Text" xml:space="preserve">
+	<value>Sp_alten</value>
+</data>
+	<data name="Item_Insert_Columns_One_Text" xml:space="preserve">
+	<value>_Eine</value>
+</data>
+	<data name="Item_Insert_Columns_Two_Text" xml:space="preserve">
+	<value>_Zwei</value>
+</data>
+	<data name="Item_Insert_Columns_MoreColumns_Text" xml:space="preserve">
+	<value>_Weitere Spalten...</value>
+</data>
+	<data name="Item_Insert_PageBreaks_Text" xml:space="preserve">
+	<value>Se_itenumbruch</value>
+</data>
+	<data name="Item_Insert_PageBreaks_Page_Text" xml:space="preserve">
+	<value>S_eite</value>
+</data>
+	<data name="Item_Insert_PageBreaks_Column_Text" xml:space="preserve">
+	<value>_Spalte</value>
+</data>
+	<data name="Item_Insert_PageBreaks_TextWrapping_Text" xml:space="preserve">
+	<value>_Textumbruch</value>
+</data>
+	<data name="Item_Insert_SectionBreaks_Text" xml:space="preserve">
+	<value>Abs_chnittsumbruch</value>
+</data>
+	<data name="Item_Insert_SectionBreaks_NextPage_Text" xml:space="preserve">
+	<value>_Nächste Seite</value>
+</data>
+	<data name="Item_Insert_SectionBreaks_Continuous_Text" xml:space="preserve">
+	<value>_Fortlaufend</value>
+</data>
+	<!-- 'Format' -->
+	<data name="Item_Format_Text" xml:space="preserve">
+	<value>_Formatierung</value>
+</data>
+	<data name="Item_Format_Character_Text" xml:space="preserve">
+	<value>_Zeichen...</value>
+</data>
+	<data name="Item_Format_Paragraph_Text" xml:space="preserve">
+	<value>_Absatz...</value>
+</data>
+	<data name="Item_Format_Styles_Text" xml:space="preserve">
+	<value>_Formatvorlagen...</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_Text" xml:space="preserve">
+	<value>Absatzgliederu_ngsebenen</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_CurrentParagraphStyle_Text" xml:space="preserve">
+	<value>_Absatzformatvorlage: {0}</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_CurrentParagraphStyle_BodyText_Text" xml:space="preserve">
+	<value>_Textkörper</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Text" xml:space="preserve">
+	<value>_Ebene {0}</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_AddToParagraph_Text" xml:space="preserve">
+	<value>Absatz _hinzufügen</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_AddToParagraph_BodyText_Text" xml:space="preserve">
+	<value>_Textkörper</value>
+</data>
+	<data name="Item_Format_ParagraphStructureLevels_AddToParagraph_Level_Text" xml:space="preserve">
+	<value>_Ebene {0}</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_Text" xml:space="preserve">
+	<value>Aufz_ählung und Nummerierung</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_ArabicNumbers_Text" xml:space="preserve">
+	<value>_1, 2, 3</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_CapitalLetters_Text" xml:space="preserve">
+	<value>_A, B, C</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_Letters_Text" xml:space="preserve">
+	<value>a, _b, c</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_RomanNumbers_Text" xml:space="preserve">
+	<value>_I, II, III, IV</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_SmallRomanNumbers_Text" xml:space="preserve">
+	<value>i, ii, iii, i_v</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_AsStructuredList_Text" xml:space="preserve">
+	<value>Als _Liste mit mehreren Ebenen</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_Bullets_Text" xml:space="preserve">
+	<value>Aufz_ählung</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_IncreaseLevel_Text" xml:space="preserve">
+	<value>Ebene erh_öhen</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_DecreaseLevel_Text" xml:space="preserve">
+	<value>Ebene _absenken</value>
+</data>
+	<data name="Item_Format_BulletsAndNumbering_Properties_Text" xml:space="preserve">
+	<value>_Eigenschaften…</value>
+</data>
+	<data name="Item_Format_Image_Text" xml:space="preserve">
+	<value>_Bild...</value>
+</data>
+	<data name="Item_Format_TextFrame_Text" xml:space="preserve">
+	<value>Te_xtrahmen</value>
+</data>
+	<data name="Item_Format_Shape_Text" xml:space="preserve">
+	<value>F_orm...</value>
+</data>
+	<data name="Item_Format_Barcode_Text" xml:space="preserve">
+	<value>Stri_chcode...</value>
+</data>
+	<data name="Item_Format_HeadersAndFooters_Text" xml:space="preserve">
+	<value>_Kopf- und Fußzeilen...</value>
+</data>
+	<data name="Item_Format_PageNumberField_Text" xml:space="preserve">
+	<value>S_eitenzahl...	</value>
+</data>
+	<data name="Item_Format_FormFields_Text" xml:space="preserve">
+	<value>Formularfel_der</value>
+</data>
+	<data name="Item_Format_FormFields_Edit_Text" xml:space="preserve">
+	<value>_Bearbeiten...</value>
+</data>
+	<data name="Item_Format_FormFields_EnableFormValidation_Text" xml:space="preserve">
+	<value>Formular-_Überprüfung aktivieren</value>
+</data>
+	<data name="Item_Format_FormFields_ManageConditionalInstructions_Text" xml:space="preserve">
+	<value>_Bedingte Anweisungen verwalten...</value>
+</data>
+	<data name="Item_Format_Hyperlink_Text" xml:space="preserve">
+	<value>_Hyperlink...</value>
+</data>
+	<data name="Item_Format_Bookmark_Text" xml:space="preserve">
+	<value>Text_marke...</value>
+</data>
+	<data name="Item_Format_TableOfContents_Text" xml:space="preserve">
+	<value>Inhalts_verzeichnis...</value>
+</data>
+	<data name="Item_Format_Columns_Text" xml:space="preserve">
+	<value>Spa_lten...</value>
+</data>
+	<data name="Item_Format_PageBorders_Text" xml:space="preserve">
+	<value>Seiten_ränder...	</value>
+</data>
+	<data name="Item_Format_PageColor_Text" xml:space="preserve">
+	<value>Se_itenfarbe...</value>
+</data>
+	<data name="Item_Format_Tabs_Text" xml:space="preserve">
+	<value>Tab_ulatoren...</value>
+</data>
+	<data name="Item_Format_Language_Text" xml:space="preserve">
+	<value>_Sprache...</value>
+</data>
+	<!-- 'Table' Item -->
+	<data name="Item_Table_Text" xml:space="preserve">
+	<value>_Tabelle</value>
+</data>
+	<data name="Item_Table_Insert_Text" xml:space="preserve">
+	<value>Einf_ügen</value>
+</data>
+	<data name="Item_Table_Insert_Table_Text" xml:space="preserve">
+	<value>_Tabelle...</value>
+</data>
+	<data name="Item_Table_Insert_ColumnToTheLeft_Text" xml:space="preserve">
+	<value>Spalte _links hinzufügen</value>
+</data>
+	<data name="Item_Table_Insert_ColumnToTheRight_Text" xml:space="preserve">
+	<value>Spalte _rechts hinzufügen</value>
+</data>
+	<data name="Item_Table_Insert_RowAbove_Text" xml:space="preserve">
+	<value>Zeile _oberhalb hinzufügen</value>
+</data>
+	<data name="Item_Table_Insert_RowBelow_Text" xml:space="preserve">
+	<value>Zeilen _unterhalb hinzufügen</value>
+</data>
+	<data name="Item_Table_Delete_Text" xml:space="preserve">
+	<value>_Löschen</value>
+</data>
+	<data name="Item_Table_Delete_Table_Text" xml:space="preserve">
+	<value>_Tabelle</value>
+</data>
+	<data name="Item_Table_Delete_Columns_Text" xml:space="preserve">
+	<value>_Spalten</value>
+</data>
+	<data name="Item_Table_Delete_Rows_Text" xml:space="preserve">
+	<value>_Zeilen</value>
+</data>
+	<data name="Item_Table_Delete_Cells_Text" xml:space="preserve">
+	<value>Z_ellen</value>
+</data>
+	<data name="Item_Table_Select_Text" xml:space="preserve">
+	<value>_Auswählen</value>
+</data>
+	<data name="Item_Table_Select_Table_Text" xml:space="preserve">
+	<value>_Tabelle</value>
+</data>
+	<data name="Item_Table_Select_Column_Text" xml:space="preserve">
+	<value>_Spalte</value>
+</data>
+	<data name="Item_Table_Select_Row_Text" xml:space="preserve">
+	<value>_Zeile</value>
+</data>
+	<data name="Item_Table_Select_Cell_Text" xml:space="preserve">
+	<value>Z_elle</value>
+</data>
+	<data name="Item_Table_MergeCells_Text" xml:space="preserve">
+	<value>Zellen _vereinen</value>
+</data>
+	<data name="Item_Table_SplitCells_Text" xml:space="preserve">
+	<value>_Zellen teilen</value>
+</data>
+	<data name="Item_Table_SplitTable_Text" xml:space="preserve">
+	<value>_Tabelle teilen</value>
+</data>
+	<data name="Item_Table_SplitTable_Above_Text" xml:space="preserve">
+	<value>_Oberhalb</value>
+</data>
+	<data name="Item_Table_SplitTable_Below_Text" xml:space="preserve">
+	<value>_Unterhalb</value>
+</data>
+	<data name="Item_Table_Formulas_Text" xml:space="preserve">
+	<value>_Formeln</value>
+</data>
+	<data name="Item_Table_Formulas_A1ReferenceStyle_Text" xml:space="preserve">
+	<value>_A1-Bezugsart</value>
+</data>
+	<data name="Item_Table_Formulas_R1C1ReferenceStyle_Text" xml:space="preserve">
+	<value>_R1C1-Bezugsart</value>
+</data>
+	<data name="Item_Table_Formulas_EditFormula_Text" xml:space="preserve">
+	<value>_Formel bearbeiten...</value>
+</data>
+	<data name="Item_Table_Formulas_AutomaticCalculation_Text" xml:space="preserve">
+	<value>Formel_berechnung einschalten</value>
+</data>
+	<data name="Item_Table_Properties_Text" xml:space="preserve">
+	<value>_Eigenschaften...</value>
+</data>
+	<data name="MainWindow_Caption_Product" xml:space="preserve">
+    <value>TX Text Control Words</value>
+  </data>
+	<data name="MainWindow_Caption_Untitled" xml:space="preserve">
+    <value>[unbenannt]</value>
+  </data>
+
+	<data name="MessageBox_Application_ThreadException_Text" xml:space="preserve">
+    <value>Die folgende Exception wird geworfen:
+	
+"{0}"
+
+Um Hilfe zu erhalten, besuchen Sie bitte den Text Control Support unter www.textcontrol.com. </value>
+  </data>
+	<data name="MessageBox_ChangeFormLayout_Caption" xml:space="preserve">
+    <value>Anwendungsausrichtung ändern</value>
+  </data>
+	<data name="MessageBox_ChangeFormLayout_Text" xml:space="preserve">
+    <value>Um die Darstellung der Anwendung zu einer {0}- nach {1}-Textausrichtung zu ändern, muss die Applikation neu gestartet werden. 
+Klicken Sie auf OK, um neu zu starten, oder auf Abbrechen, um das Programm nicht neu zu starten.</value>
+  </data>
+	<data name="MessageBox_AddComment_Error_Caption" xml:space="preserve">
+		<value>Kommentar hinzufügen</value>
+	</data>
+	<data name="MessageBox_AddComment_Error_Text" xml:space="preserve">
+		<value>Ein unbekannter Fehler ist aufgetreten.</value>
+	</data>
+	<data name="MessageBox_AddComment_NoSelection_Caption" xml:space="preserve">
+		<value>Kommentar hinzufügen</value>
+	</data>
+	<data name="MessageBox_AddComment_NoSelection_Text" xml:space="preserve">
+		<value>Markieren Sie zunächst einen Bereich im Dokument, um hierfür einen Kommentar hinzuzufügen.</value>
+	</data>
+	<data name="MessageBox_AddComment_PositionInvalid_Caption" xml:space="preserve">
+		<value>Kommentar hinzufügen</value>
+	</data>
+	<data name="MessageBox_AddComment_PositionInvalid_Text" xml:space="preserve">
+		<value>Der Komentar wurde nicht eingefügt, da der hierfür gesetzte Bereich (Startposition und/oder Länge) ungültig ist.</value>
+	</data>
+	<data name="MessageBox_AddComment_SelectionTooComplex_Caption" xml:space="preserve">
+		<value>Kommentar hinzufügen</value>
+	</data>
+	<data name="MessageBox_AddComment_SelectionTooComplex_Text" xml:space="preserve">
+		<value>Der Komentar wurde nicht eingefügt, da der hierfür ausgewählte Bereich zu komplex ist. Dieses muss aus einer durchgehenden Folge an Zeichen bestehen.</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_Error_Caption" xml:space="preserve">
+		<value>Bearbeitbare Bereiche</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_Error_Text" xml:space="preserve">
+		<value>Ein unbekannter Fehler ist aufgetreten.</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_NoSelection_Caption" xml:space="preserve">
+		<value>Bearbeitbare Bereiche</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_NoSelection_Text" xml:space="preserve">
+		<value>Markieren Sie zunächst einen Bereich im Dokument und wählen Sie dann den Benutzer aus, der diesen Bereich uneingeschränkt bearbeiten darf.</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_PositionInvalid_Caption" xml:space="preserve">
+		<value>Bearbeitbare Bereiche</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_PositionInvalid_Text" xml:space="preserve">
+		<value>Der bearbeitbare Bereich wurde nicht eingefügt, da der hierfür gesetzte Bereich (Startposition und/oder Länge) ungültig ist.</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_SelectionTooComplex_Caption" xml:space="preserve">
+		<value>Bearbeitbare Bereiche</value>
+	</data>
+	<data name="MessageBox_AddEditableRegion_SelectionTooComplex_Text" xml:space="preserve">
+		<value>Der bearbeitbare Bereich wurde nicht eingefügt, da der hierfür ausgewählte Bereich zu komplex ist. Dieses muss aus einer durchgehenden Folge an Zeichen bestehen.</value>
+	</data>
+	<data name="MessageBox_OpenHyperlink_CouldNotOpenLink_Caption" xml:space="preserve">
+    <value>Hyperlink öffnen</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_CouldNotOpenLink_Text" xml:space="preserve">
+    <value>Der Link zu '{0}' konnte nicht geöffnet werden.</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_FileDoesNotExist_Caption" xml:space="preserve">
+    <value>Verlinkte Datei öffnen </value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_FileDoesNotExist_Text" xml:space="preserve">
+    <value>Die verlinkte Datei '{0}' existiert nicht.</value>
+  </data>
+	<data name="MessageBox_OpenRecentFile_FileDoesNotExist_Caption" xml:space="preserve">
+    <value>Zuletzt verwendetet Datei öffnen</value>
+  </data>
+	<data name="MessageBox_OpenRecentFile_FileDoesNotExist_Text" xml:space="preserve">
+    <value>Die ausgewählte Datei existiert nicht. Möchten Sie die Datei aus der Liste der zuletzt verwendeten Dateien entfernen?</value>
+  </data>
+	<data name="MessageBox_PasswordDialog_IncorrectPassword_Caption" xml:space="preserve">
+    <value>Falsches Kennwort</value>
+ </data>
+	<data name="MessageBox_PasswordDialog_IncorrectPassword_Text" xml:space="preserve">
+    <value>Das eingegebene Kennwort ist falsch.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_Left" xml:space="preserve">
+    <value>Links</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_Right" xml:space="preserve">
+    <value>Rechts</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_ToFile" xml:space="preserve">
+    <value>Um die Darstellung der Anwendung zu einer {0}- nach {1}-Textausrichtung zu ändern, muss die Applikation neu gestartet werden. Außerdem wurden Änderungen an '{2}' nicht gespeichert.
+Klicken Sie auf Ja, um diese Änderungen zu speichern und neu zu starten, auf Nein, um ohne Speichern neu zu starten, oder auf Abbrechen, um nicht neu zu starten.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_Untitled" xml:space="preserve">
+    <value>Um die Darstellung der Anwendung zu einer {0}- nach {1}-Textausrichtung zu ändern, muss die Applikation neu gestartet werden. Außerdem wurden Änderungen an dem Dokument nicht gespeichert.
+Klicken Sie auf Ja, um diese Änderungen zu speichern und neu zu starten, auf Nein, um ohne Speichern neu zu starten, oder auf Abbrechen, um nicht neu zu starten.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_Caption" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_ToFile" xml:space="preserve">
+    <value>Möchten Sie die Änderungen an '{0}' speichern, bevor das Programm geschlossen wird?
+Klicken Sie zum Speichern und Schließen auf Ja, zum Schließen ohne vorher zu Speichern auf Nein oder auf Abbrechen, um nicht zu schließen.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_Untitled" xml:space="preserve">
+    <value>Möchten Sie das Dokument speichern, bevor das Programm geschlossen wird?
+Klicken Sie zum Speichern und Schließen auf Ja, zum Schließen ohne vorher zu Speichern auf Nein oder auf Abbrechen, um nicht zu schließen.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_Caption" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_ToFile" xml:space="preserve">
+    <value>Möchten Sie die Änderungen an '{0}' speichern, bevor ein neues Dokument erstellt wird? 
+Klicken zum Speichern und neu Erstellen eines Dokumentes auf Ja, ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument erstellt werden soll.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_Untitled" xml:space="preserve">
+    <value>Möchten Sie das Dokument speichern, bevor ein neues Dokument erstellt wird? 
+Klicken zum Speichern und neu Erstellen eines Dokumentes auf Ja, ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument erstellt werden soll.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_Caption" xml:space="preserve">
+    <value>Öffnen</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_ToFile" xml:space="preserve">
+    <value>Möchten Sie die Änderungen an '{0}' speichern, bevor das neue Dokument geladen wird?
+Klicken Sie zum Speichern und Öffnen einen neues Dokumentes auf Ja, zum Öffnen ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument geladen werden soll.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_Untitled" xml:space="preserve">
+    <value>Möchten Sie das Dokument speichern,bevor das neue Dokument geladen wird?
+Klicken Sie zum Speichern und Öffnen einen neues Dokumentes auf Ja, zum Öffnen ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument geladen werden soll.</value>
+  </data>
+	<data name="MessageBox_UpdateTableOfContents_NoContents_Caption" xml:space="preserve">
+    <value>Inhaltsverzeichnis</value>
+  </data>
+	<data name="MessageBox_UpdateTableOfContents_NoContents_Text" xml:space="preserve">
+    <value>Es wurden keine Einträge für das Inhaltsverzeichnis gefunden.</value>
+  </data>
+	<data name="MessageBox_UserAccess_SignOut_Caption" xml:space="preserve">
+    <value>Abmelden</value>
+  </data>
+	<data name="MessageBox_UserAccess_SignOut_Text" xml:space="preserve">
+    <value>{0} wurde erfolgreich abgemeldet.</value>
+  </data>
+	<data name="MessageBox_UserAccessDialogIncorrectPassword_Text" xml:space="preserve">
+    <value>Das eingegebene Passwort stimmt nicht mit dem Passwort des angegebenen Benutzers überein.</value>
+  </data>
+	<data name="MessageBox_UserAccessDialogDeleteAccount_Text" xml:space="preserve">
+    <value>Durch das Löschen des Kontos wird der aktuelle Benutzer abgemeldet. Klicken Sie auf OK, um fortzufahren, oder auf Abbrechen, um das Konto nicht zu löschen.</value>
+  </data>
+	<data name="Method_SetTrackedChangesHighlightMode_HideTrackedChanges" xml:space="preserve">
+    <value>Nachverfolgte Änderungen ausblenden</value>
+  </data>
+	<data name="Method_SetTrackedChangesHighlightMode_HighlightTrackedChanges" xml:space="preserve">
+    <value>Nachverfolgte Änderungen einblenden</value>
+  </data>
+	<data name="PasswordDialog_Caption" xml:space="preserve">
+    <value>Kennwort</value>
+  </data>
+	<data name="PasswordDialog_ProtectedDocument" xml:space="preserve">
+    <value>Das Dokument '{0}' ist geschützt.</value>
+  </data>
+	<data name="PasswordDialog_EnterPassword" xml:space="preserve">
+    <value>Geben Sie ein Kennwort zum Öffnen des Dokumentes ein.</value>
+  </data>
+	<data name="PasswordDialog_Password" xml:space="preserve">
+    <value>_Kennwort:</value>
+  </data>
+	<data name="PasswordDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="PasswordDialog_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+	<data name="StatusBar_Column" xml:space="preserve">
+    <value>Spalte: </value>
+  </data>
+	<data name="StatusBar_Line" xml:space="preserve">
+    <value>Zeile: </value>
+  </data>
+	<data name="StatusBar_Page" xml:space="preserve">
+    <value>Seite: </value>
+  </data>
+	<data name="StatusBar_Section" xml:space="preserve">
+    <value>Abschnitt: </value>
+  </data>
+	<data name="UserAccessDialog_AccountSettings_Caption" xml:space="preserve">
+    <value>Kontoeinstellungen</value>
+  </data>
+	<data name="UserAccessDialog_AccountSettings_OldPassword" xml:space="preserve">
+    <value>_Altes Passwort:</value>
+  </data>
+	<data name="UserAccessDialog_AccountSettings_NewPassword" xml:space="preserve">
+    <value>_Neues Passwort:</value>
+  </data>
+	<data name="UserAccessDialog_AccountSettings_ConfirmPassword" xml:space="preserve">
+    <value>Passwort _bestätigen:</value>
+  </data>
+	<data name="UserAccessDialog_AccountSettings_Delete" xml:space="preserve">
+    <value>Konto _löschen</value>
+  </data>
+	<data name="UserAccessDialog_CreateAccount_Caption" xml:space="preserve">
+    <value>Neues Benutzerkonto anlegen</value>
+  </data>
+	<data name="UserAccessDialog_CreateAccount_NewPassword" xml:space="preserve">
+    <value>_Neues Passwort:</value>
+  </data>
+	<data name="UserAccessDialog_CreateAccount_ConfirmPassword" xml:space="preserve">
+    <value>Passwort _bestätigen:</value>
+  </data>
+	<data name="UserAccessDialog_SignIn_Caption" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+	<data name="UserAccessDialog_SignIn_Password" xml:space="preserve">
+    <value>_Passwort:</value>
+  </data>
+	<data name="UserAccessDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="UserAccessDialog_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+</root>

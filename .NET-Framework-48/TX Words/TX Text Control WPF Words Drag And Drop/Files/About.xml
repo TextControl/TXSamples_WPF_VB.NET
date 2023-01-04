@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Drag and Drop Sample</chap_hl>
+  <chap_desc>A commonly used way to load a file or insert images into a document is the concept of drag and drop. This sample illustrates how to implement that concept into a <apiname>TX Text Control</apiname> application: When the file is dragged, it is determined whether its type and format is supported by <apiname>TX Text Control</apiname>. When the file is dropped, the sample handles type specific operations to load or insert the document respectively image.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>Open the explorer, select a file, start dragging it to the this sample application and drop it onto the <apiname>TextControl</apiname>.</ref_desc>
+    <ref_desc>If its format is type of </ref_desc>
+    <ref_desc>
+      <filename>.rtf,</filename>
+      <filename>.htm</filename>, <filename>.html</filename>, <filename>.doc</filename>, <filename>.docx</filename>, <filename>.pdf</filename>, <filename>.xml</filename>, <filename>.txt</filename>, <filename>.tx</filename> or <filename>.xlsx</filename>, </ref_desc>
+    <ref_desc>the file is loaded as document. </ref_desc>
+    <ref_desc>If the file ends with </ref_desc>
+    <ref_desc>
+      <filename>.jpeg</filename>, <filename>.jpg</filename>, <filename>.tif</filename>, <filename>.tiff</filename>, <filename>.bmp</filename>, <filename>.gif</filename>, <filename>.png</filename>, <filename>.wmf</filename>, <filename>.emf</filename> or <filename>.svg</filename>, </ref_desc>
+    <ref_desc>the file is inserted as image.</ref_desc>
+    <ref_desc>All other formats are not supported.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>The requested behavior is handled by two events: <apiname>System.Windows.Forms.Control.DragEnter</apiname> and <apiname>System.Windows.Forms.Control.DragDrop</apiname>. To enabled these events, set the <apiname>TextControl</apiname><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.allowdrag.property.htm">AllowDrag</link> and <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.allowdrop.property.htm">AllowDrop</link> properties to <apiname>true</apiname>.</ref_desc>
+    <ref_desc>When handling the <apiname>DragEnter</apiname> event, the type and format (<link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.streamtype.enumeration.htm">TXTextControl.StreamType</link>) is determined. This information is stored in and provided by an object of type <apiname>DraggedFileInfo</apiname>, which is <apiname>null</apiname> in case the type or format is not supported.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_DragEnter(ByVal sender As Object, ByVal e As DragEventArgs)</code_line>
+      <code_line>        m_dfiFileInfo = CheckDraggedFiles(CType(e.Data.GetData(DataFormats.FileDrop), String()))</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>The <apiname>Drop</apiname> event handler finally invokes the type specific method to load or insert the dragged file.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_Drop(ByVal sender As Object, ByVal e As DragEventArgs)</code_line>
+      <code_line>        ' Check whether the dragged file is valid (supported by TX Text Control).</code_line>
+      <code_line>        If m_dfiFileInfo IsNot Nothing Then</code_line>
+      <code_line>                ' Insert the file as document or image.</code_line>
+      <code_line>                Select Case m_dfiFileInfo.FileType</code_line>
+      <code_line>                        Case FileType.Document</code_line>
+      <code_line>                                Open(m_dfiFileInfo.FilePath, m_dfiFileInfo.StreamType)</code_line>
+      <code_line>                        Case FileType.Image</code_line>
+      <code_line>                                Me.InsertDroppedImage(m_dfiFileInfo.FilePath, e.GetPosition(Me.m_txTextControl))</code_line>
+      <code_line>                End Select</code_line>
+      <code_line>                m_dfiFileInfo = Nothing</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+  </article>
+</chap>

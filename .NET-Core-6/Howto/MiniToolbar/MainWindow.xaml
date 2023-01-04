@@ -1,0 +1,14 @@
+﻿<Window x:Class="MainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF" 
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Howto: Manipulate the MiniToolbar" Height="450" Width="800">
+    <Grid>
+        <WPF:TextControl Name="m_txTextControl" ShowMiniToolbar="LeftButton,RightButton" Loaded="TextControl_Loaded" TextMiniToolbarInitalized="TextControl_TextMiniToolbarInitalized" MiniToolbarOpening="TextControl_MiniToolbarOpening" />
+    </Grid>
+</Window>
+

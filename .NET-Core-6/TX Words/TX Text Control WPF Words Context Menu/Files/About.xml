@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Context Menu Sample</chap_hl>
+  <chap_desc>When right-clicking <apiname>TextControl</apiname>, a built-in context menu appears that provides context related items. This sample shows how to extend such a <apiname>TextControl</apiname> context menu. When right-clicking a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.framebase.class.htm">frame base element</link>, an additional item is added to the context menu that opens a dialog to edit the name of that object.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>Insert a frame base element and right-click it. Now the default context menu appears including an additional item (<apiname>Frame Name...</apiname>). When clicking  that item, a dialog is opened to set the name of the clicked frame base element.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>When right-clicking <apiname>TextControl</apiname>, a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.textcontextmenuopening.event.htm">TextContextMenuOpening</link> event is fired. Its handler has an <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontextmenueventargs.class.htm">event argument</link> that provides the shown <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontextmenueventargs.textcontextmenu.property.htm">context menu</link> and information about it. In this sample, when a frame base element is right-clicked, that context menu is extended by a tool strip separator and an item that opens a custom dialog to edit that object.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_TextContextMenuOpening(ByVal sender As Object, ByVal e As TextContextMenuEventArgs)</code_line>
+      <code_line>        If (e.ContextMenuLocation And ContextMenuLocation.SelectedFrame) &lt;&gt; 0 Then</code_line>
+      <code_line>                ' A frame is selected</code_line>
+      <code_line>                AddFrameContextMenuItems(e.TextContextMenu)</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+    <ref_desc />
+  </article>
+</chap>

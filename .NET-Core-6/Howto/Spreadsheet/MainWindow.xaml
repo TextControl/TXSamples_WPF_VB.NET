@@ -1,0 +1,76 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF" 
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Howto: Use Spreadsheet Formulas in Tables" Height="550" Width="1050" Loaded="Window_Loaded">
+    <DockPanel>
+        <ToolBar Name="m_tsFormulaSettings" DockPanel.Dock="Top">
+            <Label Name="m_lblReferenceStyle">Reference Style:</Label>
+            <ToggleButton Name="m_btnR1C1" ToolTip="R1C1" ClickMode="Press" Click="R1C1_Click">
+                <DockPanel>
+                    <TextBlock Margin="0,0,5,0">R1C1</TextBlock>
+                    <Image Name="m_imgR1C1" Width="16" Height="16"/>
+                </DockPanel>
+            </ToggleButton>
+            <ToggleButton Name="m_btnA1" ToolTip="A1" Click="A1_Click">
+                <DockPanel>
+                    <TextBlock Margin="0,0,5,0">A1</TextBlock>
+                    <Image Name="m_imgA1" Width="16" Height="16"/>
+                </DockPanel>
+            </ToggleButton>
+            <Separator Name="m_setSeparator01"/>
+            <ToggleButton Name="m_btnEnableCalculation" Click="EnableCalculation_Click">
+                <DockPanel>
+                    <TextBlock Margin="0,0,5,0">Enable Calculation</TextBlock>
+                    <Image Name="m_imgEnableCalculation" Width="16" Height="16"/>
+                </DockPanel>
+            </ToggleButton>
+        </ToolBar>
+        <ToolBar Name="m_tsFormula" DockPanel.Dock="Top">
+            <ComboBox Width="100" Name="m_cmbxFunctions"  />
+            <Button Name="m_btnAddFunction" ToolTip="Add Function" Click="AddFunction_Click">
+                <DockPanel>
+                    <Image Name="m_imgAddFunction" Width="16" Height="16"/>
+                </DockPanel>
+            </Button>
+            <TextBox Name="m_tbxFormula" Width="300" KeyUp="Formula_KeyUp"/>
+            <Button Name="m_btnAccept" ToolTip="Accept Formula" Click="Accept_Click">
+                <DockPanel>
+                    <Image Name="m_imgAccept" Width="16" Height="16"/>
+                </DockPanel>
+            </Button>
+            <Button Name="m_btnRemove" ToolTip="Remove Formula" Click="Remove_Click">
+                <DockPanel>
+                    <Image Name="m_imgRemove" Width="16" Height="16"/>
+                </DockPanel>
+            </Button>
+            <Separator Name="m_sepSeparator02"/>
+            <Label Name="m_lblCellTextType">Cell Text Type:</Label>
+            <ToggleButton Name="m_btnTextFormat" ToolTip="Text Format" Click="TextFormat_Click">
+                <DockPanel>
+                    <Image Name="m_imgTextFormat" Width="16" Height="16"/>
+                </DockPanel>
+            </ToggleButton>
+            <ToggleButton Name="m_btnNumberFormat" ToolTip="Number Format" Click="NumberFormat_Click">
+                <DockPanel>
+                    <Image Name="m_imgNumberFormat" Width="16" Height="16"/>
+                </DockPanel>
+            </ToggleButton>
+            <Label Name="m_lblNumberFormat">Number Format:</Label>
+            <ComboBox Name="m_cmbxFormats" Width="100"/>
+            <Button Name="m_btnApplyNumberFormat" ToolTip="Apply Number Format" Click="ApplyNumberFormat_Click">
+                <DockPanel>
+                    <Image Name="m_imgApplyNumberFormat" Width="16" Height="16"/>
+                </DockPanel>
+            </Button>
+        </ToolBar>
+        <WPF:RulerBar Name="m_rbHorizontalRuler" DockPanel.Dock="Top"  HorizontalAlignment="Stretch" VerticalAlignment="Top" FormulaMode="Auto"/>
+        <WPF:StatusBar Name="m_sbStatusBar" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+        <WPF:RulerBar Name="m_rbVerticalRuler" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Stretch" FormulaMode="Auto"/>
+        <WPF:TextControl Name="m_txTextControl" RulerBar="m_rbHorizontalRuler" VerticalRulerBar="m_rbVerticalRuler" StatusBar="m_sbStatusBar"  Loaded="TextControl_Loaded" InputPositionChanged="TextControl_InputPositionChanged" />
+    </DockPanel>
+</Window>

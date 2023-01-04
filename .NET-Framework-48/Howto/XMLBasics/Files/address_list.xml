@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?XML:stylesheet type="text/css" href="address_list.css"?>
+<!DOCTYPE address SYSTEM "address.dtd">
+<address>
+	<address_record>
+		<name>Paul</name>
+		<street>Baker Street</street>
+		<city>London</city>
+		<email>paul@hotmail.com</email>
+	</address_record>
+	<address_record>
+		<name>George</name>
+		<email>george@hotmail.com</email>
+	</address_record>
+</address>
+

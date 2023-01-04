@@ -1,0 +1,3 @@
+address { display: table }
+address_record { display: table-row}
+name, street, city, email {	display: table-cell; border: 1px; font-size: 11pt } 

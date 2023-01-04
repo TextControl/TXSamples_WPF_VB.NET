@@ -1,0 +1,24 @@
+﻿<Window x:Class="MainWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF" 
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Howto: Use Hypertext Links - Step 2: Adding a Dialog Box for Inserting Hypertext Links" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Name="m_msMenu">
+            <MenuItem Name="m_tmiHyperlinks" Header="_Hyperlinks" SubmenuOpened="Hyperlinks_DropDownOpening">
+                <MenuItem Name="m_tmiInsertHyperlink" Header="_Insert..." Click="OpenHyperlinkDialog_Click"/>
+                <MenuItem Name="m_tmiEditHyperlink" Header="_Edit..." Click="OpenHyperlinkDialog_Click"/>
+                <MenuItem Name="m_tmiShowHyperlinks" Header="_Show" IsCheckable="True" IsChecked="True" Click="ShowHyperlinks_Click"/>
+            </MenuItem>
+        </Menu>
+        <WPF:TextControl Grid.Column="0" Grid.Row="1" Name="m_txTextControl" TextFieldCreated="TextControl_TextFieldCreated" HypertextLinkClicked="TextControl_HypertextLinkClicked"/>
+    </Grid>
+</Window>

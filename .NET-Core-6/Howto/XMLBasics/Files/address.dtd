@@ -1,0 +1,8 @@
+<!ELEMENT address ( address_record+ )>
+
+<!ELEMENT address_record ( name, street?, city?, email )>
+
+<!ELEMENT name (#PCDATA )>
+<!ELEMENT street (#PCDATA )>
+<!ELEMENT city (#PCDATA )>
+<!ELEMENT email (#PCDATA )>

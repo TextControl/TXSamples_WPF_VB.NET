@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#646766;}
+	.st2{fill:none;stroke:#646766;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#B1B1B1;stroke-linecap:square;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#EDC87E;stroke-linecap:square;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#646766;stroke-linecap:square;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#4D82B8;stroke-width:2;stroke-linecap:square;stroke-miterlimit:10;}
+	.st7{fill:#4D82B8;}
+</style>
+<g>
+	<g>
+		<polygon class="st0" points="3.5,31.5 3.5,4.5 19.6,4.5 25.5,10.4 25.5,31.5 		"/>
+		<path class="st1" d="M19.4,5l5.6,5.6V31H4V5H19.4 M19.8,4H3v28h23V10.2L19.8,4L19.8,4z"/>
+	</g>
+	<line class="st2" x1="19.5" y1="4.8" x2="19.5" y2="10.8"/>
+	<line class="st2" x1="19" y1="10.5" x2="25" y2="10.5"/>
+</g>
+<line class="st3" x1="5.5" y1="7.5" x2="17.5" y2="7.5"/>
+<line class="st4" x1="5.5" y1="10.5" x2="17.5" y2="10.5"/>
+<line class="st4" x1="5.5" y1="13.5" x2="23.5" y2="13.5"/>
+<line class="st3" x1="5.5" y1="16.5" x2="23.5" y2="16.5"/>
+<line class="st3" x1="5.5" y1="19.5" x2="23.5" y2="19.5"/>
+<line class="st3" x1="5.5" y1="22.5" x2="23.5" y2="22.5"/>
+<line class="st3" x1="5.5" y1="25.5" x2="23.5" y2="25.5"/>
+<line class="st3" x1="5.5" y1="28.5" x2="23.5" y2="28.5"/>
+<line class="st5" x1="2.5" y1="29.5" x2="0.5" y2="29.5"/>
+<line class="st5" x1="0.5" y1="28.5" x2="0.5" y2="2.5"/>
+<line class="st5" x1="0.5" y1="1.5" x2="17.5" y2="1.5"/>
+<rect x="1" y="2" class="st0" width="2" height="27"/>
+<rect x="3" y="2" class="st0" width="15" height="2"/>
+<g>
+	<g>
+		<line class="st6" x1="21" y1="20" x2="28" y2="20"/>
+		<g>
+			<polygon class="st7" points="27.6,16.5 27.6,23.4 31,20 			"/>
+		</g>
+	</g>
+</g>
+</svg>

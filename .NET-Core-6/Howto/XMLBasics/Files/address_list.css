@@ -1,0 +1,10 @@
+name {	display: block; 
+		margin-top: 10px;
+		font-size: 14pt; 
+		color: blue }
+
+street, 
+city, 
+email { display: list-item;
+		list-style-type: square;
+	    font-size: 11pt }

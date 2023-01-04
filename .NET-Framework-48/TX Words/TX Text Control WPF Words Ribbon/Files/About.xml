@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Ribbon Sample</chap_hl>
+  <chap_desc>This sample shows how to combine all components provided by <apiname>TX Text Control</apiname> to create a ribbon application.</chap_desc>
+  <chap_desc>Furthermore, it implements code that gives the items of the application menu the behavior to reset the content, open a document, save and print it, determine its settings and exit the application. It also implements a file management and provides a list of recent files. </chap_desc>
+  <chap_desc>Besides the implementation of an application menu, the sample manages the layout of the quick access toolbar, sidebars, ruler and status bars and the contextual tabs management.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Creating this Sample</ref_hl>
+    <ref_desc>After creating this <uiname>WPF App (.Net Framework)</uiname> sample project by using <apiname>Visual Studio</apiname>, first two modifications were applied to the <uiname>MainWindow.xaml</uiname>: Replacing the <uiname>&lt;Grid&gt;</uiname> element with <uiname>&lt;DockPanel&gt;</uiname> and using the <apiname>RibbonWindow</apiname> class instead <apiname>Window</apiname> for this application.</ref_desc>
+    <ref_desc>While replacing the <uiname>&lt;Grid&gt;</uiname> element with <uiname>&lt;DockPanel&gt;</uiname> can easily be realized by changing the corresponding <uiname>XAML</uiname> code line, changing the application context from <apiname>Window</apiname> to <apiname>RibbonWindow</apiname> needs more preparation:</ref_desc>
+    <ref_desc>First a reference to the <uiname>System.Windows.Controls.Ribbon</uiname> assembly must be added to the project. This can automatically be done by dragging and dropping a <apiname>Ribbon</apiname> control from the toolbox into the <uiname>DockPanel</uiname>. If no such <apiname>Ribbon</apiname> control already exists inside the toolbox, add it as follows:</ref_desc>
+    <ref_desc>Click <uiname>Choose Toolbox Items...</uiname> from the <uiname>Tools</uiname> main menu to customize the toolbox. In the tab <uiname>WPF Components</uiname>, filter for <uiname>Ribbon</uiname> and find the <uiname>Ribbon</uiname> from the assembly <uiname>System.Windows.Controls.Ribbon</uiname>. Select the control and confirm with <uiname>OK</uiname>.</ref_desc>
+    <ref_desc>Now, to use a <apiname>RibbonWindow</apiname> instead a <apiname>Window</apiname> apply the following changes:</ref_desc>
+    <ref_desc>1. Replace in <uiname>MainWindow.xaml</uiname></ref_desc>
+    <other_code>
+      <code_line>&lt;Window </code_line>
+    </other_code>
+    <ref_desc>with </ref_desc>
+    <other_code>
+      <code_line>&lt;RibbonWindow</code_line>
+    </other_code>
+    <ref_desc>2. Replace in <uiname>MainWindow.xaml.vb</uiname></ref_desc>
+    <vb_code>
+      <code_line>Partial Public Class MainWindow</code_line>
+      <code_line>        Inherits Window</code_line>
+    </vb_code>
+    <ref_desc>with </ref_desc>
+    <vb_code>
+      <code_line>Partial Public Class MainWindow</code_line>
+      <code_line>        Inherits RibbonWindow</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>In the next step, below the <uiname>&lt;Ribbon&gt;</uiname> tag, a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.statusbar.class.htm">status bar</link>, followed by three <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.class.htm">Sidebar</link> controls and two <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.rulerbar.class.htm">ruler bars</link> were dragged and dropped into the <uiname>DockPanel</uiname>. The status bar is docked to the bottom, the first ruler bar to the top and the second one to the left. </ref_desc>
+    <ref_desc>The first sidebar is docked to the bottom of the window by setting the <apiname>DockPanel.Dock</apiname> and the <apiname>VerticalAlignment</apiname> properties to <apiname>Bottom</apiname>. The other two sidebars are horizontally aligned by setting the <apiname>DockPanel.Dock</apiname> and the <apiname>HorizontalAlignment</apiname> properties to <apiname>Right</apiname> respectively <apiname>Left</apiname>. </ref_desc>
+    <ref_desc>To show the <apiname>About</apiname> sidebar on starting the application, the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.contentlayout.property.htm">ContentLayout</link> property is set to <apiname>About</apiname>. To prevent an unpinning of the sidebar, the smart tag's <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.showpinbutton.property.htm">ShowPinButton</link> property is set to <apiname>False</apiname>. The <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.dialogstyle.property.htm">DialogStyle</link> is set to <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.sidebardialogstyle.enumeration.htm">StandardSizable</link>.</ref_desc>
+    <ref_desc>Both other sidebars are hidden when running the sample. This was implemented by setting the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.isshown.property.htm">IsShown</link> property to <apiname>False</apiname>.</ref_desc>
+    <other_code>
+      <code_line>&lt;WPF:StatusBar x:Name="m_sbStatusBar" ShowZoom="False" BorderStyle="VerticalColorScheme" DockPanel.Dock="Bottom"/&gt;</code_line>
+      <code_line />
+      <code_line>&lt;WPF:Sidebar x:Name="m_sbSidebarBottom" IsShown="False" VerticalAlignment="Bottom" DockPanel.Dock="Bottom"/&gt;</code_line>
+      <code_line>&lt;WPF:Sidebar x:Name="m_sbSidebarRight" IsShown="False" HorizontalAlignment="Right" DockPanel.Dock="Right"/&gt;</code_line>
+      <code_line>&lt;WPF:Sidebar x:Name="m_sbSidebarLeft" ContentLayout="About" HorizontalAlignment="Left" DockPanel.Dock="Left" ShowPinButton="False" DialogStyle="StandardSizable"/&gt;</code_line>
+      <code_line />
+      <code_line>&lt;WPF:RulerBar x:Name="m_rbHorizontalRulerBar" DockPanel.Dock="Top"/&gt;</code_line>
+      <code_line>&lt;WPF:RulerBar x:Name="m_rbVerticalRulerBar" HorizontalAlignment="Left" VerticalAlignment="Stretch" DockPanel.Dock="Left"/&gt;</code_line>
+    </other_code>
+    <ref_desc />
+    <ref_desc>The predefined <apiname>TX Text Control</apiname> ribbon tabs <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.class.htm">RibbonFormattingTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribboninserttab.class.htm">RibbonInsertTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonpagelayouttab.class.htm">RibbonPageLayoutTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonviewtab.class.htm">RibbonViewTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonreferencestab.class.htm">RibbonReferencesTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonproofingtab.class.htm">RibbonProofingTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonpermissionstab.class.htm">RibbonPermissionsTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformfieldstab.class.htm">RibbonFormFieldsTab</link> and <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonreportingtab.class.htm">RibbonReportingTab</link> were dragged and dropped from the tool box into the previously created <uiname>&lt;Ribbon&gt;</uiname> tag.</ref_desc>
+    <ref_desc>Additionally, all sidebars were connected to these tabs to show a specific layout and perform the corresponding behavior when the related button is clicked. For this sample, the predefined ribbon tabs are associated with the sidebars as follows:</ref_desc>
+    <other_code>
+      <code_line>&lt;WPF:RibbonFormattingTab Name="m_rtRibbonFormattingTab"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.gotohorizontalsidebar.property.htm">GotoHorizontalSidebar</link>="m_sbSidebarBottom"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.stylessidebar.property.htm">StylesSidebar</link>="m_sbSidebarRight"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.findhorizontalsidebar.property.htm">FindHorizontalSidebar</link>="m_sbSidebarBottom"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.findsidebar.property.htm">FindSidebar</link>="m_sbSidebarRight"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.replacehorizontalsidebar.property.htm">ReplaceHorizontalSidebar</link>="m_sbSidebarBottom"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformattingtab.replacesidebar.property.htm">ReplaceSidebar</link>="m_sbSidebarRight"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonInsertTab Name="m_rtRibbonInsertTab" /&gt;</code_line>
+      <code_line>&lt;WPF:RibbonPageLayoutTab Name="m_rtRibbonPageLayoutTab" /&gt;</code_line>
+      <code_line>&lt;WPF:RibbonViewTab Name="m_rtRibbonViewTab"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonReferencesTab Name="m_rtRibbonReferencesTab"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonProofingTab Name="m_rtRibbonProofingTab"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonproofingtab.commentshorizontalsidebar.property.htm">CommentsHorizontalSidebar</link>="m_sbSidebarBottom"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonproofingtab.commentssidebar.property.htm">CommentsSidebar</link>="m_sbSidebarRight"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonproofingtab.trackedchangeshorizontalsidebar.property.htm">TrackedChangesHorizontalSidebar</link>="m_sbSidebarBottom"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonproofingtab.trackedchangessidebar.property.htm">TrackedChangesSidebar</link>="m_sbSidebarLeft"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonPermissionsTab Name="m_rtRibbonPermissionsTab" /&gt;</code_line>
+      <code_line>&lt;WPF:RibbonFormFieldsTab  Name="m_rtRibbonFormFieldsTab"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformfieldstab.conditionalinstructionssidebar.property.htm">ConditionalInstructionsSidebar</link>="m_sbSidebarRight"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonReportingTab Name="m_rtRibbonReportingTab"</code_line>
+      <code_line>     <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonreportingtab.fieldnavigatorsidebar.property.htm">FieldNavigatorSidebar</link>="m_sbSidebarRight"/&gt;</code_line>
+    </other_code>
+    <ref_desc />
+    <ref_desc>To implement a contextual tabs behavior when entering a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.table.class.htm">table</link> or selecting a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.framebase.class.htm">frame</link> the predefined ribbon tabs <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbontablelayouttab.class.htm">RibbonTableLayoutTab</link>, <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonformulatab.class.htm">RibbonFormulaTab</link> (to format a table) and <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonframelayouttab.class.htm">RibbonFrameLayoutTab</link> (to format a frame base element) were added to the <uiname>&lt;Ribbon&gt;</uiname> tag. These tabs are allocated to a contextual tab group where the corresponding <apiname>Header</apiname> property value matches with the tab's <apiname>ContextualTabGroupHeader</apiname> property value.</ref_desc>
+    <other_code>
+      <code_line>&lt;WPF:RibbonTableLayoutTab</code_line>
+      <code_line>    Name="m_rtRibbonTableLayoutTab" ContextualTabGroupHeader="{x:Static prop:Resources.ContextualTabGroup_TableTools}"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonFormulaTab</code_line>
+      <code_line>    Name="m_rtRibbonFormulaTab" ContextualTabGroupHeader="{x:Static prop:Resources.ContextualTabGroup_TableTools}"/&gt;</code_line>
+      <code_line>&lt;WPF:RibbonFrameLayoutTab</code_line>
+      <code_line>    Name="m_rtRibbonFrameLayoutTab" ContextualTabGroupHeader="{x:Static prop:Resources.ContextualTabGroup_FrameTools}"/&gt;</code_line>
+      <code_line />
+      <code_line>&lt;Ribbon.ContextualTabGroups&gt;</code_line>
+      <code_line>    &lt;RibbonContextualTabGroup</code_line>
+      <code_line>        Header="{x:Static prop:Resources.ContextualTabGroup_TableTools}"</code_line>
+      <code_line>            Name="m_ctgTableTools"</code_line>
+      <code_line>            Background="#6600FF00"/&gt;</code_line>
+      <code_line>    &lt;RibbonContextualTabGroup</code_line>
+      <code_line>        Header="{x:Static prop:Resources.ContextualTabGroup_FrameTools}"</code_line>
+      <code_line>            Name="m_ctgFrameTools"</code_line>
+      <code_line>            Background="#66FF00FF"/&gt;</code_line>
+      <code_line>&lt;/Ribbon.ContextualTabGroups&gt;</code_line>
+    </other_code>
+    <ref_desc />
+    <ref_desc>The items of the ribbon's application menu and the buttons of the quick access toolbar were created by adding the corresponding <apiname>RibbonApplicationMenuItem</apiname> elements to the <apiname>Ribbon.ApplicationMenu</apiname> respectively the <apiname>RibbonButton</apiname> controls to the <apiname>Ribbon.QuickAccesToolBar</apiname>.</ref_desc>
+    <ref_desc />
+    <ref_desc>Finally, a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.class.htm">TextControl</link> was dragged and dropped into the <uiname>DockPanel</uiname>. It is connected to the predefined ribbon tabs and toolbars by setting the corresponding <apiname>TextControl</apiname> property with the name of the desired control.</ref_desc>
+    <ref_desc>Additionally, a <apiname>TextControl.Loaded</apiname> event handler is added to set the focus to the <apiname>TextControl</apiname> when the application is started, the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.hideselection.property.htm">HideSelection</link> property is set to <apiname>False</apiname> and the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.displaycolors.property.htm">illustration</link> of the <apiname>TextControl</apiname> is modified by specifying the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrolcolors.class.htm">desktop and shadow color</link>.</ref_desc>
+    <other_code>
+      <code_line>&lt;WPF:TextControl DockPanel.Dock="Top" x:Name="m_txTextControl" HideSelection="False"</code_line>
+      <code_line>    RibbonFormattingTab="m_rtRibbonFormattingTab"</code_line>
+      <code_line>    RibbonInsertTab="m_rtRibbonInsertTab"</code_line>
+      <code_line>    RibbonPageLayoutTab="m_rtRibbonPageLayoutTab"</code_line>
+      <code_line>    RibbonViewTab="m_rtRibbonViewTab"</code_line>
+      <code_line>    RibbonReferencesTab="m_rtRibbonReferencesTab"</code_line>
+      <code_line>    RibbonProofingTab="m_rtRibbonProofingTab"</code_line>
+      <code_line>    RibbonPermissionsTab="m_rtRibbonPermissionsTab"</code_line>
+      <code_line>    RibbonFormFieldsTab="m_rtRibbonFormFieldsTab"</code_line>
+      <code_line>    RibbonReportingTab="m_rtRibbonReportingTab"</code_line>
+      <code_line />
+      <code_line>    RibbonTableLayoutTab="m_rtRibbonTableLayoutTab"</code_line>
+      <code_line>    RibbonFormulaTab="m_rtRibbonFormulaTab"  	</code_line>
+      <code_line>    RibbonFrameLayoutTab="m_rtRibbonFrameLayoutTab"</code_line>
+      <code_line />
+      <code_line>    RulerBar="m_rbHorizontalRulerBar"</code_line>
+      <code_line>    VerticalRulerBar="m_rbVerticalRulerBar"</code_line>
+      <code_line>    StatusBar="m_sbStatusBar"</code_line>
+      <code_line />
+      <code_line>    Loaded="TextControl_Loaded_MainWindow"&gt;</code_line>
+      <code_line>    &lt;WPF:TextControl.DisplayColors&gt;</code_line>
+      <code_line>        &lt;WPF:TextControlColors DesktopColor="#F5F6F7" DarkShadowColor="#F5F6F7" LightShadowColor="#F5F6F7" /&gt;</code_line>
+      <code_line>    &lt;/WPF:TextControl.DisplayColors&gt;</code_line>
+      <code_line>&lt;/WPF:TextControl&gt;</code_line>
+    </other_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>For the application menu and quick access toolbar items, the sidebar and toolbars layout management and handling the contextual tabs, a file is created that implements the requested behavior as follows:</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_FileInfo.vb:</apiname>
+    </ref_desc>
+    <ref_desc>This file manages information about the currently loaded document. It provides methods to update the window caption and the enable state of the <apiname>Save</apiname> button when the content of the <apiname>TextControl</apiname> is changed by resetting it, typing, deleting or formatting text, loading a document or saving it.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub UpdateMainWindowCaption()</code_line>
+      <code_line>        Title = m_strActiveDocumentName &amp; If(m_bIsDirtyDocument, "*", "") &amp; " - " &amp; My.Resources.MainWindow_Caption_Product</code_line>
+      <code_line>End Sub</code_line>
+      <code_line />
+      <code_line>Private Sub UpdateSaveEnabledState()</code_line>
+      <code_line>        Me.m_rbtnSaveQAT.IsEnabled = CSharpImpl.Assign(Me.m_rmiSave.IsEnabled, m_bIsDirtyDocument AndAlso Not m_bIsUnknownDocument)</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_New.vb: </apiname>
+    </ref_desc>
+    <ref_desc>
+      <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.resetcontents.method.htm">Resets the content</link> of the <apiname>TextControl</apiname> when clicking the <apiname>New</apiname> button. The file also contains code to invoke a message box that informs the user to decide whether resetting the content should be canceled or the changed document should (or should not) be saved before creating a new document, if  unsaved changes were made.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub New_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)</code_line>
+      <code_line>        ' Check whether the document is dirty. In this case, the user is suggested to save that document. </code_line>
+      <code_line>        If SaveDirtyDocumentOnNew() Then</code_line>
+      <code_line>                ' Create a new document.</code_line>
+      <code_line>                Me.m_txTextControl.ResetContents()</code_line>
+      <code_line />
+      <code_line>                ' A new document is created. Now:</code_line>
+      <code_line>                UpdateCurrentDocumentInfo() ' Reset the current document information.</code_line>
+      <code_line>                UpdateMainWindowCaption() ' Update the caption of the application's main window.</code_line>
+      <code_line>                UpdateSaveEnabledState() ' Update the enabled state of the Save button.</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_Open.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Provides a method to <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.load.method.htm">load</link> a document into <apiname>TextControl</apiname>. It is used by the <apiname>Open</apiname> button and when clicking a recent file item. Similar to the <apiname>New</apiname> and <apiname>Exit</apiname> button, before loading the document, a method checks for unsaved changes in the current content to invoke a corresponding message box if necessary.</ref_desc>
+    <ref_desc>When loading it, information about the document is stored by using the corresponding <apiname>UpdateCurrentDocumentInfo</apiname> method. Some of these <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.loadsettings.class.htm">settings</link> (<apiname>CssSaveMode</apiname>, <apiname>CssFileName</apiname> and <apiname>UserPassword</apiname>) are used again when saving the loaded document by using the <apiname>Save</apiname> button.</ref_desc>
+    <ref_desc>Furthermore, in case the document is password protected, a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.filterexception.class.htm">FilterException</link> is thrown. This <apiname>Exception</apiname> is handled by the </ref_desc>
+    <ref_desc>
+      <apiname>HandlePasswordProtectedDocument</apiname> method that invokes a dialog to set the password for the document.</ref_desc>
+    <vb_code>
+      <code_line>Friend Sub Open(ByVal Optional fileName As String = Nothing, ByVal Optional streamType As StreamType = -1)</code_line>
+      <code_line>        ' Check whether the document is dirty. In this case, the user is suggested to save that document. </code_line>
+      <code_line>        If SaveDirtyDocumentOnOpen() Then</code_line>
+      <code_line>                ' Create settings to determine some load parameters and get information about the document</code_line>
+      <code_line>                ' when it is opened.</code_line>
+      <code_line>                Dim lsLoadSettings As LoadSettings = CreateLoadSettings()</code_line>
+      <code_line>                Try</code_line>
+      <code_line>                        ' Check whether a file to load is specified.</code_line>
+      <code_line>                        If String.IsNullOrEmpty(fileName) Then</code_line>
+      <code_line>                                ' If Not, the TextControl Load dialog Is opened. In that dialog all loadable file </code_line>
+      <code_line>                                ' formats can be chosen that are provided by the TXTextControl.StreamType enumeration.</code_line>
+      <code_line>                                If Me.m_txTextControl.Load(StreamType.All, lsLoadSettings) = WPF.DialogResult.Cancel Then</code_line>
+      <code_line>                                        Return</code_line>
+      <code_line>                                End If</code_line>
+      <code_line>                        Else</code_line>
+      <code_line>                                ' Determine the stream type if necessary</code_line>
+      <code_line>                                If streamType = CType(-1, StreamType) Then</code_line>
+      <code_line>                                        streamType = GetStreamType(fileName)</code_line>
+      <code_line>                                End If</code_line>
+      <code_line>                                ' Open the file directly by using its path.</code_line>
+      <code_line>                                Me.m_txTextControl.Load(fileName, streamType, lsLoadSettings)</code_line>
+      <code_line>                        End If</code_line>
+      <code_line>                Catch ex As Exception</code_line>
+      <code_line>                        ' Set the password if the document is password protected.</code_line>
+      <code_line>                        If Not HandlePasswordProtectedDocument(ex, lsLoadSettings) Then</code_line>
+      <code_line>                                Return</code_line>
+      <code_line>                        End If</code_line>
+      <code_line>                End Try</code_line>
+      <code_line>                ' The document is loaded. Now:</code_line>
+      <code_line>                UpdateCurrentDocumentInfo(lsLoadSettings)  ' Set information about the loaded document.              </code_line>
+      <code_line>                AddRecentFile(m_strActiveDocumentPath)  ' Add the document to the recent files list.</code_line>
+      <code_line>                UpdateMainWindowCaption() ' Update the caption of the application's main window.</code_line>
+      <code_line>                UpdateSaveEnabledState() ' Update the enabled state of the Save button.</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+      <code_line />
+      <code_line>Private Function HandlePasswordProtectedDocument(ByVal exception As Exception, ByVal loadSettings As LoadSettings) As Boolean</code_line>
+      <code_line>        ' Check whether the thrown exception is an exception of type FilterException.</code_line>
+      <code_line>        If TypeOf exception Is FilterException Then</code_line>
+      <code_line>                Select Case TryCast(exception, FilterException).Reason</code_line>
+      <code_line>                        Case FilterException.FilterError.InvalidPassword</code_line>
+      <code_line>                                ' Open the password dialog if the document is write protected.</code_line>
+      <code_line>                                Dim dlgPassword As PasswordDialog = New PasswordDialog(Me.m_txTextControl, loadSettings)</code_line>
+      <code_line>                                dlgPassword.Owner = Me</code_line>
+      <code_line>                                Dim bResult As Boolean? = dlgPassword.ShowDialog()</code_line>
+      <code_line>                                Return bResult.HasValue AndAlso bResult.Value</code_line>
+      <code_line>                End Select</code_line>
+      <code_line>        End If</code_line>
+      <code_line>        Throw exception</code_line>
+      <code_line>End Function</code_line>
+      <code_line />
+      <code_line />
+      <code_line>Private Sub UpdateCurrentDocumentInfo(ByVal loadSettings As LoadSettings)</code_line>
+      <code_line>        m_strActiveDocumentPath = loadSettings.LoadedFile</code_line>
+      <code_line>        m_stLastLoadedType = loadSettings.LoadedStreamType</code_line>
+      <code_line>        m_stActiveDocumentType = m_stLastLoadedType</code_line>
+      <code_line>        m_strUserPasswordPDF = loadSettings.UserPassword</code_line>
+      <code_line>        m_strCssFileName = loadSettings.CssFileName</code_line>
+      <code_line>        m_svCssSaveMode = CssSaveMode.None</code_line>
+      <code_line>        m_bIsDirtyDocument = False</code_line>
+      <code_line>        m_bIsUnknownDocument = False</code_line>
+      <code_line>        m_strActiveDocumentName = Path.GetFileName(m_strActiveDocumentPath)</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_Save.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Contains the method to <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.save.method.htm">save</link> a document. It is used by both the <apiname>Save</apiname> and <apiname>Save As</apiname>... buttons and the unsaved changes checking routines of the <apiname>New</apiname>, <apiname>Open</apiname> and <apiname>Exit</apiname> buttons.</ref_desc>
+    <ref_desc>When saving it, information about the document is stored by using the corresponding <apiname>UpdateCurrentDocumentInfo</apiname> method. Some of these <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.savesettings.class.htm">settings</link> (<apiname>CssSaveMode</apiname>, <apiname>CssFileName</apiname> and <apiname>UserPassword</apiname>) are used when saving the saved document again by using the <apiname>Save</apiname> button.</ref_desc>
+    <vb_code>
+      <code_line>Private Function Save(ByVal savePath As String) As Boolean</code_line>
+      <code_line>        ' Create settings to determine some save parameters and get information about the document</code_line>
+      <code_line>        ' when it is saved.</code_line>
+      <code_line>        Dim svsSaveSettings As SaveSettings = CreateSaveSettings()</code_line>
+      <code_line />
+      <code_line>        ' Check whether a file path is specified where the document should be loaded.</code_line>
+      <code_line>        If String.IsNullOrEmpty(savePath) Then</code_line>
+      <code_line>                ' If no such path Is determined, the TextControl Save dialog Is opened. In that dialog </code_line>
+      <code_line>                ' all file formats can be chosen that are provided by the TXTextControl.StreamType enumeration.</code_line>
+      <code_line>                ' Furthermore the DialogSettings EnterPassword, StylesheetOptions And SaveSelection are set.</code_line>
+      <code_line>                If m_txTextControl.Save(StreamType.All, svsSaveSettings,</code_line>
+      <code_line>                                                                SaveSettings.DialogSettings.EnterPassword Or</code_line>
+      <code_line>                                                                SaveSettings.DialogSettings.StylesheetOptions Or</code_line>
+      <code_line>                                                                SaveSettings.DialogSettings.SaveSelection) = WPF.DialogResult.Cancel Then</code_line>
+      <code_line>                        Return False</code_line>
+      <code_line>                End If</code_line>
+      <code_line>        Else</code_line>
+      <code_line>                ' Save the document at the same location (and with the same format) where it was loaded</code_line>
+      <code_line>                ' before.</code_line>
+      <code_line>                svsSaveSettings.CssSaveMode = m_svCssSaveMode ' Set the stored css save mode.</code_line>
+      <code_line>                svsSaveSettings.CssFileName = m_strCssFileName ' Set the stored css file name.</code_line>
+      <code_line>                svsSaveSettings.UserPassword = m_strUserPasswordPDF ' Set the stored user password.</code_line>
+      <code_line>                Me.m_txTextControl.Save(m_strActiveDocumentPath, m_stActiveDocumentType, svsSaveSettings)</code_line>
+      <code_line>        End If</code_line>
+      <code_line />
+      <code_line>        ' The document is saved. Now:</code_line>
+      <code_line>        UpdateCurrentDocumentInfo(svsSaveSettings)  ' Set information about the saved document.       </code_line>
+      <code_line>        AddRecentFile(m_strActiveDocumentPath) ' Add the document to the recent files list.</code_line>
+      <code_line>        UpdateMainWindowCaption()  ' Update the caption of the application's main window.</code_line>
+      <code_line>        UpdateSaveEnabledState() ' Update the enabled state of the Save button.</code_line>
+      <code_line>        Return True</code_line>
+      <code_line>End Function</code_line>
+      <code_line />
+      <code_line />
+      <code_line>Private Sub UpdateCurrentDocumentInfo(ByVal saveSettings As SaveSettings)</code_line>
+      <code_line>        m_strActiveDocumentPath = saveSettings.SavedFile</code_line>
+      <code_line>        m_stLastSavedType = saveSettings.SavedStreamType</code_line>
+      <code_line>        m_stActiveDocumentType = m_stLastSavedType</code_line>
+      <code_line>        m_strUserPasswordPDF = saveSettings.UserPassword</code_line>
+      <code_line>        m_strCssFileName = saveSettings.CssFileName</code_line>
+      <code_line>        m_svCssSaveMode = saveSettings.CssSaveMode</code_line>
+      <code_line>        m_bIsDirtyDocument = False</code_line>
+      <code_line>        m_bIsUnknownDocument = False</code_line>
+      <code_line>        m_strActiveDocumentName = Path.GetFileName(m_strActiveDocumentPath)</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_Print.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Implements handlers to enforce quick <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.print.method.htm">printing</link> and opening the print dialog.</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_DocumentSettings.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Shows or hides the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.sidebarcontentlayout.enumeration.htm">Document Settings</link> sidebar.</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_About.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Toggles the <apiname>About</apiname> sidebar.</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_Exit.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Handles the closing of the application when the <apiname>Exit</apiname> or the <apiname>Windows</apiname>'s close button is clicked. Similar to the <apiname>New</apiname> and <apiname>Open</apiname> button, before closing the application, a method checks the document whether unsaved changes were made and invokes a corresponding message box if necessary.</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_AppMenu_RecentFiles.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Updates the recent files list when starting the application and loading or saving a document. The file paths of these documents are stored in a string collection that is saved as <apiname>Settings</apiname> property when closing the application. On opening the program, that collection is loaded into the recent files overview.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub LoadRecentFiles()</code_line>
+      <code_line>        RecentFiles = My.Settings.Default.RecentFiles</code_line>
+      <code_line>End Sub</code_line>
+      <code_line />
+      <code_line>Private Sub SaveRecentFiles()</code_line>
+      <code_line>        My.Settings.Default.RecentFiles = RecentFiles</code_line>
+      <code_line>        Call My.Settings.Default.Save()</code_line>
+      <code_line>End Sub</code_line>
+      <code_line />
+      <code_line>Friend Property RecentFiles As StringCollection</code_line>
+      <code_line>        Get</code_line>
+      <code_line>                Return m_colRecentFiles</code_line>
+      <code_line>        End Get</code_line>
+      <code_line>        Set(ByVal value As StringCollection)</code_line>
+      <code_line>                m_colRecentFiles = If(value, New StringCollection())</code_line>
+      <code_line>                ' Remove empty entries.</code_line>
+      <code_line>                For i = m_colRecentFiles.Count - 1 To 0 Step -1</code_line>
+      <code_line>                        If String.IsNullOrEmpty(m_colRecentFiles(i)) Then</code_line>
+      <code_line>                                m_colRecentFiles.RemoveAt(i)</code_line>
+      <code_line>                        End If</code_line>
+      <code_line>                Next</code_line>
+      <code_line>                UpdateRecentFileList()</code_line>
+      <code_line>        End Set</code_line>
+      <code_line>End Property</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>When loading or saving a document, the list is updated by inserting or moving the file to the top of the list.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub AddRecentFile(ByVal filePath As String)</code_line>
+      <code_line>        If Not String.IsNullOrEmpty(filePath) Then</code_line>
+      <code_line>                ' Check whether the list already contains that file.</code_line>
+      <code_line>                If m_colRecentFiles.Contains(filePath) Then</code_line>
+      <code_line>                        ' In that case remove that file.</code_line>
+      <code_line>                        m_colRecentFiles.Remove(filePath)</code_line>
+      <code_line>                Else</code_line>
+      <code_line>                        ' Remove last entry if the current number of entries equals to the</code_line>
+      <code_line>                        ' maximum number of recent files.</code_line>
+      <code_line>                        If m_colRecentFiles.Count = m_iMaxRecentFiles Then</code_line>
+      <code_line>                                m_colRecentFiles.RemoveAt(m_iMaxRecentFiles - 1)</code_line>
+      <code_line>                        End If</code_line>
+      <code_line>                End If</code_line>
+      <code_line>                ' Insert the file path at the top of the list.</code_line>
+      <code_line>                m_colRecentFiles.Insert(0, filePath)</code_line>
+      <code_line />
+      <code_line>                ' Update the recent file items inside the ribbon's ApplicationMenuHelpPaneItems collection.</code_line>
+      <code_line>                UpdateRecentFileList()</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_QAT.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Manages the layout of the quick access toolbar buttons and handles their behavior.</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_Sidebars.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Updates the layout of a sidebar when its content layout changed. By using appropriate property value changed handlers that are connected to the corresponding <apiname>DependencyPropertyDescriptor</apiname> instances, sidebar layout settings such as showing the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.sidebar.showtitle.property.htm">title</link> and pin button or determining the dialog style are set considering the current set content layout.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub SidebarLeft_ContentLayoutChanged(ByVal sender As Object, ByVal e As EventArgs)</code_line>
+      <code_line>        Select Case Me.m_sbSidebarLeft.ContentLayout</code_line>
+      <code_line>                Case Sidebar.SidebarContentLayout.TrackedChanges</code_line>
+      <code_line>                        Me.m_sbSidebarLeft.ShowPinButton = True</code_line>
+      <code_line>                        Me.m_rtbtnDocumentSettings.IsChecked = False</code_line>
+      <code_line>                        Me.m_rtbtnAbout.IsChecked = False</code_line>
+      <code_line>                Case Sidebar.SidebarContentLayout.DocumentSettings</code_line>
+      <code_line>                        Me.m_sbSidebarLeft.ShowPinButton = False</code_line>
+      <code_line>                        Me.m_sbSidebarLeft.IsPinned = True</code_line>
+      <code_line>                        Me.m_rtbtnDocumentSettings.IsChecked = True</code_line>
+      <code_line>                        Me.m_rtbtnAbout.IsChecked = False</code_line>
+      <code_line>                Case Sidebar.SidebarContentLayout.About</code_line>
+      <code_line>                        Me.m_sbSidebarLeft.ShowPinButton = False</code_line>
+      <code_line>                        Me.m_sbSidebarLeft.IsPinned = True</code_line>
+      <code_line>                        Me.m_rtbtnDocumentSettings.IsChecked = False</code_line>
+      <code_line>        End Select</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_Toolbars.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Determines the display colors of the toolbars and sets the texts of the status bar.</ref_desc>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow_ContextualTabs.vb:</apiname>
+    </ref_desc>
+    <ref_desc>Shows and hides the contextual tabs. The <apiname>Table Tools</apiname> contextual tab with its <apiname>Table Layout</apiname> and <apiname>Formulas</apiname> tabs is shown when the <apiname>TextControl</apiname> input position is <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.inputpositionchanged.event.htm">changed</link> into a location inside a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.table.class.htm">table</link>.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_InputPositionChanged(ByVal sender As Object, ByVal e As EventArgs)</code_line>
+      <code_line>        Me.m_ctgTableTools.Visibility = If(Me.m_txTextControl.Tables.GetItem() IsNot Nothing, Windows.Visibility.Visible, Windows.Visibility.Collapsed)</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>The <apiname>Frame Tools</apiname> contextual tab is shown when a <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.framebase.class.htm">frame</link> is <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.frameselected.event.htm">selected</link> and hidden when it is <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.framedeselected.event.htm">deselected</link>.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_FrameSelected(ByVal sender As Object, ByVal e As FrameEventArgs)</code_line>
+      <code_line>        ' Show the Frame Tools group</code_line>
+      <code_line>        Me.m_ctgFrameTools.Visibility = Windows.Visibility.Visible</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>
+      <apiname>MainWindow.vb:</apiname>
+    </ref_desc>
+    <ref_desc>The <apiname>MainWindow</apiname> file connects inside the overridden <apiname>OnLoad</apiname> method the implemented behavior of the previous presented files with the application and sets the design of those elements that could not be determined by the designer.</ref_desc>
+    <ref_desc>Furthermore the <apiname>TextControl</apiname><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.minitoolbar.class.htm">mini toolbar</link> is activated by setting the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.showminitoolbar.property.htm">ShowMiniToolbar</link> property to <apiname>MiniToolbarButton.LeftButton | MiniToolbarButton.RightButton</apiname>.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us under:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+    <ref_desc />
+    <ref_desc />
+    <ref_desc />
+  </article>
+</chap>

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Conditional Instructions Sample</chap_hl>
+  <chap_desc>In context with the ability to create forms, <apiname>TX Text Control</apiname> also provides the option to apply a specific behavior to form fields when one or more events occur. The sample illustrates the concept of such conditional instructions by deploying and previewing a form where the layout and behavior depends on predefined conditions.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>By running this sample, a form is loaded that already contains conditional instructions that are listed in the overview of the <apiname>Conditional Instructions</apiname> sidebar. Each entry represents a set of actions to be performed when one or more conditions are fulfilled.</ref_desc>
+    <ref_desc>In order to deploy such a form, the content must be protected. This can be done by toggling both the Permissions tab's <apiname>Fill in Form Fields</apiname> and <apiname>Read Only</apiname> button before clicking <apiname>Enforce Protection</apiname>.</ref_desc>
+    <ref_desc>To preview the conditional instructions of a form, the sample provides a <apiname>Preview</apiname> button inside the <apiname>Form Fields</apiname> tab that is only enabled in case the <apiname>Enabled Form Validation</apiname> button is toggled. When clicking this button, the document becomes write-protected with the previous mentioned permissions settings. When untoggling the button, the content is reset to the state that was displayed before previewing the conditional instructions behavior.</ref_desc>
+    <ref_desc>On performing the preview mode, you can check the form behavior that is also described next to each form field. To show whether the defined form field content is valid, the <apiname>Highlight Invalid Values</apiname> button can be toggled.</ref_desc>
+    <ref_desc>To get an insight of creating conditional instructions, check out the article <link href="https://docs.textcontrol.com/textcontrol/wpf/article.techarticle.conditionalinstructionscreate.htm">Creating and Applying Conditional Instructions</link>, that explains how to create the sample form.</ref_desc>
+    <ref_desc>Other articles on that subject are:</ref_desc>
+    <list>
+      <list_desc>
+        <link href="https://docs.textcontrol.com/textcontrol/wpf/article.techarticle.howtocreateconditionscheckformfields.htm">How-to: Creating Conditions for Check Form Fields</link>
+      </list_desc>
+      <list_desc>
+        <link href="https://docs.textcontrol.com/textcontrol/wpf/article.techarticle.howtocreateconditionstextselectionformfields.htm">How-to: Creating Conditions for Text and Selection Form Fields</link>
+      </list_desc>
+      <list_desc>
+        <link href="https://docs.textcontrol.com/textcontrol/wpf/article.techarticle.howtocreateconditionsdateformfields.htm">How-to: Creating Conditions for Date Form Fields</link>
+      </list_desc>
+      <list_desc>
+        <link href="https://docs.textcontrol.com/textcontrol/wpf/article.techarticle.howtocreateinstructions.htm">How-to: Creating Instructions</link>
+      </list_desc>
+      <list_desc>
+        <link href="https://docs.textcontrol.com/textcontrol/wpf/article.techarticle.howtocreateradiobuttongroup.htm">How-to: Creating a Radio Button Group</link>
+      </list_desc>
+    </list>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>To implement the preview behavior, it is necessary to store the current content and document permission settings before activating the preview mode. The content is saved to a byte array by using the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.save.method.htm">TextControl.Save</link> method. The <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentpermissions.alloweditingformfields.property.htm">DocumentPermissions.AllowEditingFormFields</link> and <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentpermissions.readonly.property.htm">DocumentPermissions.ReadOnly</link> property values are stored to temporary bool variables. </ref_desc>
+    <ref_desc>To activate the preview, both document permissions variables are set to <apiname>true</apiname> and the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.editmode.property.htm">TextControl.EditMode</link> to <apiname>ReadAndSelect</apiname>.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub ActivateCIPreview()</code_line>
+      <code_line>        ' Store the current TextControl content.</code_line>
+      <code_line>        Me.m_txTextControl.Save(m_rbtTextControlContent, BinaryStreamType.InternalUnicodeFormat)</code_line>
+      <code_line />
+      <code_line>        ' Store the current DocumentPermissions.AllowEditingFormFields and .ReadOnly property values.</code_line>
+      <code_line>        m_bAllowEditinFormFieldsTemp = Me.m_txTextControl.DocumentPermissions.AllowEditingFormFields</code_line>
+      <code_line>        m_bReadOnlyTemp = m_txTextControl.DocumentPermissions.ReadOnly</code_line>
+      <code_line />
+      <code_line>        ' Set those document permissions that are necessary to show a preview.</code_line>
+      <code_line>        Me.m_txTextControl.DocumentPermissions.AllowEditingFormFields = True</code_line>
+      <code_line>        Me.m_txTextControl.DocumentPermissions.ReadOnly = True</code_line>
+      <code_line />
+      <code_line>        ' Hide all ribbon groups behind the TXITEM_FormValidationGroup group</code_line>
+      <code_line>        For i As Integer = 3 To Me.m_rtRibbonFormFieldsTab.Items.Count - 1</code_line>
+      <code_line>                TryCast(Me.m_rtRibbonFormFieldsTab.Items(i), RibbonGroup).Visibility = Windows.Visibility.Collapsed</code_line>
+      <code_line>        Next</code_line>
+      <code_line />
+      <code_line>        ' Activate the preview by setting the TextControl.EditMode property value to</code_line>
+      <code_line>        ' EditMode.ReadAndSelect.</code_line>
+      <code_line>        m_bIsPreviewActivated = True</code_line>
+      <code_line>        Me.m_txTextControl.EditMode = EditMode.ReadAndSelect</code_line>
+      <code_line />
+      <code_line>        ' Disable the TXITEM_EnableFormValidation ribbon toggle button</code_line>
+      <code_line>        m_rbtnEnableFormValidation.IsEnabled = False</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>When deactivating the preview, the saved content is reloaded by using the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.load.method.htm">TextControl.Load</link> method and the document permissions are reset to the values. An explicit resetting of the <apiname>TextControl.EditMode</apiname> property value to <apiname>Edit</apiname> is not necessary, because it is already set by loading the old content.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub DeactivateCIPreview(ByVal reloadContent As Boolean)</code_line>
+      <code_line>        ' Reset the preview button checked state</code_line>
+      <code_line>        m_rtbtnPreviewConditionalInstructions.IsChecked = False</code_line>
+      <code_line>        m_bIsPreviewActivated = False</code_line>
+      <code_line />
+      <code_line>        '  Enable the "Enable Form Validation" button.</code_line>
+      <code_line>        m_rbtnEnableFormValidation.IsEnabled = True</code_line>
+      <code_line />
+      <code_line>        ' Reset the Textcontrol content and permissions.</code_line>
+      <code_line>        If reloadContent Then</code_line>
+      <code_line>                ' Reload the Textcontrol content.</code_line>
+      <code_line>                Me.m_txTextControl.Load(m_rbtTextControlContent, BinaryStreamType.InternalUnicodeFormat)</code_line>
+      <code_line>                m_rbtTextControlContent = Nothing</code_line>
+      <code_line />
+      <code_line>                ' Reset the DocumentPermissions.AllowEditingFormFields property value and .ReadOnly property values.</code_line>
+      <code_line>                Me.m_txTextControl.DocumentPermissions.AllowEditingFormFields = m_bAllowEditinFormFieldsTemp</code_line>
+      <code_line>                Me.m_txTextControl.DocumentPermissions.ReadOnly = m_bReadOnlyTemp</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us under:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+    <ref_desc />
+    <ref_desc />
+  </article>
+</chap>

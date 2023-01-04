@@ -1,0 +1,213 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx	-->
+<!-- file:				About.dtd												-->
+<!-- description:		The DTD file that is related to the About.xml document.	-->
+<!--																			-->
+<!-- copyright:			Text Control GmbH										-->
+<!-- version:			31.0.100.500											-->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx	-->
+
+
+<!-- attributes -->
+<!ENTITY % chm_filename.att	'chm_filename CDATA #IMPLIED'>
+<!ENTITY % dynhelp_filename.att	'dynhelp_filename CDATA #IMPLIED'>
+<!ENTITY % pdfbase_filename.att	'pdfbase_filename CDATA #IMPLIED'>
+<!ENTITY % chm_title.att	'chm_title CDATA #IMPLIED'>
+<!ENTITY % chm_helpcontext.att 'chm_helpcontext CDATA #IMPLIED'>
+<!ENTITY % dynhelp_title.att	'dynhelp_title CDATA #IMPLIED'>
+<!ENTITY % htm_prefix.att	'htm_prefix CDATA #IMPLIED'>
+<!ENTITY % dynhelp_namespace.att 'dynhelp_namespace CDATA #IMPLIED' >
+<!ENTITY % dynhelp_group.att 'dynhelp_group CDATA #IMPLIED'>
+<!ENTITY % vendor.att 'vendor CDATA #IMPLIED'>
+<!ENTITY % product.att 'product CDATA #IMPLIED'>
+<!ENTITY % auto_seealso.att 'auto_seealso CDATA #IMPLIED'>
+<!ENTITY % auto_seealso_charttext.att 'auto_seealso_charttext CDATA #IMPLIED'>
+
+<!ENTITY % href.att	'href CDATA #IMPLIED'>
+<!ENTITY % hrefext.att	'hrefext (true|image) #IMPLIED'>
+<!ENTITY % src.att	'src CDATA #IMPLIED'>
+<!ENTITY % cat.att	'cat CDATA #IMPLIED'>
+<!ENTITY % cat2.att	'cat2 CDATA #IMPLIED'>
+<!ENTITY % chart.att	'chart CDATA #IMPLIED'>
+<!ENTITY % base.att 'base CDATA #IMPLIED'>       <!-- generates member list for base class in the derived class        -->
+<!ENTITY % baseref.att 'baseref CDATA #IMPLIED'> <!-- generates additional links for the online help to the base class -->
+
+
+<!-- TX categories: -->
+<!-- cat.att  'cat (all|char|para|style|page|clip|io|undo|print|find|sel|control|field|hyper|table|img|hf|xml|tb|line|format|link|misc|obsol|lic|ic|list|zoom|stylep|server|scroll|tf|docserver|text|wpf|spell|charts|servervis|web|excep|ribbon|restrict|trackedchange|forms|comments) #IMPLIED' -->
+<!-- cat2.att	'cat2 (dialog|para|tf) #IMPLIED' -->
+
+<!ENTITY % doc.att 'doc (undoc) #IMPLIED'>
+<!ENTITY % part.att 'part CDATA #IMPLIED'>
+<!ENTITY % subpart.att 'subpart CDATA #IMPLIED'>
+<!ENTITY % order.att	'order CDATA #IMPLIED'>
+<!ENTITY % target.att	'target CDATA #IMPLIED'>
+<!ENTITY % autogenerate.att 'autogenerate CDATA #IMPLIED'>
+<!ENTITY % autoelement.att 'autoelement (constructor|prop_desc|meth_desc|event_desc|enum_desc|field_desc|class_info|win_mess|win_notif|c_struct) #IMPLIED'>
+<!ENTITY % autolink.att	'autolink (true) #IMPLIED'>
+<!ENTITY % autonamespace.att	'autonamespace (false) #IMPLIED'>
+<!ENTITY % introduced.att 'introduced CDATA #IMPLIED'>
+<!ENTITY % titleprefix.att	'titleprefix CDATA #IMPLIED'>
+
+
+
+<!-- manual element (main element of complete documentation) -->
+<!ELEMENT manual (manual_hl, manual_desc*, manual_part+)>
+<!ATTLIST manual %chm_filename.att; %dynhelp_filename.att; %pdfbase_filename.att; %chm_title.att; %dynhelp_title.att; %htm_prefix.att; %dynhelp_group.att; %dynhelp_namespace.att; %vendor.att; %product.att; %chm_helpcontext.att; %auto_seealso.att; %auto_seealso_charttext.att; %autonamespace.att;>
+<!ELEMENT manual_part (manual_part_hl, manual_part_desc, chap*)>
+<!ATTLIST manual_part %part.att; %subpart.att;>
+
+
+<!-- chapter element -->
+<!ELEMENT chap (chap_hl, (chap_desc | image)*, (article | class_info | constructor | cat_list | meth_desc | prop_desc | event_desc | enum_desc | field_desc | win_mess | win_notif | c_struct)*)>
+<!ATTLIST chap %part.att; %subpart.att; %order.att; %cat.att; %cat2.att; %doc.att; %autonamespace.att; %titleprefix.att; %product.att;>
+
+
+<!-- main sub elements of chap element (subchapters) -->
+<!ELEMENT article (ref_hl, (ref_desc | image | vb6_code | vb_code | cs_code | pas_code | js_code | other_code | list | member_list)+)>
+<!ATTLIST article %target.att; %cat.att; %cat2.att;>
+
+<!ELEMENT class_info (syntax, version?, category*, example?, seealso?)>
+<!ATTLIST class_info %cat.att; %cat2.att; %autogenerate.att; %base.att; %baseref.att;>
+
+<!ELEMENT constructor (ref_hl, ref_desc?, (ref_desc, syntax)+, param_list?, seealso?)>
+<!ATTLIST constructor %target.att;>
+
+<!ELEMENT cat_list (ref_hl, ref_desc?, category*)>
+<!ATTLIST cat_list %cat.att; %cat2.att; %chart.att; %autogenerate.att; %introduced.att; %target.att; %product.att;>
+
+<!ELEMENT meth_desc (ref_hl, ref_desc?, (ref_desc, syntax)+, param_list?, retval?, constants?, comments?, datatypes?, limit?, version?, example?, seealso?)>
+<!ATTLIST meth_desc %cat.att; %cat2.att; %doc.att; %target.att;>
+
+<!ELEMENT prop_desc (ref_hl, ref_desc, syntax, param_list?, member_list?, constants?, comments?, datatypes?, limit?,version?, example?, seealso?)>
+<!ATTLIST prop_desc %cat.att; %cat2.att; %doc.att; %target.att;>
+
+<!ELEMENT event_desc (ref_hl, ref_desc, syntax, param_list?, constants?, comments?, datatypes?, version?, example?, seealso?)>
+<!ATTLIST event_desc %cat.att; %doc.att; %target.att;>
+
+<!ELEMENT enum_desc (ref_hl, ref_desc, member_list, version?, seealso?)>
+<!ATTLIST enum_desc %target.att;>
+
+<!ELEMENT field_desc (ref_hl, ref_desc, syntax)>
+<!ATTLIST field_desc %target.att;>
+
+<!ELEMENT win_mess (ref_hl, ref_desc, param_list?, retval?, comments?, param_list_aux?, example?, unicode?, version?, seealso?)>
+<!ATTLIST win_mess %cat.att; %doc.att; %target.att;>
+
+<!ELEMENT win_notif (ref_hl, ref_desc, param_list?, retval?, version?)>
+<!ATTLIST win_notif %cat.att; %doc.att; %target.att;>
+
+<!ELEMENT c_struct (ref_hl, ref_desc, syntax, param_list?, version?)>
+<!ATTLIST c_struct %cat.att; %doc.att; %target.att;>
+
+
+<!-- other structural elements -->
+<!ELEMENT category (category_hl, member_list?)>
+<!ELEMENT syntax (syntax_hl, syntax_desc)>
+<!ELEMENT syntax_desc ((vb6_code|vb_code|cs_code|pas_code|js_code|other_code|code_line)+)>
+<!ELEMENT vb6_code (code_line+)>
+<!ELEMENT vb_code (code_line+)>
+<!ELEMENT cs_code (code_line+)>
+<!ELEMENT pas_code (code_line+)>
+<!ELEMENT js_code (code_line+)>
+<!ELEMENT other_code (code_line+)>
+<!ELEMENT list (list_desc)+>
+
+<!ELEMENT param_list (param_hl, param+)>
+<!ELEMENT param_list_aux (param_hl, param+)>
+<!ELEMENT param_hl (param_name_hl, param_desc_hl)>
+<!ELEMENT param (param_name, param_desc)>
+<!ELEMENT param_desc (param_text+, value_list*)>
+
+<!ELEMENT member_list (member_hl, member+)>
+<!ELEMENT member_hl (member_name_hl, member_desc_hl)>
+<!ELEMENT member (member_name, member_desc)>
+<!ATTLIST member %autoelement.att;>
+
+<!ELEMENT retval (retval_hl, retval_desc)>
+<!ELEMENT retval_desc (retval_text+, value_list*)>
+
+<!ELEMENT comments (comments_hl, comments_desc)>
+<!ELEMENT comments_desc (comments_text+, value_list*)>
+
+<!ELEMENT constants (constants_hl, constants_desc)>
+<!ELEMENT constants_desc (constants_text, param_list)+>
+
+<!ELEMENT datatypes (datatypes_hl, datatypes_desc)>
+<!ELEMENT datatypes_desc (datatypes_text|datatypes_list)>
+<!ELEMENT datatypes_list (member+)>
+
+<!ELEMENT value_list (value_hl, value+)>
+<!ELEMENT value_hl (value_name_hl, value_desc_hl)>
+<!ELEMENT value (value_name, value_desc)>
+
+<!ELEMENT example (example_hl, example_desc)>
+
+<!ELEMENT example_desc (example_text, (vb6_code|vb_code|cs_code|pas_code|js_code|other_code|code_line)*)>
+
+<!ELEMENT unicode (unicode_hl, unicode_desc)>
+
+<!ELEMENT limit (limit_hl, limit_desc)>
+<!ELEMENT limit_desc (limit_text+)>
+
+<!ELEMENT version (version_hl, version_desc)>
+<!ELEMENT version_desc (version_text)>
+
+<!ELEMENT seealso (seealso_hl, seealso_desc)>
+
+
+<!-- text elements -->
+<!ELEMENT manual_hl (#PCDATA)>
+<!ELEMENT manual_desc (#PCDATA | link | filename | foldername | apiname | uiname | list)*>
+<!ELEMENT manual_part_hl (#PCDATA)>
+<!ELEMENT manual_part_desc (#PCDATA)>
+<!ELEMENT chap_hl (#PCDATA)>
+<!ELEMENT chap_desc (#PCDATA | link | filename | foldername | apiname | uiname | list)*>
+<!ELEMENT category_hl (#PCDATA)>
+<!ELEMENT ref_hl (#PCDATA)>
+<!ELEMENT ref_desc (#PCDATA | link | filename | foldername | apiname | uiname)*>
+<!ELEMENT syntax_hl (#PCDATA)>
+<!ELEMENT param_name_hl (#PCDATA)>
+<!ELEMENT param_desc_hl (#PCDATA)>
+<!ELEMENT param_name (#PCDATA | link)*>
+<!ELEMENT param_text (#PCDATA | link | apiname | uiname)*>
+<!ELEMENT member_name_hl (#PCDATA)>
+<!ELEMENT member_desc_hl (#PCDATA)>
+<!ELEMENT member_name (#PCDATA | link)*>
+<!ATTLIST member_name %href.att; %autolink.att;>
+<!ELEMENT member_desc (#PCDATA | link | filename | foldername | apiname | uiname | list)*>
+<!ELEMENT retval_hl (#PCDATA)>
+<!ELEMENT retval_text (#PCDATA | link | apiname)*>
+<!ELEMENT comments_hl (#PCDATA)>
+<!ELEMENT comments_text (#PCDATA | link | apiname | uiname)*>
+<!ELEMENT constants_hl (#PCDATA)>
+<!ELEMENT constants_text (#PCDATA)>
+<!ELEMENT datatypes_hl (#PCDATA)>
+<!ELEMENT datatypes_text (#PCDATA | link)*>
+<!ELEMENT example_hl (#PCDATA)>
+<!ELEMENT example_text (#PCDATA | link | apiname)*>
+<!ELEMENT code_line (#PCDATA | link)*>
+<!ELEMENT unicode_hl (#PCDATA)>
+<!ELEMENT unicode_desc (#PCDATA | link)*>
+<!ELEMENT limit_hl (#PCDATA)>
+<!ELEMENT limit_text (#PCDATA | link | apiname)*>
+<!ELEMENT version_hl (#PCDATA)>
+<!ELEMENT version_text (#PCDATA)>
+<!ELEMENT seealso_hl (#PCDATA)>
+<!ELEMENT seealso_desc (#PCDATA | link)*>
+<!ELEMENT value_name_hl (#PCDATA)>
+<!ELEMENT value_desc_hl (#PCDATA)>
+<!ELEMENT value_name (#PCDATA)>
+<!ELEMENT value_desc (#PCDATA | link | apiname | uiname)*>
+<!ELEMENT image (#PCDATA)>
+<!ATTLIST image %src.att;>
+<!ELEMENT list_desc (#PCDATA | link | filename | foldername | apiname | uiname)*>
+
+<!-- inline text elements -->
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST link	%href.att; %hrefext.att;>
+<!ELEMENT filename (#PCDATA)>
+<!ELEMENT foldername (#PCDATA)>
+<!ELEMENT uiname (#PCDATA)>
+<!ELEMENT apiname (#PCDATA)>
+
+

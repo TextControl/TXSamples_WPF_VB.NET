@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<accruals_report>
+   <company>
+      <company_name>Software Consultants, LLC</company_name>
+      <company_number>623577</company_number>
+   </company>
+
+   <employee>
+      <employee_fullname>Sarah S. Murdoch</employee_fullname>
+      <employee_number>445678</employee_number>
+      <company_number>623577</company_number>
+   </employee>
+   <employee>
+      <employee_fullname>Peter Nuflour</employee_fullname>
+      <employee_number>456872</employee_number>
+      <company_number>623577</company_number>
+   </employee>
+   <employee>
+      <employee_fullname>Paul Kim</employee_fullname>
+      <employee_number>456787</employee_number>
+      <company_number>623577</company_number>
+   </employee>
+
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>5/31/2010</date>
+      <type>Auto</type>
+      <action>No action</action>
+      <note>Earned 1 hour(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>6/30/2010</date>
+      <type>Auto</type>
+      <action>No action</action>
+      <note>Earned 1 hour(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>7/31/2010</date>
+      <type>Auto</type>
+      <action>No action</action>
+      <note>Earned 1 hour(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>8/1/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 3 hour(s) at the end of trial period.</note>
+      <hours>3.0000</hours>
+      <balance>3.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>8/31/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 1 hour(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>4.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>9/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 1 hour(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>5.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>445678</employee_number>
+      <date>10/31/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 1 hour(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>6.0000</balance>
+   </sick>
+
+   <vacation>
+      <employee_number>445678</employee_number>
+      <date>5/1/2010</date>
+      <type>Auto</type>
+      <action>New Balance</action>
+      <note>Accruals Reset to zero at the beginning of the accrual period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+   <vacation>
+      <employee_number>445678</employee_number>
+      <date>5/1/2010</date>
+      <type>Auto</type>
+      <action>No Action</action>
+      <note>Earned 6 day(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+   <vacation>
+      <employee_number>445678</employee_number>
+      <date>7/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 6 day(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+
+   <sick>
+      <employee_number>456872</employee_number>
+      <date>5/31/2010</date>
+      <type>Auto</type>
+      <action>No action</action>
+      <note>Earned 1 hour(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>456872</employee_number>
+      <date>8/31/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 1 hour(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>4.0000</balance>
+   </sick>
+   <sick>
+      <employee_number>456872</employee_number>
+      <date>9/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 1 hour(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>5.0000</balance>
+   </sick>
+
+   <vacation>
+      <employee_number>456872</employee_number>
+      <date>7/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 6 day(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+   <vacation>
+      <employee_number>456872</employee_number>
+      <date>5/1/2010</date>
+      <type>Auto</type>
+      <action>No Action</action>
+      <note>Earned 6 day(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+   <vacation>
+      <employee_number>456872</employee_number>
+      <date>7/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 6 day(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+   <vacation>
+      <employee_number>456872</employee_number>
+      <date>8/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 6 day(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+
+   <sick>
+      <employee_number>456787</employee_number>
+      <date>5/31/2010</date>
+      <type>Auto</type>
+      <action>No action</action>
+      <note>Earned 1 hour(s), but unavailable until the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </sick>
+
+   <vacation>
+      <employee_number>456787</employee_number>
+      <date>8/30/2010</date>
+      <type>Auto</type>
+      <action>Earned</action>
+      <note>Earned 6 day(s) at the end of trial period.</note>
+      <hours>1.0000</hours>
+      <balance>0.0000</balance>
+   </vacation>
+</accruals_report>

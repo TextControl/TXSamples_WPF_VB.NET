@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?><root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- Base -->
+	<data name="AboutButton_ToolTip_Description" xml:space="preserve">
+    <value>this Sample</value>
+  </data>
+	<data name="ApplicationMenu_ResentFiles" xml:space="preserve">
+    <value>Recent Files</value>
+  </data>
+	<data name="ContextualTabGroup_ChartTools" xml:space="preserve">
+    <value>Chart Tools</value>
+  </data>
+	<data name="ContextualTabGroup_FrameTools" xml:space="preserve">
+    <value>Frame Tools</value>
+  </data>
+	<data name="ContextualTabGroup_TableTools" xml:space="preserve">
+    <value>Table Tools</value>
+  </data>
+	<data name="MainWindow_Caption_Product" xml:space="preserve">
+    <value>TX Text Control Words</value>
+  </data>
+	<data name="MainWindow_Caption_Untitled" xml:space="preserve">
+    <value>[untitled]</value>
+  </data>
+	<data name="MessageBox_Application_ThreadException_Text" xml:space="preserve">
+    <value>The following exception is thrown:
+	
+"{0}"
+
+To get help, please visit the Text Control Support at www.textcontrol.com.</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_CouldNotOpenLink_Caption" xml:space="preserve">
+    <value>Open Hyperlink</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_CouldNotOpenLink_Text" xml:space="preserve">
+    <value>Could not open link to '{0}'.</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_FileDoesNotExist_Caption" xml:space="preserve">
+    <value>Open linked File</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_FileDoesNotExist_Text" xml:space="preserve">
+    <value>The linked file '{0}' does not exist.</value>
+  </data>
+	<data name="MessageBox_OpenRecentFile_FileDoesNotExist_Caption" xml:space="preserve">
+    <value>Open Recent File</value>
+  </data>
+	<data name="MessageBox_OpenRecentFile_FileDoesNotExist_Text" xml:space="preserve">
+    <value>The selected file does not exist. Do you want to remove it from the list of recent files?</value>
+  </data>
+	<data name="MessageBox_PasswordDialog_IncorrectPassword_Caption" xml:space="preserve">
+    <value>Incorrect Password</value>
+  </data>
+	<data name="MessageBox_PasswordDialog_IncorrectPassword_Text" xml:space="preserve">
+    <value>The entered password is incorrect.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_Caption" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_ToFile" xml:space="preserve">
+    <value>Do you want to save changes to '{0}' before the program closes? 
+Click Yes to save and close, No to close without saving, or Cancel to not close.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_Untitled" xml:space="preserve">
+    <value>Do you want to save the document before the program closes? 
+Click Yes to save and close, No to close without saving, or Cancel to not close.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_Caption" xml:space="preserve">
+    <value>New</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_ToFile" xml:space="preserve">
+    <value>Do you want to save changes to '{0}' before a new document is created? 
+Click Yes to save and create, No to create without saving, or Cancel to not to create a new document.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_Untitled" xml:space="preserve">
+    <value>Do you want to save the document before a new document is created? 
+Click Yes to save and create, No to create without saving, or Cancel to not to create a new document.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_Caption" xml:space="preserve">
+    <value>Open</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_ToFile" xml:space="preserve">
+    <value>Do you want to save changes to '{0}' before the new document is opened? 
+Click Yes to save and open, No to open without saving, or Cancel to not to open the new document.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_Untitled" xml:space="preserve">
+    <value>Do you want to save the document before the new document is opened? 
+Click Yes to save and open, No to open without saving, or Cancel to not to open the new document.</value>
+  </data>
+	<data name="PasswordDialog_Caption" xml:space="preserve">
+    <value>Password</value>
+  </data>
+	<data name="PasswordDialog_ProtectedDocument" xml:space="preserve">
+    <value>The document '{0}' is protected.</value>
+  </data>
+	<data name="PasswordDialog_EnterPassword" xml:space="preserve">
+    <value>Enter a password to open the document.</value>
+  </data>
+	<data name="PasswordDialog_Password" xml:space="preserve">
+    <value>_Password:</value>
+  </data>
+	<data name="PasswordDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="PasswordDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+	<data name="StatusBar_Column" xml:space="preserve">
+    <value>Column: </value>
+  </data>
+	<data name="StatusBar_Line" xml:space="preserve">
+    <value>Line: </value>
+  </data>
+	<data name="StatusBar_Page" xml:space="preserve">
+    <value>Page: </value>
+  </data>
+	<data name="StatusBar_Section" xml:space="preserve">
+    <value>Section: </value>
+  </data>
+
+	<!-- Reporting -->
+	<data name="ApplicationMenu_OpenSampleTemplate" xml:space="preserve">
+    <value>Open Sample Template</value>
+  </data>
+	<data name="ApplicationMenu_OpenSampleTemplate_KeyTip" xml:space="preserve">
+    <value>M</value>
+  </data>
+	<data name="ApplicationMenu_OpenSampleTemplate_ToolTip_Title" xml:space="preserve">
+    <value>Open Sample Template</value>
+  </data>
+	<data name="ApplicationMenu_OpenSampleTemplate_ToolTip_Description" xml:space="preserve">
+    <value>Provides three sample templates that can be combined with the reporting tab's database sample to show a typical merge process.</value>
+  </data>
+	<data name="ApplicationMenu_SampleInvoiceTemplate" xml:space="preserve">
+    <value>Sample Invoice Template</value>
+  </data>
+	<data name="ApplicationMenu_SampleInvoiceTemplate_KeyTip" xml:space="preserve">
+    <value>I</value>
+  </data>
+	<data name="ApplicationMenu_SamplePackingListTemplate" xml:space="preserve">
+    <value>Sample Packing List Template</value>
+  </data>
+	<data name="ApplicationMenu_SamplePackingListTemplate_KeyTip" xml:space="preserve">
+    <value>P</value>
+  </data>
+	<data name="ApplicationMenu_SampleShippingLabelTemplate" xml:space="preserve">
+    <value>Sample Shipping Label Template</value>
+  </data>
+	<data name="ApplicationMenu_SampleShippingLabelTemplate_KeyTip" xml:space="preserve">
+    <value>S</value>
+  </data>
+	<data name="ContextualTabGroup_Reporting" xml:space="preserve">
+    <value>Reporting</value>
+  </data>
+	<data name="ExportMergeResult" xml:space="preserve">
+    <value>Export Merge Result...</value>
+  </data>
+	<data name="ExportMergeResult_KeyTip" xml:space="preserve">
+    <value>X</value>
+  </data>
+	<data name="ExportMergeResult_ToolTip_Title" xml:space="preserve">
+    <value>Export Merge Result</value>
+  </data>
+	<data name="ExportMergeResult_ToolTip_Description" xml:space="preserve">
+    <value>Opens a dialog to export the merge result.</value>
+  </data>
+	<data name="ExportMergeResultDialog_Caption" xml:space="preserve">
+    <value>Export Merge Result</value>
+  </data>
+	<data name="ExportMergeResultDialog_FilePrefix" xml:space="preserve">
+    <value>File _Prefix:</value>
+  </data>
+	<data name="ExportMergeResultDialog_Directory" xml:space="preserve">
+    <value>_Directory:</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format" xml:space="preserve">
+    <value>_Format:</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_RTF" xml:space="preserve">
+    <value>Rich Text Format (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_HTML" xml:space="preserve">
+    <value>Hypertext Markup Language (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_DOCX" xml:space="preserve">
+    <value>Microsoft Word (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_DOC" xml:space="preserve">
+    <value>Microsoft Word 97-2003 (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_PDF" xml:space="preserve">
+    <value>Adobe PDF (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_TXT" xml:space="preserve">
+    <value>Plain Text (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_Format_TX" xml:space="preserve">
+    <value>TX Text Control Format (*{0})</value>
+  </data>
+	<data name="ExportMergeResultDialog_openDirectory" xml:space="preserve">
+    <value>_Open directory after export</value>
+  </data>
+	<data name="ExportMergeResultDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="ExportMergeResultDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+	<data name="Merge" xml:space="preserve">
+    <value>Merge</value>
+  </data>
+	<data name="Merge_KeyTip" xml:space="preserve">
+    <value>L</value>
+  </data>
+	<data name="MergeAndExport" xml:space="preserve">
+    <value>Merge and Export</value>
+  </data>
+	<data name="MergeAndExport_KeyTip" xml:space="preserve">
+    <value>P</value>
+  </data>
+	<data name="MergeAndExport_ToolTip_Title" xml:space="preserve">
+    <value>Merge and Export</value>
+  </data>
+	<data name="MergeAndExport_ToolTip_Description" xml:space="preserve">
+    <value>Starts the merge process and opens the 'Results' tab to show and export the created documents.</value>
+  </data>
+	<data name="MergeResultsTab" xml:space="preserve">
+    <value>  Results  </value>
+  </data>
+	<data name="MergeResultsTab_KeyTip" xml:space="preserve">
+    <value>W</value>
+  </data>
+	<data name="MergeResultsTab_Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+	<data name="MergeResultsTab_Result_KeyTip" xml:space="preserve">
+    <value>V</value>
+  </data>
+	<data name="MergeResultsTab_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+	<data name="MergeResultsTab_Exit_KeyTip" xml:space="preserve">
+    <value>E</value>
+  </data>
+	<data name="MergeResultsTab_Exit_ToolTip_Title" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+	<data name="MergeResultsTab_Exit_ToolTip_Description" xml:space="preserve">
+    <value>Closes the 'Result' tab.</value>
+  </data>
+	<data name="MergeResultsTab_Navigate" xml:space="preserve">
+    <value>Navigate</value>
+  </data>
+	<data name="MergeResultsTab_Navigate_KeyTip" xml:space="preserve">
+    <value>N</value>
+  </data>
+	<data name="MergeResultsTab_FirstRecord" xml:space="preserve">
+    <value>First Record</value>
+  </data>
+	<data name="MergeResultsTab_FirstRecord_KeyTip" xml:space="preserve">
+    <value>F</value>
+  </data>
+	<data name="MergeResultsTab_FirstRecord_ToolTip_Title" xml:space="preserve">
+    <value>First Record</value>
+  </data>
+	<data name="MergeResultsTab_PreviousRecord" xml:space="preserve">
+    <value>Previous Record</value>
+  </data>
+	<data name="MergeResultsTab_PreviousRecord_KeyTip" xml:space="preserve">
+    <value>P</value>
+  </data>
+	<data name="MergeResultsTab_PreviousRecord_ToolTip_Title" xml:space="preserve">
+    <value>Previous Record</value>
+  </data>
+	<data name="MergeResultsTab_NextRecord" xml:space="preserve">
+    <value>Next Record</value>
+  </data>
+	<data name="MergeResultsTab_NextRecord_KeyTip" xml:space="preserve">
+    <value>N</value>
+  </data>
+	<data name="MergeResultsTab_NextRecord_ToolTip_Title" xml:space="preserve">
+    <value>Next Record</value>
+  </data>
+	<data name="MergeResultsTab_LastRecord" xml:space="preserve">
+    <value>Last Record</value>
+  </data>
+	<data name="MergeResultsTab_LastRecord_KeyTip" xml:space="preserve">
+    <value>L</value>
+  </data>
+	<data name="MergeResultsTab_LastRecord_ToolTip_Title" xml:space="preserve">
+    <value>Last Record</value>
+  </data>
+	<data name="MergeResultsTab_Record_ToolTip_Description" xml:space="preserve">
+    <value>Go to record no. {0}.</value>
+  </data>
+	<data name="MergeResultsTab_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+	<data name="MergeResultsTab_Export_KeyTip" xml:space="preserve">
+    <value>X</value>
+  </data>
+	<data name="MergeSettingsDialog_Caption" xml:space="preserve">
+    <value>Merge Settings</value>
+  </data>
+	<data name="MergeSettingsDialog_Records" xml:space="preserve">
+    <value>Records</value>
+  </data>
+	<data name="MergeSettingsDialog_NumberOfRecords" xml:space="preserve">
+    <value>_Number of records:</value>
+  </data>
+	<data name="MergeSettingsDialog_MergeAllRecords" xml:space="preserve">
+    <value>Merge _all records</value>
+  </data>
+	<data name="MergeSettingsDialog_MergeIntoSingleDocument" xml:space="preserve">
+    <value>_Merge into single document</value>
+  </data>
+	<data name="MergeSettingsDialog_RemoveEmptyMergeElements" xml:space="preserve">
+    <value>Remove empty merge elements</value>
+  </data>
+	<data name="MergeSettingsDialog_Blocks" xml:space="preserve">
+    <value>_Blocks</value>
+  </data>
+	<data name="MergeSettingsDialog_Fields" xml:space="preserve">
+    <value>_Fields</value>
+  </data>
+	<data name="MergeSettingsDialog_Lines" xml:space="preserve">
+    <value>_Lines</value>
+  </data>
+	<data name="MergeSettingsDialog_Images" xml:space="preserve">
+    <value>_Images</value>
+  </data>
+	<data name="MergeSettingsDialog_TrailingWhitespace" xml:space="preserve">
+    <value>_Trailing Whitespace</value>
+  </data>
+	<data name="MergeSettingsDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="MergeSettingsDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+	<data name="MergeAndWaitDialog_Caption" xml:space="preserve">
+    <value>Please Wait</value>
+  </data>
+	<data name="MergeAndWaitDialog_Merging" xml:space="preserve">
+    <value>Merging....</value>
+  </data>
+	<data name="MessageBox_ExportMergeResultDialog_DirectoryDoesNotExist_Caption" xml:space="preserve">
+    <value>Export Results</value>
+  </data>
+	<data name="MessageBox_ExportMergeResultDialog_DirectoryDoesNotExist_Text" xml:space="preserve">
+    <value>The specified directory does not exist.</value>
+  </data>
+	<data name="RibbonReportingTab_LoadSampleDatabase" xml:space="preserve">
+    <value>Load Sample Database</value>
+  </data>
+	<data name="RibbonReportingTab_LoadSampleDatabase_ToolTip_Title" xml:space="preserve">
+    <value>Load Sample Database</value>
+  </data>
+	<data name="RibbonReportingTab_LoadSampleDatabase_ToolTip_Description" xml:space="preserve">
+    <value>Load a sample database.</value>
+  </data>
+</root>

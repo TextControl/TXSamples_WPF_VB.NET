@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Right to Left Sample</chap_hl>
+  <chap_desc>
+    <apiname>Text Control</apiname> supports right to left text rendering for languages such as Arabic or Hebrew. Most often, users working with "RTL languages", also prefer an application view with a right-to-left orientation. This sample shows how to implement a button that restarts the program in the opposite application view.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>To change the application view, click the <apiname>Right to Left</apiname> button. It opens a message box where the user can confirm the view change by restarting the program. After the application is restarted, the orientation of the sample is changed to right to left.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>When clicking the <apiname>Right to Left</apiname> button, the requested layout will be saved as <apiname>Settings</apiname> property value before the application is restarted.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub RightToLeftFormLayout_Click(ByVal sender As Object, ByVal e As EventArgs)</code_line>
+      <code_line>        Dim bIsRightToLeft As Boolean = CBool(TryCast(sender, RibbonButton).Tag)</code_line>
+      <code_line>        If SaveDirtyDocumentBeforeReset(bIsRightToLeft) Then</code_line>
+      <code_line>                My.Settings.Default.RightToLeft = If(bIsRightToLeft, FlowDirection.LeftToRight, FlowDirection.RightToLeft)</code_line>
+      <code_line>                SaveRecentFiles()</code_line>
+      <code_line>                m_bRestartApplication = True</code_line>
+      <code_line>                Call Application.Current.Shutdown()</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+      <code_line />
+      <code_line>Private Sub MainWindow_Closed(ByVal sender As Object, ByVal e As EventArgs)</code_line>
+      <code_line>        If m_bRestartApplication Then</code_line>
+      <code_line>                Process.Start(Application.ResourceAssembly.Location)</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>After that, this layout is loaded when the application is initialized for restart.</ref_desc>
+    <vb_code>
+      <code_line>Public Sub New()</code_line>
+      <code_line>        ' Add an unhandled exception handler</code_line>
+      <code_line>        Dim currentDomain As AppDomain = AppDomain.CurrentDomain</code_line>
+      <code_line>        AddHandler currentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException</code_line>
+      <code_line />
+      <code_line>        Me.InitializeComponent()</code_line>
+      <code_line />
+      <code_line>        ' Set some texts</code_line>
+      <code_line>        Me.Title = My.Resources.MainWindow_Caption_Product</code_line>
+      <code_line>        Me.m_rtRibbonTableLayoutTab.ContextualTabGroupHeader = My.Resources.ContextualTabGroup_TableTools</code_line>
+      <code_line>        Me.m_rtRibbonFormulaTab.ContextualTabGroupHeader = My.Resources.ContextualTabGroup_TableTools</code_line>
+      <code_line>        Me.m_rtRibbonFrameLayoutTab.ContextualTabGroupHeader = My.Resources.ContextualTabGroup_FrameTools</code_line>
+      <code_line>        Me.m_ctgTableTools.Header = My.Resources.ContextualTabGroup_TableTools</code_line>
+      <code_line>        Me.m_ctgFrameTools.Header = My.Resources.ContextualTabGroup_FrameTools</code_line>
+      <code_line />
+      <code_line>        ' Get and set saved application settings.</code_line>
+      <code_line>        LoadRightToLeftSettings()</code_line>
+      <code_line>        LoadRecentFiles()</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>It updates the <apiname>FlowDirection</apiname> property value of the application.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub LoadRightToLeftSettings()</code_line>
+      <code_line>        FlowDirection = My.Settings.Default.RightToLeft</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+    <ref_desc />
+  </article>
+</chap>

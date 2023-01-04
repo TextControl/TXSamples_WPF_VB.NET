@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Shortcuts Sample</chap_hl>
+  <chap_desc>Using shortcuts is a useful way to access word processing functions by using key combinations. Some shortcuts (like <filename>Ctrl+Z</filename> for undo, <filename>Ctrl+Y</filename> for redo,<filename>Ctrl+C</filename> for copy, <filename>Ctrl+X</filename> for cut and <filename>Ctrl+V</filename> for paste) are built-in. This sample shows how to implement a user defined shortcut behavior by using the <apiname>TextControl.KeyDown</apiname> event.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>This sample implements the following shortcuts:</ref_desc>
+    <list>
+      <list_desc>
+        <filename>Insert</filename>: Toggles the <apiname>TextControl</apiname><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.insertionmode.property.htm">insertion mode</link> between <apiname>Insert</apiname> and <apiname>Overwrite</apiname>.</list_desc>
+      <list_desc>
+        <filename>Ctrl+A</filename>: <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.selectall.method.htm">Selects all text</link> in the <apiname>TextControl</apiname>.</list_desc>
+      <list_desc>
+        <filename>Ctrl+S</filename>: <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.save.method.htm">Save</link> the changes of active document.</list_desc>
+      <list_desc>
+        <filename>Ctrl+O</filename>: Invokes the built-in <apiname>TextControl</apiname><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.load.method.htm">load</link> dialog to open a document.</list_desc>
+      <list_desc>
+        <filename>Ctrl+F</filename>: Invokes the built-in <apiname>TextControl</apiname><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.find.method.htm">find</link> dialog.</list_desc>
+      <list_desc>
+        <filename>Ctrl+P</filename>: Invokes the built-in <apiname>TextControl</apiname><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.print.method.htm">print</link> dialog.</list_desc>
+    </list>
+    <ref_desc>To check the implementation add or load some text and apply the defined shortcuts.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>As mentioned before, the shortcuts are handled by a <apiname>TextControl.KeyDown</apiname> event handler:</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs)</code_line>
+      <code_line>        Select Case e.Key</code_line>
+      <code_line>                Case Key.Insert   ' Toggle insertion mode					</code_line>
+      <code_line>                        If Keyboard.Modifiers = ModifierKeys.None Then</code_line>
+      <code_line>                                ToggleInsertionMode()</code_line>
+      <code_line>                        End If</code_line>
+      <code_line />
+      <code_line>                Case Key.A        ' Ctrl + A: Select all</code_line>
+      <code_line>                        If Keyboard.Modifiers = ModifierKeys.Control Then</code_line>
+      <code_line>                                Me.m_txTextControl.SelectAll()</code_line>
+      <code_line>                        End If</code_line>
+      <code_line />
+      <code_line>                Case Key.S        ' Ctrl + S: Save</code_line>
+      <code_line>                        If Keyboard.Modifiers = ModifierKeys.Control Then</code_line>
+      <code_line>                                Save(m_strActiveDocumentPath)</code_line>
+      <code_line>                        End If</code_line>
+      <code_line />
+      <code_line>                Case Key.O        ' Ctrl + O: Open</code_line>
+      <code_line>                        If Keyboard.Modifiers = ModifierKeys.Control Then</code_line>
+      <code_line>                                Open()</code_line>
+      <code_line>                        End If</code_line>
+      <code_line />
+      <code_line>                Case Key.F        ' Ctrl + F: Search</code_line>
+      <code_line>                        If Keyboard.Modifiers = ModifierKeys.Control Then</code_line>
+      <code_line>                                Me.m_txTextControl.Find()</code_line>
+      <code_line>                        End If</code_line>
+      <code_line />
+      <code_line>                Case Key.P        ' Ctrl + P: Print</code_line>
+      <code_line>                        If Keyboard.Modifiers = ModifierKeys.Control Then</code_line>
+      <code_line>                                If Me.m_txTextControl.CanPrint Then</code_line>
+      <code_line>                                        Me.m_txTextControl.Print(m_strActiveDocumentName, True)</code_line>
+      <code_line>                                End If</code_line>
+      <code_line>                        End If</code_line>
+      <code_line>        End Select</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+  </article>
+</chap>

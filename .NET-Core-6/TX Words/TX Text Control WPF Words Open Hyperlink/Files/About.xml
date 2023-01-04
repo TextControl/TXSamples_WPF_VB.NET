@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Open Hyperlink Sample</chap_hl>
+  <chap_desc>Hyperlinks in a document can refer to a URL as well as to different areas in the same document or another file. This sample shows how to create and handle a clicked <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.hypertextlink.class.htm">hyperlink</link> depending on its target: Open the link in a browser, if it is a URL, scroll to the document location, if it is a document target, or initializing a new instance of an application to open a linked file.</chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>By running this sample, a document is loaded that contains three hyperlinks. When clicking the first one, the corresponding URL is opened by the system's default browser. The second one scrolls to the specified document target. The third one opens a linked document with a new instance of the application.</ref_desc>
+    <ref_desc>Both a hyperlink to a URL and a hyperlink to a document target can be created and edited by using the corresponding dialog when clicking the <apiname>Hyperlink</apiname> button's <apiname>Insert Hyperlink...</apiname> respectively <apiname>Edit Hyperlink...</apiname> drop down menu button. A document target can be inserted, edited or deleted by clicking the corresponding <apiname>Bookmark</apiname> button's drop down menu item.</ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>When clicking a hyperlink that refers to a document target, the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.documentlinkclicked.event.htm">TextControl.DocumentLinkClicked</link> event is fired. A handler that is connected to this event invokes the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documenttarget.scrollto.method.htm">ScrollTo</link> method of the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documenttarget.class.htm">DocumentTarget </link> that is provided by the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentlinkeventargs.class.htm">event args'</link><apiname>DocumentLink</apiname> property.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub TextControl_DocumentLinkClicked(ByVal sender As Object, ByVal e As DocumentLinkEventArgs)</code_line>
+      <code_line>        Dim dtTarget As DocumentTarget = e.DocumentLink.DocumentTarget</code_line>
+      <code_line>        ' TextControl scrolls automatically to TOC targets when pressing the Ctrl key and clicking the link.</code_line>
+      <code_line>        If dtTarget IsNot Nothing AndAlso dtTarget.AutoGenerationType &lt;&gt; AutoGenerationType.TableOfContents Then</code_line>
+      <code_line>                dtTarget.ScrollTo()</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>If the clicked hyperlink refers to a file or a URL, the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.textcontrol.hypertextlinkclicked.event.htm">TextControl.HypertextLinkClicked</link> event is fired. The corresponding handler handles the corresponding hypertext link target by checking in a first step whether it is a file or not.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub OpenHyperlink(ByVal hyperlinkTarget As String)</code_line>
+      <code_line>        If Not String.IsNullOrEmpty(hyperlinkTarget) Then</code_line>
+      <code_line>                Try</code_line>
+      <code_line>                        ' Create a Uri to determine the type of the linked target. </code_line>
+      <code_line>                        Dim uriTarget As Uri</code_line>
+      <code_line>                        If Uri.TryCreate(hyperlinkTarget, UriKind.RelativeOrAbsolute, uriTarget) AndAlso uriTarget.IsAbsoluteUri OrElse Uri.TryCreate(Path.GetFullPath(hyperlinkTarget), UriKind.RelativeOrAbsolute, uriTarget) Then ' Handle relative file paths</code_line>
+      <code_line>                                ' Check whether the specified Uri is a file</code_line>
+      <code_line>                                If uriTarget.IsFile Then</code_line>
+      <code_line>                                        ' Open the file by a type-corresponding application.</code_line>
+      <code_line>                                        OpenFile(uriTarget)</code_line>
+      <code_line>                                Else</code_line>
+      <code_line>                                        ' If it is not a file, the local system decides how to open the linked target. </code_line>
+      <code_line>                                        Process.Start(uriTarget.AbsoluteUri)</code_line>
+      <code_line>                                End If</code_line>
+      <code_line>                        End If</code_line>
+      <code_line>                        Return</code_line>
+      <code_line>                Catch</code_line>
+      <code_line>                End Try</code_line>
+      <code_line>        End If</code_line>
+      <code_line>        ' Inform the user if something went wrong.</code_line>
+      <code_line>        MessageBox.Show(Me, String.Format(My.Resources.MessageBox_OpenHyperlink_CouldNotOpenLink_Text, hyperlinkTarget), My.Resources.MessageBox_OpenHyperlink_CouldNotOpenLink_Caption, MessageBoxButton.OK, MessageBoxImage.Error)</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc>If it is not a file, the method passes the link to the system that opens the associated application. In general, if it is identified as a URL, the link is opened by the system's default browser.</ref_desc>
+    <ref_desc />
+    <ref_desc>In case the hyperlink refers to a file, it is checked whether it can be loaded by  <apiname>TextControl</apiname>. If the format is not supported, the path is passed to the <apiname>Process.Start</apiname> method to be handled by the system's associated application.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub OpenFile(ByVal fileTarget As Uri)</code_line>
+      <code_line>        Dim strFileToOpen = fileTarget.LocalPath</code_line>
+      <code_line />
+      <code_line>        ' Remove internal links inside the target document.</code_line>
+      <code_line>        Dim iPos = strFileToOpen.IndexOf("#")</code_line>
+      <code_line>        If iPos &lt;&gt; -1 Then</code_line>
+      <code_line>                strFileToOpen = strFileToOpen.Substring(0, iPos)</code_line>
+      <code_line>        End If</code_line>
+      <code_line />
+      <code_line>        ' Check whether the specified file exists.</code_line>
+      <code_line>        If Not File.Exists(strFileToOpen) Then</code_line>
+      <code_line>                MessageBox.Show(Me, String.Format(My.Resources.MessageBox_OpenHyperlink_FileDoesNotExist_Text, strFileToOpen), My.Resources.MessageBox_OpenHyperlink_FileDoesNotExist_Caption, MessageBoxButton.OK, MessageBoxImage.Error)</code_line>
+      <code_line>        Else</code_line>
+      <code_line>                ' If the file format is supported by TX Text Control...</code_line>
+      <code_line>                If IsSupportedDocumentFormat(strFileToOpen) Then</code_line>
+      <code_line>                        ' ... open the file with a new instance of this application.</code_line>
+      <code_line>                        OpenFileInNewInstance(strFileToOpen)</code_line>
+      <code_line>                Else</code_line>
+      <code_line>                        ' Otherwise open the file with the default application that </code_line>
+      <code_line>                        ' is determined for the corresponding format.</code_line>
+      <code_line>                        Process.Start(strFileToOpen)</code_line>
+      <code_line>                End If</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>Otherwise, the file format is supported by <apiname>TextControl</apiname>. The path is set as an <apiname>Arguments</apiname> string to the <apiname>Process.StartInfo</apiname> property before the application is restarted... </ref_desc>
+    <vb_code>
+      <code_line>Private Sub OpenFileInNewInstance(ByVal filePath As String)</code_line>
+      <code_line>        ' Get running demo's exe path</code_line>
+      <code_line>        Dim strExePath As String = Assembly.GetEntryAssembly().Location</code_line>
+      <code_line />
+      <code_line>        ' Start new demo instance</code_line>
+      <code_line>        Dim pcPocess As Process = New Process()</code_line>
+      <code_line>        pcPocess.StartInfo.FileName = strExePath</code_line>
+      <code_line>        pcPocess.StartInfo.Arguments = """" &amp; filePath &amp; """"</code_line>
+      <code_line>        pcPocess.Start()</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>... with the referenced file.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub MainWindow_OpenHyperlink_Load(ByVal sender As Object, ByVal e As EventArgs)</code_line>
+      <code_line>        ' Load file provided as a command line argument</code_line>
+      <code_line>        Dim rstrArgs As String() = Environment.GetCommandLineArgs()</code_line>
+      <code_line>        If rstrArgs.Length &gt; 1 Then</code_line>
+      <code_line>                Dim strFile = rstrArgs(1)</code_line>
+      <code_line>                If File.Exists(strFile) Then</code_line>
+      <code_line>                        m_strLinkedFile = strFile</code_line>
+      <code_line>                        AddHandler Me.m_txTextControl.Loaded, AddressOf Me.TextControl_Loaded</code_line>
+      <code_line>                End If</code_line>
+      <code_line>        End If</code_line>
+      <code_line>End Sub</code_line>
+      <code_line />
+      <code_line>Private Sub TextControl_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)</code_line>
+      <code_line>        Me.Open(m_strLinkedFile)</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+  </article>
+</chap>

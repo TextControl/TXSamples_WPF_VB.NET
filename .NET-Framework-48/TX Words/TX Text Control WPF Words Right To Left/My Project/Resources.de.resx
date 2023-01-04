@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?><root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1">this is my long string</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        [base64 mime encoded serialized .NET Framework object]
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        [base64 mime encoded string representing a byte array form of the .NET Framework object]
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- Base -->
+	<data name="AboutButton_ToolTip_Description" xml:space="preserve">
+    <value>dieses Beispiel</value>
+  </data>
+	<data name="ApplicationMenu_ResentFiles" xml:space="preserve">
+    <value>Letzte Dateien</value>
+  </data>
+	<data name="ContextualTabGroup_ChartTools" xml:space="preserve">
+    <value>Diagrammwerkzeuge</value>
+  </data>
+	<data name="ContextualTabGroup_FrameTools" xml:space="preserve">
+    <value>Rahmenwerkzeuge</value>
+  </data>
+	<data name="ContextualTabGroup_TableTools" xml:space="preserve">
+    <value>Tabellenwerkzeuge</value>
+  </data>
+	<data name="MainWindow_Caption_Product" xml:space="preserve">
+    <value>TX Text Control Words</value>
+  </data>
+	<data name="MainWindow_Caption_Untitled" xml:space="preserve">
+    <value>[unbenannt]</value>
+  </data>
+	<data name="MessageBox_Application_ThreadException_Text" xml:space="preserve">
+    <value>Die folgende Exception wird geworfen:
+	
+"{0}"
+
+Um Hilfe zu erhalten, besuchen Sie bitte den Text Control Support unter www.textcontrol.com. </value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_CouldNotOpenLink_Caption" xml:space="preserve">
+    <value>Hyperlink öffnen</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_CouldNotOpenLink_Text" xml:space="preserve">
+    <value>Der Link zu '{0}' konnte nicht geöffnet werden.</value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_FileDoesNotExist_Caption" xml:space="preserve">
+    <value>Verlinkte Datei öffnen </value>
+  </data>
+	<data name="MessageBox_OpenHyperlink_FileDoesNotExist_Text" xml:space="preserve">
+    <value>Die verlinkte Datei '{0}' existiert nicht.</value>
+  </data>
+	<data name="MessageBox_OpenRecentFile_FileDoesNotExist_Caption" xml:space="preserve">
+    <value>Zuletzt verwendetet Datei öffnen</value>
+  </data>
+	<data name="MessageBox_OpenRecentFile_FileDoesNotExist_Text" xml:space="preserve">
+    <value>Die ausgewählte Datei existiert nicht. Möchten Sie die Datei aus der Liste der zuletzt verwendeten Dateien entfernen?</value>
+  </data>
+	<data name="MessageBox_PasswordDialog_IncorrectPassword_Caption" xml:space="preserve">
+    <value>Falsches Kennwort</value>
+ </data>
+	<data name="MessageBox_PasswordDialog_IncorrectPassword_Text" xml:space="preserve">
+    <value>Das eingegebene Kennwort ist falsch.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_Caption" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_ToFile" xml:space="preserve">
+    <value>Möchten Sie die Änderungen an '{0}' speichern, bevor das Programm geschlossen wird?
+Klicken Sie zum Speichern und Schließen auf Ja, zum Schließen ohne vorher zu Speichern auf Nein oder auf Abbrechen, um nicht zu schließen.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnExit_Untitled" xml:space="preserve">
+    <value>Möchten Sie das Dokument speichern, bevor das Programm geschlossen wird?
+Klicken Sie zum Speichern und Schließen auf Ja, zum Schließen ohne vorher zu Speichern auf Nein oder auf Abbrechen, um nicht zu schließen.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_Caption" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_ToFile" xml:space="preserve">
+    <value>Möchten Sie die Änderungen an '{0}' speichern, bevor ein neues Dokument erstellt wird? 
+Klicken zum Speichern und neu Erstellen eines Dokumentes auf Ja, ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument erstellt werden soll.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnNew_Untitled" xml:space="preserve">
+    <value>Möchten Sie das Dokument speichern, bevor ein neues Dokument erstellt wird? 
+Klicken zum Speichern und neu Erstellen eines Dokumentes auf Ja, ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument erstellt werden soll.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_Caption" xml:space="preserve">
+    <value>Öffnen</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_ToFile" xml:space="preserve">
+    <value>Möchten Sie die Änderungen an '{0}' speichern, bevor das neue Dokument geladen wird?
+Klicken Sie zum Speichern und Öffnen einen neues Dokumentes auf Ja, zum Öffnen ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument geladen werden soll.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentOnOpen_Untitled" xml:space="preserve">
+    <value>Möchten Sie das Dokument speichern,bevor das neue Dokument geladen wird?
+Klicken Sie zum Speichern und Öffnen einen neues Dokumentes auf Ja, zum Öffnen ohne vorher zu Speichern auf Nein oder auf Abbrechen, wenn kein neues Dokument geladen werden soll.</value>
+  </data>
+	<data name="PasswordDialog_Caption" xml:space="preserve">
+    <value>Kennwort</value>
+  </data>
+	<data name="PasswordDialog_ProtectedDocument" xml:space="preserve">
+    <value>Das Dokument '{0}' ist geschützt.</value>
+  </data>
+	<data name="PasswordDialog_EnterPassword" xml:space="preserve">
+    <value>Geben Sie ein Kennwort zum Öffnen des Dokumentes ein.</value>
+  </data>
+	<data name="PasswordDialog_Password" xml:space="preserve">
+    <value>_Kennwort:</value>
+  </data>
+	<data name="PasswordDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="PasswordDialog_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+	<data name="StatusBar_Column" xml:space="preserve">
+    <value>Spalte: </value>
+  </data>
+	<data name="StatusBar_Line" xml:space="preserve">
+    <value>Zeile: </value>
+  </data>
+	<data name="StatusBar_Page" xml:space="preserve">
+    <value>Seite: </value>
+  </data>
+	<data name="StatusBar_Section" xml:space="preserve">
+    <value>Abschnitt: </value>
+  </data>
+
+	<!-- Right To Left -->
+	<data name="RibbonViewTab_ApplicationView" xml:space="preserve">
+    <value>Anwendungsansicht</value>
+  </data>
+	<data name="RibbonViewTab_ApplicationView_KeyTip" xml:space="preserve">
+    <value>L</value>
+  </data>
+	<data name="MessageBox_ChangeFormLayout_Caption" xml:space="preserve">
+    <value>Anwendungsausrichtung ändern</value>
+  </data>
+	<data name="MessageBox_ChangeFormLayout_Text" xml:space="preserve">
+    <value>Um die Darstellung der Anwendung zu einer {0}- nach {1}-Textausrichtung zu ändern, muss die Applikation neu gestartet werden. 
+Klicken Sie auf OK, um neu zu starten, oder auf Abbrechen, um das Programm nicht neu zu starten.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_Left" xml:space="preserve">
+    <value>Links</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_Right" xml:space="preserve">
+    <value>Rechts</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_ToFile" xml:space="preserve">
+    <value>Um die Darstellung der Anwendung zu einer {0}- nach {1}-Textausrichtung zu ändern, muss die Applikation neu gestartet werden. Außerdem wurden Änderungen an '{2}' nicht gespeichert.
+Klicken Sie auf Ja, um diese Änderungen zu speichern und neu zu starten, auf Nein, um ohne Speichern neu zu starten, oder auf Abbrechen, um nicht neu zu starten.</value>
+  </data>
+	<data name="MessageBox_SaveDirtyDocumentBeforeRestart_Untitled" xml:space="preserve">
+    <value>Um die Darstellung der Anwendung zu einer {0}- nach {1}-Textausrichtung zu ändern, muss die Applikation neu gestartet werden. Außerdem wurden Änderungen an dem Dokument nicht gespeichert.
+Klicken Sie auf Ja, um diese Änderungen zu speichern und neu zu starten, auf Nein, um ohne Speichern neu zu starten, oder auf Abbrechen, um nicht neu zu starten.</value>
+  </data>
+	<data name="RibbonViewTab_LeftToRight" xml:space="preserve">
+    <value>Links nach Rechts</value>
+  </data>
+	<data name="RibbonViewTab_LeftToRight_KeyTip" xml:space="preserve">
+    <value>L</value>
+  </data>
+	<data name="RibbonViewTab_LeftToRight_ToolTip_Title" xml:space="preserve">
+    <value>Links nach Rechts</value>
+  </data>
+	<data name="RibbonViewTab_LeftToRight_ToolTip_Description" xml:space="preserve">
+    <value>Startet die Applikation neu, um deren Anwendungsansicht zu einer Links- nach Rechts-Textausrichtung zu ändern.</value>
+  </data>
+	<data name="RibbonViewTab_RightToLeft" xml:space="preserve">
+    <value>Rechts nach Links</value>
+  </data>
+	<data name="RibbonViewTab_RightToLeft_ToolTip_Title" xml:space="preserve">
+    <value>Rechts nach Links</value>
+  </data>
+	<data name="RibbonViewTab_RightToLeft_ToolTip_Description" xml:space="preserve">
+    <value>Startet die Applikation neu, um deren Anwendungsansicht zu einer Rechts- nach Links-Textausrichtung zu ändern.</value>
+  </data>
+</root>

@@ -1,0 +1,325 @@
+﻿<Window 
+        x:Class="TXTextControl.Words.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF"
+        mc:Ignorable="d"
+        Icon="tx.ico"
+        FontFamily="Segoe UI" FontSize="9pt"
+        WindowStartupLocation="CenterScreen" Height="850" Width="1250" UseLayoutRounding="True"
+        Title="TX Text Control Words"
+        Loaded="MainWindow_Loaded" Closing="MainWindow_Closing">
+    <DockPanel>
+        <Menu IsMainMenu="True" Name="m_muMenu" DockPanel.Dock="Top">
+            <!-- 'File' Items -->
+            <MenuItem Name="m_miFile" Header="_File" SubmenuOpened="File_SubmenuOpened">
+                <MenuItem Name="m_miFile_New" Header="_New" Click="File_New_Click"/>
+                <MenuItem Name="m_miFile_Open" Header="_Open" Click="File_Open_Click"/>
+                <MenuItem Name="m_miFile_RecentFiles" Header="_Recent Files" Click="File_RecentFiles_Item_Click"/>
+                <Separator Name="m_sepFile_Separator01"/>
+                <MenuItem Name="m_miFile_Save" Header="_Save" Click="File_Save_Click"/>
+                <MenuItem Name="m_miFile_SaveAs" Header="Save _As…" Click="File_SaveAs_Click"/>
+                <Separator Name="m_sepFile_Separator02"/>
+                <MenuItem Name="m_miFile_PageSetup" Header="Page Se_tup…" Click="File_PageSetup_Click"/>
+                <MenuItem Name="m_miFile_Print" Header="_Print..." Click="File_Print_Click"/>
+                <MenuItem Name="m_miFile_PrintQuick" Header="Print _Quick" Click="File_PrintQuick_Click"/>
+                <Separator Name="m_sepFile_Separator03"/>
+                <MenuItem Name="m_miFile_SignIn" Header="Sign _In..." Click="File_SignIn_Click"/>
+                <MenuItem Name="m_miFile_CurrentUser" Header="[Current User]" Visibility="Collapsed">
+                    <MenuItem Name="m_miFile_CurrentUser_AccountSettings" Header="_Account Settings..." Click="File_CurrentUser_AccountSettings_Click"/>
+                    <MenuItem Name="m_miFile_CurrentUser_SignOut" Header="Sign _Out" Click="File_CurrentUser_SignOut_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miFile_Exit" Header="E_xit" Click="File_Exit_Click"/>
+            </MenuItem>
+            <!-- 'Edit' Items -->
+            <MenuItem Name="m_miEdit" Header="_Edit" SubmenuOpened="Edit_SubmenuOpened">
+                <MenuItem Name="m_miEdit_Undo" Header="_Undo" Click="Edit_Undo_Click"/>
+                <MenuItem Name="m_miEdit_Redo" Header="_Redo" Click="Edit_Redo_Click"/>
+                <Separator Name="m_sepEdit_Separator01"/>
+                <MenuItem Name="m_miEdit_Cut" Header="Cu_t" Click="Edit_Cut_Click"/>
+                <MenuItem Name="m_miEdit_Copy" Header="_Copy" Click="Edit_Copy_Click"/>
+                <MenuItem Name="m_miEdit_Paste" Header="_Paste" Click="Edit_Paste_Click"/>
+                <Separator Name="m_sepEdit_Separator02"/>
+                <MenuItem Name="m_miEdit_SelectAll" Header="Select _All" Click="Edit_SelectAll_Click"/>
+                <Separator Name="m_sepEdit_Separator03"/>
+                <MenuItem Name="m_miEdit_Find" Header="_Find..." Click="Edit_Find_Click"/>
+                <MenuItem Name="m_miEdit_Replace" Header="Rep_lace..." Click="Edit_Replace_Click"/>
+                <Separator Name="m_sepEdit_Separator04"/>
+                <MenuItem Name="m_miEdit_Permissions" Header="Permi_ssions" SubmenuOpened="Edit_Permissions_SubmenuOpened">
+                    <MenuItem Name="m_miEdit_Permissions_AllowFormatting" Header="Allow _Formatting" IsCheckable="True" Click="Edit_Permissions_AllowFormatting_Click"/>
+                    <MenuItem Name="m_miEdit_Permissions_AllowFormattingStyles" Header="Allow Formatting _Styles" IsCheckable="True" Click="Edit_Permissions_AllowFormattingStyles_Click"/>
+                    <MenuItem Name="m_miEdit_Permissions_AllowPrinting" Header="Allow _Printing" IsCheckable="True" Click="Edit_Permissions_AllowPrinting_Click"/>
+                    <MenuItem Name="m_miEdit_Permissions_AllowCopy" Header="Allow _Copy" IsCheckable="True" Click="Edit_Permissions_AllowCopy_Click"/>
+                    <MenuItem Name="m_miEdit_Permissions_AllowEditingFormFields" Header="Allow _Editing Form Fields" IsCheckable="True" Click="Edit_Permissions_AllowEditingFormFields_Click"/>
+                    <MenuItem Name="m_miEdit_Permissions_ReadOnly" Header="_Read Only" IsCheckable="True" Click="Edit_Permissions_ReadOnly_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miEdit_EditableRegions" Header="_Editable Regions">
+                    <MenuItem Name="m_miEdit_EditableRegions_Add" Header="_Add" SubmenuOpened="Edit_EditableRegions_Add_SubmenuOpened">
+                        <MenuItem Name="m_miEdit_EditableRegions_Add_ForCurrentUser" Header="_For [Current User]" Click="Edit_EditableRegions_Add_ForCurrentUser_Click"/>
+                        <MenuItem Name="m_miEdit_EditableRegions_Add_ForEveryone" Header="For _Everyone" Click="Edit_EditableRegions_Add_ForEveryone_Click"/>
+                    </MenuItem>
+                    <MenuItem Name="m_miEdit_EditableRegions_Remove" Header="_Remove" SubmenuOpened="Edit_EditableRegions_Remove_SubmenuOpened">
+                        <MenuItem Name="m_miEdit_EditableRegions_Remove_ForCurrentUser" Header="_For [Current User]" Click="Edit_EditableRegions_Remove_ForCurrentUser_Click"/>
+                        <MenuItem Name="m_miEdit_EditableRegions_Remove_ForEveryone" Header="For _Everyone" Click="Edit_EditableRegions_Remove_ForEveryone_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Name="m_miEdit_ProtectDocument" Header="Pr_otect Document" IsCheckable="True" Click="Edit_ProtectDocument_Click"/>
+                <Separator Name="m_sepEdit_Separator05"/>
+                <MenuItem Name="m_miEdit_TrackedChanges" Header="Trac_ked Changes">
+                    <MenuItem Name="m_miEdit_TrackedChanges_TrackChanges" Header="_Track Changes" IsCheckable="True" Click="Edit_TrackedChanges_TrackChanges_Click"/>
+                    <MenuItem Name="m_miEdit_TrackedChanges_ReviewTrackedChanges" Header="_Review Tracked Changes..." Click="Edit_TrackedChanges_ReviewTrackedChanges_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miEdit_Comments" Header="Co_mments">
+                    <MenuItem Name="m_miEdit_Comments_AddComment" Header="_Add Comment..." Click="Edit_Comments_AddComment_Click"/>
+                    <MenuItem Name="m_miEdit_Comments_ReviewComments" Header="_Review Comments..." Click="Edit_Comments_ReviewComments_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <!-- 'View' Items -->
+            <MenuItem Name="m_miView" Header="_View" SubmenuOpened="View_SubmenuOpened">
+                <MenuItem Name="m_miView_PageLayout" Header="_Page Layout" IsCheckable="True" Click="View_PageLayout_Click"/>
+                <MenuItem Name="m_miView_Draft" Header="_Draft" IsCheckable="True" Click="View_Draft_Click"/>
+                <Separator Name="m_sepView_Separator01"/>
+                <MenuItem Name="m_miView_ButtonBar" Header="_Button Bar" IsCheckable="True" Click="View_ButtonBar_Click"/>
+                <MenuItem Name="m_miView_StatusBar" Header="_Status Bar" IsCheckable="True" Click="View_StatusBar_Click"/>
+                <MenuItem Name="m_miView_HorizontalRuler" Header="_Horizontal Ruler" IsCheckable="True" Click="View_HorizontalRuler_Click"/>
+                <MenuItem Name="m_miView_VerticalRuler" Header="_Vertical Ruler" IsCheckable="True" Click="View_VerticalRuler_Click"/>
+                <Separator Name="m_sepView_Separator02"/>
+                <MenuItem Name="m_miView_TableGridlines" Header="_Table Gridlines" IsCheckable="True" Click="View_TableGridlines_Click"/>
+                <MenuItem Name="m_miView_BookmarkMarkers" Header="B_ookmark Markers" IsCheckable="True" Click="View_BookmarkMarkers_Click"/>
+                <MenuItem Name="m_miView_TextFrameMarkerLines" Header="Text _Frame Marker Lines" IsCheckable="True" Click="View_TextFrameMarkerLines_Click"/>
+                <MenuItem Name="m_miView_DrawingMarkerLines" Header="Dra_wing Marker Lines" IsCheckable="True" Click="View_DrawingMarkerLines_Click"/>
+                <MenuItem Name="m_miView_ControlChars" Header="_Control Chars" IsCheckable="True" Click="View_ControlChars_Click"/>
+                <Separator Name="m_sepView_Separator03"/>
+                <MenuItem Name="m_miView_EditableRegions" Header="_Editiable Regions" SubmenuOpened="View_EditableRegions_SubmenuOpened">
+                    <MenuItem Name="m_miView_EditableRegions_Always" Header="_Always" IsCheckable="True" Click="View_EditableRegions_Always_Click"/>
+                    <MenuItem Name="m_miView_EditableRegions_Current" Header="_Current" IsCheckable="True" Click="View_EditableRegions_Current_Click"/>
+                    <MenuItem Name="m_miView_EditableRegions_Never" Header="_Never" IsCheckable="True" Click="View_EditableRegions_Never_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miView_TrackedChanges" Header="Tr_acked Changes" IsCheckable="True" Click="View_TrackedChanges_Click"/>
+                <MenuItem Name="m_miView_Comments" Header="Co_mments" SubmenuOpened="View_Comments_SubmenuOpened">
+                    <MenuItem Name="m_miView_Comments_Always" Header="_Always" IsCheckable="True" Click="View_Comments_Always_Click"/>
+                    <MenuItem Name="m_miView_Comments_Current" Header="_Current" IsCheckable="True" Click="View_Comments_Current_Click"/>
+                    <MenuItem Name="m_miView_Comments_Never" Header="_Never" IsCheckable="True" Click="View_Comments_Never_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepView_Separator04"/>
+                <MenuItem Name="m_miView_Zoom" Header="_Zoom" SubmenuOpened="View_Zoom_SubmenuOpened">
+                    <MenuItem Name="m_miView_Zoom_50" Header="_50%" IsCheckable="True" Tag="50" Click="View_Zoom_MenuItem_Click"/>
+                    <MenuItem Name="m_miView_Zoom_75" Header="_75%" IsCheckable="True" Tag="75" Click="View_Zoom_MenuItem_Click"/>
+                    <MenuItem Name="m_miView_Zoom_100" Header="_100%" IsCheckable="True" Tag="100" Click="View_Zoom_MenuItem_Click"/>
+                    <MenuItem Name="m_miView_Zoom_150" Header="15_0%" IsCheckable="True" Tag="150" Click="View_Zoom_MenuItem_Click"/>
+                    <MenuItem Name="m_miView_Zoom_200" Header="_200%" IsCheckable="True" Tag="200" Click="View_Zoom_MenuItem_Click"/>
+                    <MenuItem Name="m_miView_Zoom_300" Header="_300%" IsCheckable="True" Tag="300" Click="View_Zoom_MenuItem_Click"/>
+                    <MenuItem Name="m_miView_Zoom_400" Header="_400%" IsCheckable="True" Tag="400" Click="View_Zoom_MenuItem_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepView_Separator05"/>
+                <MenuItem Name="m_miView_RightToLeftLayout" Header="_Right to Left Layout" IsCheckable="True" Click="View_RightToLeftLayout_Click"/>
+            </MenuItem>
+            <!-- 'Insert' Items -->
+            <MenuItem Name="m_miInsert" Header="_Insert" SubmenuOpened="Insert_SubmenuOpened">
+                <MenuItem Name="m_miInsert_File" Header="_File..." Click="Insert_File_Click"/>
+                <Separator Name="m_sepInsert_Separator01"/>
+                <MenuItem Name="m_miInsert_Image" Header="_Image..." Click="Insert_Image_Click"/>
+                <MenuItem Name="m_miInsert_TextFrame" Header="_Text Frame" Click="Insert_TextFrame_Click"/>
+                <MenuItem Name="m_miInsert_Shape" Header="_Shape">
+                    <MenuItem Name="m_miInsert_Shape_Lines" Header="_Lines"/>
+                    <MenuItem Name="m_miInsert_Shape_Rectangles" Header="_Rectangles"/>
+                    <MenuItem Name="m_miInsert_Shape_BasicShapes" Header="_Basic Shapes"/>
+                    <MenuItem Name="m_miInsert_Shape_BlockArrows" Header="Block _Arrows"/>
+                    <MenuItem Name="m_miInsert_Shape_EquationShapes" Header="_Equation Shapes"/>
+                    <MenuItem Name="m_miInsert_Shape_Flowchart" Header="_Flowchart"/>
+                    <MenuItem Name="m_miInsert_Shape_StarsAndBanners" Header="_Stars and Banners"/>
+                    <MenuItem Name="m_miInsert_Shape_Callouts" Header="_Callouts"/>
+                    <Separator Name="m_sepInsert_Shape_Separator01"/>
+                    <MenuItem Name="m_miInsert_Shape_DrawingCanvas" Header="_Drawing Canvas" Click="Insert_Shape_DrawingCanvas_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miInsert_Barcode" Header="_Barcode"/>
+                <Separator Name="m_sepInsert_Separator02"/>
+                <MenuItem Name="m_miInsert_Header" Header="_Header">
+                    <MenuItem Name="m_miInsert_Header_Insert" Header="_Insert" Click="Insert_Header_Insert_Click"/>
+                    <MenuItem Name="m_miInsert_Header_Remove" Header="_Remove" Click="Insert_Header_Remove_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miInsert_Footer" Header="F_ooter">
+                    <MenuItem Name="m_miInsert_Footer_Insert" Header="_Insert" Click="Insert_Footer_Insert_Click"/>
+                    <MenuItem Name="m_miInsert_Footer_Remove" Header="_Remove" Click="Insert_Footer_Remove_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miInsert_PageNumber" Header="_Page Number">
+                    <MenuItem Name="m_miInsert_PageNumber_Insert" Header="_Insert" Click="Insert_PageNumber_Insert_Click"/>
+                    <MenuItem Name="m_miInsert_PageNumber_Delete" Header="_Delete" Click="Insert_PageNumber_Remove_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepInsert_Separator03"/>
+                <MenuItem Name="m_miInsert_FormField" Header="Fo_rm Field">
+                    <MenuItem Name="m_miInsert_FormField_TextFormField" Header="_Text Form Field" Click="Insert_FormFields_TextFormField_Click"/>
+                    <MenuItem Name="m_miInsert_FormField_CheckBox" Header="_Check Box" Click="Insert_FormFields_CheckBox_Click"/>
+                    <MenuItem Name="m_miInsert_FormField_ComboBox" Header="C_ombo Box" Click="Insert_FormFields_ComboBox_Click"/>
+                    <MenuItem Name="m_miInsert_FormField_DropDownList" Header="_Drop-Down List" Click="Insert_FormFields_DropDownList_Click"/>
+                    <MenuItem Name="m_miInsert_FormField_DateFormField" Header="D_ate Form Field" Click="Insert_FormFields_DateFormField_Click"/>
+                    <Separator Name="m_sepInsert_FormField_Separator01"/>
+                    <MenuItem Name="m_miInsert_FormField_Delete" Header="D_elete" Click="Insert_FormFields_Delete_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepInsert_Separator04"/>
+                <MenuItem Name="m_miInsert_Symbol" Header="Sy_mbol..." Click="Insert_Symbol_Click"/>
+                <Separator Name="m_sepInsert_Separator05"/>
+                <MenuItem Name="m_miInsert_Hyperlink" Header="Hyp_erlink..." Click="Insert_Hyperlink_Click"/>
+                <MenuItem Name="m_miInsert_Bookmark" Header="Boo_kmark">
+                    <MenuItem Name="m_miInsert_Bookmark_Insert" Header="_Insert..." Click="Insert_Bookmark_Insert_Click"/>
+                    <MenuItem Name="m_miInsert_Bookmark_Delete" Header="_Delete..." Click="Insert_Bookmark_Delete_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miInsert_TableOfContents" Header="Tab_le of Contents">
+                    <MenuItem Name="m_miInsert_TableOfContents_Insert" Header="_Insert" Click="Insert_TableOfContents_Insert_Click"/>
+                    <MenuItem Name="m_miInsert_TableOfContents_Delete" Header="_Delete" Click="Insert_TableOfContents_Delete_Click"/>
+                    <MenuItem Name="m_miInsert_TableOfContents_Update" Header="_Update" Click="Insert_TableOfContents_Update_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepInsert_Separator06"/>
+                <MenuItem Name="m_miInsert_Columns" Header="_Columns" SubmenuOpened="Insert_Columns_SubmenuOpened">
+                    <MenuItem Name="m_miInsert_Columns_One" Header="_One" Click="Insert_Columns_One_Click"/>
+                    <MenuItem Name="m_miInsert_Columns_Two" Header="_Two" Click="Insert_Columns_Two_Click"/>
+                    <Separator Name="m_sepInsert_Columns_Separator01"/>
+                    <MenuItem Name="m_miInsert_Columns_MoreColumns" Header="_More Columns..." Click="Insert_Columns_MoreColumns_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miInsert_PageBreaks" Header="P_age Break">
+                    <MenuItem Name="m_miInsert_PageBreaks_Page" Header="_Page" Click="Insert_PageBreaks_Page_Click"/>
+                    <MenuItem Name="m_miInsert_PageBreaks_Column" Header="_Columns" Click="Insert_PageBreaks_Column_Click"/>
+                    <MenuItem Name="m_miInsert_PageBreaks_TextWrapping" Header="_Text Wrapping" Click="Insert_PageBreaks_TextWrapping_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miInsert_SectionBreaks" Header="Sectio_n Break">
+                    <MenuItem Name="m_miInsert_SectionBreaks_NextPage" Header="_Next Page" Click="Insert_SectionBreaks_NextPage_Click"/>
+                    <MenuItem Name="m_miInsert_SectionBreaks_Continuous" Header="_Continuous" Click="Insert_SectionBreaks_Continuous_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <!-- 'Format' Items -->
+            <MenuItem Name="m_miFormat" Header="F_ormat" SubmenuOpened="Format_SubmenuOpened">
+                <MenuItem Name="m_miFormat_Character" Header="_Character..." Click="Format_Character_Click"/>
+                <MenuItem Name="m_miFormat_Paragraph" Header="_Paragraph..." Click="Format_Paragraph_Click"/>
+                <MenuItem Name="m_miFormat_Styles" Header="_Styles..." Click="Format_Styles_Click"/>
+                <MenuItem Name="m_miFormat_ParagraphStructureLevels" Header="Paragraph Structure Le_vels" SubmenuOpened="Format_ParagraphStructureLevels_SubmenuOpened">
+                    <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle" Header="_Paragraph Style: [Current Paragraph Style]" SubmenuOpened="Format_ParagraphStructureLevels_CurrentParagraphStyle_SubmenuOpened">
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_BodyText" Header="_Body Text" Tag="0" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level01" Header="Level _1" Tag="1" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level02" Header="Level _2" Tag="2" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level03" Header="Level _3" Tag="3" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level04" Header="Level _4" Tag="4" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level05" Header="Level _5" Tag="5" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level06" Header="Level _6" Tag="6" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level07" Header="Level _7" Tag="7" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level08" Header="Level _8" Tag="8" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level09" Header="Level _9" Tag="9" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_CurrentParagraphStyle_Level10" Header="Level 1_0" Tag="10" Click="Format_ParagraphStructureLevels_CurrentParagraphStyle_Level_Click"/>
+                    </MenuItem>
+                    <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph" Header="_Add to Paragraph" SubmenuOpened="Format_ParagraphStructureLevels_AddToParagraph_SubmenuOpened">
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_BodyText" Header="_Body Text" Tag="0" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level01" Header="Level _1" Tag="1" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level02" Header="Level _2" Tag="2" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level03" Header="Level _3" Tag="3" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level04" Header="Level _4" Tag="4" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level05" Header="Level _5" Tag="5" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level06" Header="Level _6" Tag="6" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level07" Header="Level _7" Tag="7" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level08" Header="Level _8" Tag="8" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level09" Header="Level _9" Tag="9" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                        <MenuItem Name="m_miFormat_ParagraphStructureLevels_AddToParagraph_Level10" Header="Level 1_0" Tag="10" Click="Format_ParagraphStructureLevels_AddToParagraph_Level_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Name="m_miFormat_BulletsAndNumbering" Header="Bullets and _Numbering" SubmenuOpened="Format_BulletsAndNumbering_SubmenuOpened">
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_ArabicNumbers" Header="_1, 2, 3" IsCheckable="True" Click="Format_BulletsAndNumbering_ArabicNumbers_Click"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_CapitalLetters" Header="_A, B, C" IsCheckable="True" Click="Format_BulletsAndNumbering_Letters_Click"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_Letters" Header="a, _b, c" IsCheckable="True" Click="Format_BulletsAndNumbering_CapitalLetters_Click"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_RomanNumbers" Header="_I, II, III, IV" IsCheckable="True" Click="Format_BulletsAndNumbering_RomanNumbers_Click"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_SmallRomanNumbers" Header="i, ii, iii, i_v" IsCheckable="True" Click="Format_BulletsAndNumbering_SmallRomanNumbers_Click"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_AsStructuredList" Header="As Structured _List" Click="Format_BulletsAndNumbering_AsStructuredList_Click"/>
+                    <Separator Name="m_sepFormat_BulletsAndNumbering_Separator01"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_Bullets" Header="B_ullets" IsCheckable="True" Click="Format_BulletsAndNumbering_Bullets_Click"/>
+                    <Separator Name="m_sepFormat_BulletsAndNumbering_Separator02"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_IncreaseLevel" Header="I_ncrease Level" Click="Format_BulletsAndNumbering_IncreaseLevel_Click"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_DecreaseLevel" Header="_Decrease Level" Click="Format_BulletsAndNumbering_DecreaseLevel_Click"/>
+                    <Separator Name="m_sepFormat_BulletsAndNumbering_Separator03"/>
+                    <MenuItem Name="m_miFormat_BulletsAndNumbering_Properties" Header="_Properties..." Click="Format_BulletsAndNumbering_Properties_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepFormat_Separator01"/>
+                <MenuItem Name="m_miFormat_Image" Header="_Image..." Click="Format_Image_Click"/>
+                <MenuItem Name="m_miFormat_TextFrame" Header="Te_xt Frame..." Click="Format_TextFrame_Click"/>
+                <MenuItem Name="m_miFormat_Shape" Header="Sh_ape..." Click="Format_Shape_Click"/>
+                <MenuItem Name="m_miFormat_Barcode" Header="_Barcode..." Click="Frame_Barcode_Click"/>
+                <Separator Name="m_sepFormat_Separator02"/>
+                <MenuItem Name="m_miFormat_HeadersAndFooters" Header="_Headers and Footers..." Click="Frame_HeadersAndFooters_Click"/>
+                <MenuItem Name="m_miFormat_PageNumberField" Header="Page N_umber..." Click="Format_PageNumberField_Click"/>
+                <Separator Name="m_sepFormat_Separator03"/>
+                <MenuItem Name="m_miFormat_FormFields" Header="_Form Fields" SubmenuOpened="Format_FormFields_SubmenuOpened">
+                    <MenuItem Name="m_miFormat_FormFields_Edit" Header="_Edit..." Click="Format_FormFields_Edit_Click"/>
+                    <MenuItem Name="m_miFormat_FormFields_EnableFormValidation" Header="Enable Form _Validation" IsCheckable="True" Click="Format_FormFields_EnableFormValidation_Click"/>
+                    <MenuItem Name="m_miFormat_FormFields_ManageConditionalInstructions" Header="_Manage Conditional Instructions..." Click="Format_FormFields_ManageConditionalInstructions_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepFormat_Separator04"/>
+                <MenuItem Name="m_miFormat_Hyperlink" Header="Hype_rlink..." Click="Format_Hyperlink_Click"/>
+                <MenuItem Name="m_miFormat_Bookmark" Header="Boo_kmark..." Click="Format_Bookmark_Click"/>
+                <MenuItem Name="m_miFormat_TableOfContents" Header="Tabl_e of Contents..."/>
+                <Separator Name="m_sepFormat_Separator05"/>
+                <MenuItem Name="m_miFormat_Columns" Header="Colu_mns..." Click="Format_Columns_Click"/>
+                <MenuItem Name="m_miFormat_PageBorders" Header="Page Bor_ders..." Click="Format_PageBorders_Click"/>
+                <MenuItem Name="m_miFormat_PageColor" Header="Page C_olor..." Click="Format_PageColor_Click"/>
+                <MenuItem Name="m_miFormat_Tabs" Header="_Tabs..." Click="Format_Tabs_Click"/>
+                <Separator Name="m_sepFormat_Separator06"/>
+                <MenuItem Name="m_miFormat_Language" Header="_Language..." Click="Format_Language_Click"/>
+            </MenuItem>
+            <!-- 'Table' Items -->
+            <MenuItem Name="m_miTable" Header="_Table" SubmenuOpened="Table_SubmenuOpened">
+                <MenuItem Name="m_miTable_Insert" Header="_Insert">
+                    <MenuItem Name="m_miTable_Insert_Table" Header="_Table..." Click="Table_Insert_Table_Click"/>
+                    <Separator Name="m_sepTable_Insert_Separator01"/>
+                    <MenuItem Name="m_miTable_Insert_ColumnToTheLeft" Header="Column To The _Left" Click="Table_Insert_ColumnToTheLeft_Click"/>
+                    <MenuItem Name="m_miTable_Insert_ColumnToTheRight" Header="Column To The _Right" Click="Table_Insert_ColumnToTheRight_Click"/>
+                    <Separator Name="m_sepTable_Insert_Separator02"/>
+                    <MenuItem Name="m_miTable_Insert_RowAbove" Header="Row _Above" Click="Table_Insert_RowAbove_Click"/>
+                    <MenuItem Name="m_miTable_Insert_RowBelow" Header="Row _Below" Click="Table_Insert_RowBelow_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miTable_Delete" Header="_Delete">
+                    <MenuItem Name="m_miTable_Delete_Cells" Header="C_ells" Click="Table_Delete_Cells_Click"/>
+                    <MenuItem Name="m_miTable_Delete_Columns" Header="_Columns" Click="Table_Delete_Columns_Click"/>
+                    <MenuItem Name="m_miTable_Delete_Rows" Header="_Rows" Click="Table_Delete_Rows_Click"/>
+                    <MenuItem Name="m_miTable_Delete_Table" Header="_Table" Click="Table_Delete_Table_Click"/>
+                </MenuItem>
+                <MenuItem Name="m_miTable_Select" Header="_Select">
+                    <MenuItem Name="m_miTable_Select_Cell" Header="C_ell" Click="Table_Select_Cell_Click"/>
+                    <MenuItem Name="m_miTable_Select_Column" Header="_Column" Click="Table_Select_Column_Click"/>
+                    <MenuItem Name="m_miTable_Select_Row" Header="_Row" Click="Table_Select_Row_Click"/>
+                    <MenuItem Name="m_miTable_Select_Table" Header="_Table" Click="Table_Select_Table_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepTable_Separator01"/>
+                <MenuItem Name="m_miTable_MergeCells" Header="_Merge Cells" Click="Table_MergeCells_Click"/>
+                <MenuItem Name="m_miTable_SplitCells" Header="Split _Cells" Click="Table_SplitCells_Click"/>
+                <MenuItem Name="m_miTable_SplitTable" Header="Split _Table">
+                    <MenuItem Name="m_miTable_SplitTable_Above" Header="_Above" Click="Table_SplitTable_Above_Click"/>
+                    <MenuItem Name="m_miTable_SplitTable_Below" Header="_Below" Click="Table_SplitTable_Below_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepTable_Separator02"/>
+                <MenuItem Name="m_miTable_Formulas" Header="_Formulas" SubmenuOpened="Formulas_SubmenuOpened">
+                    <MenuItem Name="m_miTable_Formulas_A1ReferenceStyle" Header="_A1 Reference Style" Click="Table_Formulas_A1ReferenceStyle_Click"/>
+                    <MenuItem Name="m_miTable_Formulas_R1C1ReferenceStyle" Header="_R1C1 Reference Style" Click="Table_Formulas_R1C1ReferenceStyle_Click"/>
+                    <Separator Name="m_sepTable_Formulas_Separator01"/>
+                    <MenuItem Name="m_miTable_Formulas_EditFormula" Header="_Edit Formula..." Click="Table_Formulas_AutomaticCalculation_Click"/>
+                    <Separator Name="m_sepTable_Formulas_Separator02"/>
+                    <MenuItem Name="m_miTable_Formulas_AutomaticCalculation" Header="_Automatic _Calculation" Click="Table_Formulas_EditFormula_Click"/>
+                </MenuItem>
+                <Separator Name="m_sepTable_Separator03"/>
+                <MenuItem Name="m_miTable_Properties" Header="_Properties..." Click="Table_Properties_Click"/>
+            </MenuItem>
+        </Menu>
+        <WPF:StatusBar x:Name="m_sbStatusBar" ShowZoom="False" BorderStyle="VerticalColorScheme" DockPanel.Dock="Bottom"/>
+        <WPF:ButtonBar x:Name="m_bbButtonBar" DockPanel.Dock="Top"/>
+        <WPF:RulerBar x:Name="m_rbHorizontalRulerBar"/>
+        <WPF:RulerBar x:Name="m_rbVerticalRulerBar" HorizontalAlignment="Left" VerticalAlignment="Stretch" DockPanel.Dock="Left"/>
+        <WPF:TextControl DockPanel.Dock="Top" x:Name="m_txTextControl" AllowDrag="True" AllowDrop="True" HideSelection="False"
+            ButtonBar="m_bbButtonBar"
+            RulerBar="m_rbHorizontalRulerBar"
+            VerticalRulerBar="m_rbVerticalRulerBar"
+            StatusBar="m_sbStatusBar"
+               
+            Changed="TextControl_Changed"
+            Loaded="TextControl_Loaded_MainWindow">
+            <WPF:TextControl.DisplayColors>
+                <WPF:TextControlColors DesktopColor="#F5F6F7" DarkShadowColor="#F5F6F7" LightShadowColor="#F5F6F7" />
+            </WPF:TextControl.DisplayColors>
+        </WPF:TextControl>
+    </DockPanel>
+</Window>

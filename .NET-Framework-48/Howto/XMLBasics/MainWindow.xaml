@@ -1,0 +1,21 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF" 
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Howto: Use XML Files - The Sample Program" Height="450" Width="800">
+    <DockPanel>
+        <Menu Name="m_msMenu" DockPanel.Dock="Top">
+            <MenuItem Name ="m_tmiFile" Header="_File">
+                <MenuItem Name="m_tmiOpen" Header="_Open..." Click="Open_Click" />
+                <MenuItem Name="m_tmiLoadAddressXML" Header="Load '_address.xml'" Click="Load_AddressXML_Sample_Click" />
+                <MenuItem Name="m_tmiLoadAddressListXML" Header="_Load 'address_list.xml'" Click="Load_AddressListXML_Sample_Click" />
+                <MenuItem Name="m_tmiLoadAddressInvalidXML" Header="Load 'address_in_valid.xml'" Click="Load_AddressInvalidXML_Sample_Click" />
+            </MenuItem>
+        </Menu>
+        <WPF:TextControl Name="m_txTextControl" XmlInvalid="TextControl_XmlInvalid"/>
+    </DockPanel>
+</Window>

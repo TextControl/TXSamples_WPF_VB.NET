@@ -1,0 +1,34 @@
+﻿<Window x:Class="WindowMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF"
+    WindowStartupLocation="CenterScreen"
+    Title="Tutorial: Getting Started with WPF (.NET Core)" Icon="tx.ico"
+    Height="500" Width="955">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="Open File..." Click="MenuItem_Click_1" />
+                <MenuItem Header="Save File As..." Click="MenuItem_Click_2" />
+                <MenuItem Header="Page Setup..." Click="MenuItem_Click_3" />
+                <Separator />
+                <MenuItem Header="Exit" Click="MenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="Cut" Click="MenuItem_Click_4" />
+                <MenuItem Header="Copy" Click="MenuItem_Click_5" />
+                <MenuItem Header="Paste" Click="MenuItem_Click_6" />
+            </MenuItem>
+            <MenuItem Header="_Format">
+                <MenuItem Header="Character..." Click="MenuItem_Click_7" />
+                <MenuItem Header="Paragraph..." Click="MenuItem_Click_8" />
+                <MenuItem Header="Columns..." Click="MenuItem_Click_9" />
+            </MenuItem>
+        </Menu>
+        <my:ButtonBar Name="buttonBar1" />
+        <my:RulerBar Name="rulerBar1" />
+        <my:StatusBar Name="statusBar1" />
+        <my:RulerBar Name="rulerBar2" VerticalAlignment="Stretch" HorizontalAlignment="Left" DockPanel.Dock="Left" />
+        <my:TextControl Name="textControl1" ButtonBar="buttonBar1" RulerBar="rulerBar1" StatusBar="statusBar1" VerticalRulerBar="rulerBar2" HideSelection="False" Loaded="textControl1_Loaded" />
+    </DockPanel>
+</Window>

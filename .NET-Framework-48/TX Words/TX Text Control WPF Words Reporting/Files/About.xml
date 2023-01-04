@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="about.css"?>
+<!DOCTYPE chap SYSTEM "about.dtd"[]>
+<chap>
+  <chap_hl>This Reporting Sample</chap_hl>
+  <chap_desc>Reporting and Mail Merge have become wide-sweeping terms for automated document, report and label creation. Creating invoices, proposals, generated covering letters or shipping labels was never that easy - simply using word processing skills. This sample illustrates the typical process including creating a reporting template, merging its application fields with data from various data sources and exporting the result of that process. </chap_desc>
+  <chap_desc />
+  <article>
+    <ref_hl>Using this Sample</ref_hl>
+    <ref_desc>To create a reporting template, first a data source must be chosen. That can be done by selecting such a source with the dialog that is opened when clicking the corresponding <apiname>Select Data Source</apiname> drop down menu button. In this sample an additional <apiname>Load Sample Database</apiname> button is added to the drop down menu. It provides an XML data base that can be used to create a sample reporting template.</ref_desc>
+    <ref_desc>After loading a database, the <apiname>Insert Merge Field</apiname> and <apiname>Insert Merge Block</apiname> drop down menus contain merge fields and merge blocks that can be inserted into the document. These items are related to a master table that can be chosen by clicking one of the <apiname>Select Master Table</apiname> drop down menu buttons that represents such a table. The <apiname>Field Navigation</apiname> sidebar provides an overview and editing options for all inserted merge fields and merge blocks.</ref_desc>
+    <ref_desc>How such a reporting template can be structured in the end, can be seen from one of the sample templates that are provided via the application menu. Each of these templates is related to the sample XML database.</ref_desc>
+    <ref_desc>When finishing the design process, the template can be used for the merge process. Usually, creating a template and performing a merge process are two separate operations. In this sample, however, these two processes are combined into one sequence for reasons of comprehension.</ref_desc>
+    <ref_desc>The merge process is initiated by clicking the <apiname>Merge and Export</apiname> button that opens a dialog to specify some merge settings such as determining the number of records, whether or not the resulting documents should be merged into a single document and what kind of empty merge elements should be removed.</ref_desc>
+    <ref_desc>After accepting the set merge settings by clicking the <apiname>OK</apiname> button, the merge process begins.  When it is finished, the result tab and the first merged record result is displayed. The user can navigate through all created records. </ref_desc>
+    <ref_desc>To export the results, the <apiname>Export Merge Result...</apiname> button can be clicked. It opens a dialog where the user can determine the prefix text, the destination directory and format of the exported files. </ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>The Code Behind</ref_hl>
+    <ref_desc>Both creating the template and performing the merge process are handled by an instance of the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentserver.datasources.datasourcemanager.class.htm">DataSourceManager</link> that is provided by the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonreportingtab.class.htm">RibbonReportingTab's</link><link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.wpf.ribbonreportingtab.datasourcemanager.property.htm">DataSourceManager</link> property.</ref_desc>
+    <ref_desc>The sample database is loaded by using the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentserver.datasources.datasourcemanager.loadxmlfile.method.htm">DataSourceManager.LoadXmlFile</link> method.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub SampleDatabaseButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)</code_line>
+      <code_line>        Me.m_rtRibbonReportingTab.DataSourceManager.LoadXmlFile(m_strFilesDirectory &amp; "sample_db.xml")</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>The merge process itself is performed by the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentserver.datasources.datasourcemanager.merge.method.htm">DataSourceManager.Merge</link> method and returns a list of byte arrays containing one binary <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.binarystreamtype.enumeration.htm">TX internal unicode format</link> document for each merged result.</ref_desc>
+    <vb_code>
+      <code_line>Private Sub MergePreview(ByVal template As Byte(), ByVal maxPreviews As Integer, ByVal textControl As TextControl, ByVal msMergeSettings As MergeSettings, ByVal reportingTab As RibbonReportingTab)</code_line>
+      <code_line>        Try</code_line>
+      <code_line>                m_lstMergedFiles = reportingTab.DataSourceManager.Merge(template, maxPreviews, textControl, msMergeSettings)</code_line>
+      <code_line>        Catch e As Exception</code_line>
+      <code_line>                ' Store the exception if thrown.</code_line>
+      <code_line>                m_exException = e</code_line>
+      <code_line>        End Try</code_line>
+      <code_line>End Sub</code_line>
+    </vb_code>
+    <ref_desc />
+    <ref_desc>As mentioned before, usually, creating a template and performing a merge process are two separate operations. For this reason, in real-world applications, we don't recommend to use the <apiname>DataSourceManager.Merge</apiname> method for the merge process, as shown in this example. Instead, you should always use an instance of the <link href="https://docs.textcontrol.com/textcontrol/wpf/ref.txtextcontrol.documentserver.mailmerge.class.htm">MailMerge</link> class to merge template documents with database content.</ref_desc>
+    <ref_desc>For more details, please visit</ref_desc>
+    <ref_desc>
+      <link href="https://docs.textcontrol.com/textcontrol/wpf/article.wpf.mailmerge.htm">Howto: Mail Merge</link>
+    </ref_desc>
+    <ref_desc />
+  </article>
+  <article>
+    <ref_hl>Support</ref_hl>
+    <ref_desc>The <apiname>Text Control Support</apiname> section offers links to all technical resources related to <apiname>Text Control</apiname>, including documentation, getting started guides, FAQs and links to interesting blog articles.</ref_desc>
+    <ref_desc>Contact us:</ref_desc>
+    <ref_desc>
+      <link href="https://www.textcontrol.com/support/overview/">https://www.textcontrol.com/support/overview/</link>
+    </ref_desc>
+    <ref_desc />
+  </article>
+</chap>

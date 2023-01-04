@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<?XML:stylesheet type="text/css" href="address.css"?>
+<!DOCTYPE address SYSTEM "address.dtd">
+<address>
+	<address_record>
+		<street>Baker Street</street>
+		<city>London</city>
+		<email>paul@hotmail.com</email>
+	</address_record>
+</address>
+

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<addresses>
+  <address>
+    <name>Montgomery</name>
+    <firstname>Joe</firstname>
+    <company>Text Control GmbH</company>
+  </address>
+  <address>
+    <name>Johnson</name>
+    <firstname>Jack</firstname>
+    <company>People Software, LLC</company>
+  </address>
+  <address>
+    <name>Miller</name>
+    <firstname>Susan</firstname>
+    <company>Software Pro, Inc.</company>
+  </address>
+</addresses>

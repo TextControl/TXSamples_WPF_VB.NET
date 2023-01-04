@@ -1,0 +1,108 @@
+﻿<RibbonWindow 
+        x:Class="TXTextControl.Words.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPF="clr-namespace:TXTextControl.WPF;assembly=TXTextControl.WPF"
+        mc:Ignorable="d"
+        Icon="tx.ico"
+        FontFamily="Segoe UI" FontSize="9pt"
+        WindowStartupLocation="CenterScreen" Height="850" Width="1250" UseLayoutRounding="True"
+        Loaded="MainWindow_Loaded" Closing="MainWindow_Closing">
+
+    <DockPanel>
+        <Ribbon Name="m_rbnRibbon" DockPanel.Dock="Top" Background="#F5F6F7" SelectedIndex="1">
+            <!-- Application Menu -->
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu>
+                    <RibbonApplicationMenuItem Name="m_rmiNew"/>
+                    <RibbonApplicationMenuItem Name="m_rmiOpen"/>
+                    <RibbonApplicationMenuItem Name="m_rmiSave" IsEnabled="False"/>
+                    <RibbonApplicationMenuItem Name="m_rmiSaveAs"/>
+                    <RibbonApplicationSplitMenuItem Name="m_rsmiPrint">
+                        <RibbonApplicationSplitMenuItem.Items>
+                            <RibbonApplicationMenuItem Name="m_rbtnPrint"/>
+                            <RibbonApplicationMenuItem Name="m_rbtnPrintQuick"/>
+                        </RibbonApplicationSplitMenuItem.Items>
+                    </RibbonApplicationSplitMenuItem>
+                    <RibbonApplicationMenuItem Name="m_rtbtnAbout" IsCheckable="True" IsChecked="True" Checked="About_CheckedChanged" Unchecked="About_CheckedChanged"/>
+                    <RibbonApplicationMenu.AuxiliaryPaneContent>
+                        <RibbonGallery Name="m_rgalRecentFiles" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="RecentFiles_SelectionChanged">
+                            <RibbonGalleryCategory Name="m_rgcRecentFiles" MaxColumnCount="1"/>
+                        </RibbonGallery>
+                    </RibbonApplicationMenu.AuxiliaryPaneContent>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+
+            <!-- Quick Access Toolbar -->
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton Name="m_rbtnSaveQAT" IsEnabled="False" Click="Save_Click"/>
+                    <RibbonButton Name="m_rbtnOpenQAT" Click="Open_Click"/>
+                    <RibbonButton Name="m_rbtnNewQAT" Click="New_Click"/>
+                    <RibbonButton Name="m_rbtnUndoQAT" IsEnabled="{Binding ElementName=m_txTextControl, Path=CanUndo}" Click="Undo_Click" ToolTipOpening="Undo_ToolTip_Opening"/>
+                    <RibbonButton Name="m_rbtnRedoQAT" IsEnabled="{Binding ElementName=m_txTextControl, Path=CanRedo}" Click="Redo_Click" ToolTipOpening="Redo_ToolTip_Opening"/>
+                    <RibbonButton Name="m_rbtnPrintQAT" Click="Print_Click"/>
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+
+            <!-- TX Text Control's built-in RibbonTabs-->
+            <WPF:RibbonFormattingTab Name="m_rtRibbonFormattingTab"
+                GotoHorizontalSidebar="m_sbSidebarBottom"
+                StylesSidebar="m_sbSidebarRight"
+                FindHorizontalSidebar="m_sbSidebarBottom"
+                FindSidebar="m_sbSidebarRight"
+                ReplaceHorizontalSidebar="m_sbSidebarBottom"
+                ReplaceSidebar="m_sbSidebarRight"/>
+            <WPF:RibbonInsertTab Name="m_rtRibbonInsertTab" />
+
+            <!-- Contextual tabs -->
+            <WPF:RibbonTableLayoutTab
+				Name="m_rtRibbonTableLayoutTab"/>
+            <WPF:RibbonFormulaTab
+                Name="m_rtRibbonFormulaTab"/>
+            <WPF:RibbonFrameLayoutTab
+                Name="m_rtRibbonFrameLayoutTab"/>
+
+            <!-- Contextual tab groups -->
+            <Ribbon.ContextualTabGroups>
+                <RibbonContextualTabGroup
+					Name="m_ctgTableTools"
+					Background="#6600FF00" />
+                <RibbonContextualTabGroup
+					Name="m_ctgFrameTools"
+					Background="#66FF00FF" />
+            </Ribbon.ContextualTabGroups>
+        </Ribbon>
+        
+        <!-- Toolbars and sidebars -->
+        <WPF:StatusBar x:Name="m_sbStatusBar" ShowZoom="False" BorderStyle="VerticalColorScheme" DockPanel.Dock="Bottom"/>
+
+        <WPF:Sidebar x:Name="m_sbSidebarBottom" IsShown="False" VerticalAlignment="Bottom" DockPanel.Dock="Bottom"/>
+        <WPF:Sidebar x:Name="m_sbSidebarRight" IsShown="False" HorizontalAlignment="Right" VerticalAlignment="Stretch" DockPanel.Dock="Right"/>
+        <WPF:Sidebar x:Name="m_sbSidebarLeft" ContentLayout="About" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Stretch" ShowPinButton="False" DialogStyle="StandardSizable"/>
+
+        <WPF:RulerBar x:Name="m_rbHorizontalRulerBar"/>
+        <WPF:RulerBar x:Name="m_rbVerticalRulerBar" HorizontalAlignment="Left" VerticalAlignment="Stretch" DockPanel.Dock="Left"/>
+
+        <!-- TextControl -->
+        <WPF:TextControl DockPanel.Dock="Top" x:Name="m_txTextControl" HideSelection="False"
+                    RibbonFormattingTab="m_rtRibbonFormattingTab"
+                    RibbonInsertTab="m_rtRibbonInsertTab"
+                                  	
+                	RibbonTableLayoutTab="m_rtRibbonTableLayoutTab"
+                    RibbonFormulaTab="m_rtRibbonFormulaTab"  	
+                	RibbonFrameLayoutTab="m_rtRibbonFrameLayoutTab"
+                	
+                	RulerBar="m_rbHorizontalRulerBar"
+                    VerticalRulerBar="m_rbVerticalRulerBar"
+                	StatusBar="m_sbStatusBar"
+                    
+                    Loaded="TextControl_Loaded_MainWindow">
+            <WPF:TextControl.DisplayColors>
+                <WPF:TextControlColors DesktopColor="#F5F6F7" DarkShadowColor="#F5F6F7" LightShadowColor="#F5F6F7" />
+            </WPF:TextControl.DisplayColors>
+        </WPF:TextControl>
+    </DockPanel>
+</RibbonWindow>
