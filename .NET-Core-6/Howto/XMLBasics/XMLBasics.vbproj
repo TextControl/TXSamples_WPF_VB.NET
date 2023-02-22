@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
@@ -82,6 +82,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
-    <PackageReference Include="TXTextControl.TextControl.WPF.SDK" Version="31.0.1" />
+    <PackageReference Include="TXTextControl.TextControl.WPF.SDK" Version="31.0.*" />
   </ItemGroup>
 </Project>
