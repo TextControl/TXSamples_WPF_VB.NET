@@ -61,19 +61,19 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TXDocumentServer, Version=31.0.1700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXDocumentServer, Version=32.0.1800.5000, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>True</SpecificVersion>
-      <HintPath>F:\Assembly\TXDocumentServer.dll</HintPath>
+      <HintPath>.F:\Assembly\TXDocumentServer.dll</HintPath>
     </Reference>
-    <Reference Include="TXDocumentServer.WPF, Version=31.0.1400.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXDocumentServer.WPF, Version=32.0.1500.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>F:\Assembly\TXDocumentServer.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="TXTextControl, Version=31.0.2400.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXTextControl, Version=32.0.2500.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>F:\Assembly\TXTextControl.dll</HintPath>
     </Reference>
-    <Reference Include="TXTextControl.WPF, Version=31.0.1600.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXTextControl.WPF, Version=32.0.1700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>F:\Assembly\TXTextControl.WPF.dll</HintPath>
     </Reference>

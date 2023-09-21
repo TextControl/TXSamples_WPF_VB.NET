@@ -58,27 +58,27 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TXBarcode, Version=31.0.700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXBarcode, Version=32.0.800.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXBarcode.dll</HintPath>
     </Reference>
-    <Reference Include="TXBarcode.WPF, Version=31.0.700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXBarcode.WPF, Version=32.0.800.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXBarcode.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="TXDocumentServer, Version=31.0.1700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXDocumentServer, Version=32.0.1800.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXDocumentServer.dll</HintPath>
     </Reference>
-    <Reference Include="TXDocumentServer.WPF, Version=31.0.1400.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXDocumentServer.WPF, Version=32.0.1500.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXDocumentServer.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="TXDrawing, Version=31.0.700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXDrawing, Version=32.0.800.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXDrawing.dll</HintPath>
     </Reference>
-    <Reference Include="TXDrawing.WPF, Version=31.0.700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXDrawing.WPF, Version=32.0.800.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXDrawing.WPF.dll</HintPath>
     </Reference>
@@ -86,11 +86,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXImageProvider.dll</HintPath>
     </Reference>
-    <Reference Include="TXTextControl, Version=31.0.2400.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXTextControl, Version=32.0.2500.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXTextControl.dll</HintPath>
     </Reference>
-    <Reference Include="TXTextControl.WPF, Version=31.0.1600.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
+    <Reference Include="TXTextControl.WPF, Version=32.0.1700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET for WPF\Assembly\TXTextControl.WPF.dll</HintPath>
     </Reference>
